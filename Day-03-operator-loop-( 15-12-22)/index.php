@@ -111,3 +111,53 @@ $job = 'Frontend Developer';
 // }else {
 //     echo $name . " Sorry You are Failed in Exam.";
 // }
+
+/**
+ * PHP Part: 24 (else-if)
+ */
+
+// $name = "Obaydulla";
+// $marks = 883;
+
+//  if($marks >=0 && $marks <= 32){
+//     echo "<span style=\"color:red\">$name is Failed in the Exam.</span>";
+// }else if($marks >=33 && $marks <= 39){
+//     echo "<span style=\"color:orange\">$name is just passed in the exam.</span>";
+// }else if($marks >=40 && $marks <= 49){
+//     echo "<span style=\"color:blue\">$name is get C in the exam.</span>";
+// }else if($marks >=50&& $marks <= 59){
+//     echo "<span style=\"color:green\">$name is get B in the exam.</span>";
+// }else if($marks >=60&& $marks <= 69){
+//     echo "<span style=\"color:blue\">$name is get A- in the exam.</span>";
+// }else if($marks >=70&& $marks <= 79){
+//     echo "<span style=\"color:golden\">$name is get A in the exam.</span>";
+// }else if($marks >=80&& $marks <= 100){
+//     echo "<span style=\"color:skyblue\">$name is get A+ in the exam.</span>";
+// }else {
+//     echo "<span style=\"color:red\">You get Wrong number.</span>";
+// }
+
+/**
+ * PHP Part: 25 (switch-case)
+ */
+
+$student = 7;
+
+switch($student){
+     case 3: 
+        echo "You are gold member.";
+        break;
+     case 6: 
+        echo "You are Sliver member.";
+        break;
+     case 10: 
+        echo "You are Rupa member.";
+        break;
+     case 15: 
+        echo "You are Hera member.";
+        break;
+        
+        default:
+            echo "Your are type wrong Number.";
+        break;
+    } 
