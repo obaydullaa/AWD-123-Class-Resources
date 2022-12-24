@@ -13,6 +13,21 @@
  * 8. mail => Use for mail.
  * 9. explode => string type data convert to array.
  * 10.implode => More Array convert string.
+ * 11. include => include file
+ * 12. require => include file
+ * 13. include_once => only one time load.
+ * 14. require_once => only one time load.
+ * 15. file_exists => file exists use when file exists.
+ * if(file_exists('content.php')){
+    include 'content.php';
+}
+* 16. undefined variable => not set value; $name;
+* 17. flag variable      => Variable declare but not set variable; $name = '';
+* 18. array variable     =>  variable declare and array sing use. $name[] = 'obaydul';
+*
+*
+*
+*
  */
 
 // $name =  'Obaydulla';
@@ -56,6 +71,36 @@
  * =================================================================
  */
 
- $food = ['apple','orange','potato'];
+//  $food = ['apple','orange','potato'];
 
- echo implode(' ', $food);
+//  echo implode(' ', $food);
+
+/**
+ * PHP part: 57(include, require)
+ * =================================================================
+ */
+
+//  require_once 'content.php';
+//  require_once 'heading.php'; 
+
+ /**
+ * PHP part: 58( file_exits)
+ * =================================================================
+ */
+
+// if(file_exists('content.php')){
+//     include 'content.php';
+// }
+
+ /**
+ * PHP part: 59( undefined, flag, array variable)
+ * =================================================================
+ */
+
+$name[] = 'obaydul';
+$name[] = 'a';
+$name[] = 'd';
+$name[] = 'c';
+
+ echo '<pre>';
+ print_r($name) ;
