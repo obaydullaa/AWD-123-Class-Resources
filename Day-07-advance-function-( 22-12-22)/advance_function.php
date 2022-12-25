@@ -110,10 +110,10 @@
  * =================================================================
  *  isset => check value set or not.
  * empty  => check value empty or not.
- * die    => 
+ * die    => Note execute after die() function.
  */
 
-$name ='';
+$name;
 
 if(isset($name)){
     echo 'value is set';
@@ -127,3 +127,9 @@ if(empty($name)){
     echo 'value is not empty';
 }
 echo "<br>";
+
+echo 'I Love BD' .'<hr>';
+echo 'I Love BD' .'<hr>';
+die();
+echo 'I Love BD' .'<hr>';
+echo 'I Love BD' .'<hr>';
