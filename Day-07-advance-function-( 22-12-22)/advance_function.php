@@ -97,10 +97,33 @@
  * =================================================================
  */
 
-$name[] = 'obaydul';
-$name[] = 'a';
-$name[] = 'd';
-$name[] = 'c';
+// $name[] = 'obaydul';
+// $name[] = 'a';
+// $name[] = 'd';
+// $name[] = 'c';
 
- echo '<pre>';
- print_r($name) ;
+//  echo '<pre>';
+//  print_r($name) ;
+
+ /**
+ * PHP part: 60 ( isset, empty, die  )
+ * =================================================================
+ *  isset => check value set or not.
+ * empty  => check value empty or not.
+ * die    => 
+ */
+
+$name ='';
+
+if(isset($name)){
+    echo 'value is set';
+} else {
+    echo 'value is not set';
+}
+echo "<br>";
+if(empty($name)){
+    echo 'value is empty';
+} else {
+    echo 'value is not empty';
+}
+echo "<br>";
