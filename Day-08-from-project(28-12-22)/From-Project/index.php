@@ -30,16 +30,36 @@
     $cell = $_POST['cell'];
     $uname = $_POST['uname'];
 
-    if(empty($name) || empty($email) || empty($cell) || empty($uname)){
-      $msg =  '<p class="alert alert-danger">All fields are Required ! <button class="close" data-dismiss="alert">&times</button></p>';
-    }else {
-      $msg =  '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">$times</button></p>';
+    if(empty($name)){
+      $err['name'] = "<p class=\"text-danger\">* Required</p>";
+    }
+
+    if(empty($email)){
+      $err['email'] = "<p class=\"text-danger\">* Required</p>";
+    }
+
+    if(empty($cell)){
+      $err['cell'] = "<p class=\"text-danger\">* Required</p>";
+    }
+
+    if(empty($uname)){
+      $err['uname'] = "<p class=\"text-danger\">* Required</p>";
     }
 
 
+
+
+
+
+
+
+    if(empty($name) || empty($email) || empty($cell) || empty($uname)){
+      $msg =  '<p class="alert alert-danger">All fields are Required ! <button class="close" data-dismiss="alert">&times;</button></p>';
+    }else {
+      $msg =  '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">$times;</button></p>';
+    }
+
    }
-
-
   ?>
     
     <div class="from-wrap">
@@ -56,18 +76,39 @@
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Name</label>
                       <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <?php 
+                          if(isset($err['name'])){
+                            echo $err['name'];
+                          }
+                      ?>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
                       <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                      <?php 
+                          if(isset($err['email'])){
+                            echo $err['email'];
+                          }
+                      ?>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Cell</label>
                       <input name="cell" type="text" class="form-control" id="exampleInputPassword1">
+                      <?php 
+                          if(isset($err['cell'])){
+                            echo $err['cell'];
+                          }
+                      ?>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Username</label>
                       <input name="uname" type="text" class="form-control" id="exampleInputPassword1">
+                      <?php 
+                          if(isset($err['uname'])){
+                            echo $err['uname'];
+                          }
+                      ?>
                     </div>
                     <button name="add" type="submit" class="btn btn-primary">Add</button>
                   </form>
