@@ -3,6 +3,9 @@
   PHP part:  67 ( Data send by a form  ) // From design
   PHP part:  68 ( form setup )
   PHP part:  69 ( form Validation )
+  PHP part:  70 ( form Validation Required)
+
+  ** filter_var($email, FILTER_VALIDATE_EMAIL) = for email validation.
 -->
 
 <!DOCTYPE html>
@@ -46,19 +49,14 @@
       $err['uname'] = "<p class=\"text-danger\">* Required</p>";
     }
 
-
-
-
-
-
-
-
     if(empty($name) || empty($email) || empty($cell) || empty($uname)){
       $msg =  '<p class="alert alert-danger">All fields are Required ! <button class="close" data-dismiss="alert">&times;</button></p>';
-    }else {
-      $msg =  '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">$times;</button></p>';
-    }
+    }else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+      $msg =  '<p class="alert alert-danger">Invalid Email! <button class="close" data-dismiss="alert">&times;</button></p>';
 
+    }else {
+      $msg =  '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">&times;</button></p>';
+    }
    }
   ?>
     
