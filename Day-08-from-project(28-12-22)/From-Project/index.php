@@ -4,6 +4,10 @@
   PHP part:  68 ( form setup )
   PHP part:  69 ( form Validation )
   PHP part:  70 ( form Validation Required)
+  PHP part:  71( form Validation email)
+  PHP part:  72(Project Upload in github)
+  PHP part:  73(email check)
+     end() => for get array last child.
 
   ** filter_var($email, FILTER_VALIDATE_EMAIL) = for email validation.
 -->
@@ -25,13 +29,23 @@
    * Student Data Form
    */
 
-   if(isset($_POST['add'])){
+  if(isset($_POST['add'])){
 
     // From variable get
     $name = $_POST['name'];
     $email = $_POST['email'];
     $cell = $_POST['cell'];
     $uname = $_POST['uname'];
+
+    // Check email
+  if(isset($email)){
+    $email_arr = explode('@',$email);
+    $inst_mail =  end($email_arr);
+  }
+
+
+ 
+
 
     if(empty($name)){
       $err['name'] = "<p class=\"text-danger\">* Required</p>";
@@ -48,16 +62,22 @@
     if(empty($uname)){
       $err['uname'] = "<p class=\"text-danger\">* Required</p>";
     }
-
+  
     if(empty($name) || empty($email) || empty($cell) || empty($uname)){
       $msg =  '<p class="alert alert-danger">All fields are Required ! <button class="close" data-dismiss="alert">&times;</button></p>';
     }else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
       $msg =  '<p class="alert alert-danger">Invalid Email! <button class="close" data-dismiss="alert">&times;</button></p>';
 
-    }else {
+    }else if($inst_mail != 'prowpdevs.com') {
+      $err['uname'] = "<p class=\"text-danger\">* Required Our officeial mail</p>";
+    }else{ 
       $msg =  '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">&times;</button></p>';
     }
-   }
+     
+  }
+
+  
+
   ?>
     
     <div class="from-wrap">
