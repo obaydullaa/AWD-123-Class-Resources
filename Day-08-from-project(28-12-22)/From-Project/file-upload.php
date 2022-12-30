@@ -27,7 +27,22 @@
 </head>
 <body>
     
-   
+    <div class="from-wrap">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="mb-4">File Upload</h2>
+                <form action="" method="POST">
+                  <div class="form-group mb-3">
+                    <label for="file_upload"><img width="100" src="assets/img/file-upload.png" alt=""></label>
+                    <input class="d-none" type="file" id="file_upload">
+                  </div>
+                  <div class="form-group">
+                   <input class="btn btn-success" type="submit" value="Upload Now">
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/jquery-3.6.3.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
