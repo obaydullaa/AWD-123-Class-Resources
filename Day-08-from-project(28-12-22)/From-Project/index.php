@@ -8,8 +8,11 @@
   PHP part:  72(Project Upload in github)
   PHP part:  73(email check)
      end() => for get array last child.
-
   ** filter_var($email, FILTER_VALIDATE_EMAIL) = for email validation.
+
+  PHP part:  74(Project Upload in github)
+  PHP part 75 ( cell validation )
+
 -->
 
 <!DOCTYPE html>
@@ -43,7 +46,8 @@
     $inst_mail =  end($email_arr);
   }
 
-
+  // Cell number Manage
+  $cell_start = substr($cell, 0, 3);
  
 
 
@@ -64,14 +68,23 @@
     }
   
     if(empty($name) || empty($email) || empty($cell) || empty($uname)){
+
       $msg =  '<p class="alert alert-danger">All fields are Required ! <button class="close" data-dismiss="alert">&times;</button></p>';
+
     }else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
       $msg =  '<p class="alert alert-danger">Invalid Email! <button class="close" data-dismiss="alert">&times;</button></p>';
 
     }else if($inst_mail != 'prowpdevs.com') {
       $err['uname'] = "<p class=\"text-danger\">* Required Our officeial mail</p>";
+
+    }else if( in_array($cell_start, ['013','014','015','016','017','018','019']) == false){
+
+      $msg = '<p class="alert alert-danger">Invalid Mobile Number! <button class="close" data-dismiss="alert">&times;</button></p>';
+
     }else{ 
-      $msg =  '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">&times;</button></p>';
+
+      $errr = '<p class="alert alert-success">data stable. <button class="close" data-dismiss="alert">&times;</button></p>';
+
     }
      
   }
