@@ -1,17 +1,7 @@
 
 <!-- 
-  PHP part:  67 ( Data send by a form  ) // From design
-  PHP part:  68 ( form setup )
-  PHP part:  69 ( form Validation )
-  PHP part:  70 ( form Validation Required)
-  PHP part:  71( form Validation email)
-  PHP part:  72(Project Upload in github)
-  PHP part:  73(email check)
-     end() => for get array last child.
-  ** filter_var($email, FILTER_VALIDATE_EMAIL) = for email validation.
-
-  PHP part:  74(Project Upload in github)
-  PHP part 75 ( cell validation )
+  PHP part 76 ( file upload part 01  ) create input file design
+  PHP part 77 ( file upload part 02  ) Add Bootstrap tooltip
 
 -->
 
@@ -33,7 +23,13 @@
                 <h2 class="mb-4">File Upload</h2>
                 <form action="" method="POST">
                   <div class="form-group mb-3">
-                    <label for="file_upload"><img width="100" src="assets/img/file-upload.png" alt=""></label>
+                    <label for="file_upload">
+                      <img width="50" src="assets/img/file-upload.png" 
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right" 
+                        title="Profile Photo"
+                      >
+                    </label>
                     <input class="d-none" type="file" id="file_upload">
                   </div>
                   <div class="form-group">
