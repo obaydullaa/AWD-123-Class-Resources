@@ -27,7 +27,7 @@
     }
 
     PHP part 80 (file upload part 05) remove file name
-    PHP part 81 ( file upload part 06  )
+    PHP part 81 ( file upload part 06 ) file size
 
 -->
 
@@ -51,33 +51,35 @@
      $file_name = $file['name'];
      $file_tmpname = $file['tmp_name'];
      $file_size = $file['size'];
+     echo $file_in_kb = $file_size / 1024;
 
 
 
-      // Get file name extension
-      $file_arr = explode('.',$file_name);
-      $extension = end($file_arr);
+    // Get file name extension
+    $file_arr = explode('.',$file_name);
+    $extension = end($file_arr);
 
 
-     //Unique File name
-     $unique_name_pro = time() . rand(1, 999999999);
-     $unique_name = md5($unique_name_pro) . '.' . $extension;
+    //Unique File name
+    $unique_name_pro = time() . rand(1, 999999999);
+    $unique_name = md5($unique_name_pro) . '.' . $extension;
 
-     if(empty($file_name)){
-      $msg = '<p class="alert alert-danger">Please Select a File ! <button class="close" data-dismiss="alert">&times;</button></p>';
+    if(empty($file_name)){
+    $msg = '<p class="alert alert-danger">Please Select a File ! <button class="close" data-dismiss="alert">&times;</button></p>';
 
-     }else if(in_array($extension, ['jpg', 'png','gif','jped', 'wep']) == false){
-      $msg = '<p class="alert alert-danger">Invalid file formate! <button class="close" data-dismiss="alert">&times;</button></p>';
+    }else if(in_array($extension, ['jpg', 'png','gif','jped', 'wep']) == false){
+    $msg = '<p class="alert alert-danger">Invalid file formate! <button class="close" data-dismiss="alert">&times;</button></p>';
 
-     }else {
+    }else if($file_in_kb > 500){
+    $msg = '<p class="alert alert-danger">File size large please upload max 500kb! <button class="close" data-dismiss="alert">&times;</button></p>';
+
+    }else {
+      //img upload function
+      move_uploaded_file($file_tmpname, 'photos/' . $unique_name);
+      // echo '<img src="photos/ . $unique_name">';
       $msg = '<p class="alert alert-success">File Upload Success. <button class="close" data-dismiss="alert">&times;</button></p>';
 
-     }
-
-     //img upload function
-      move_uploaded_file($file_tmpname, 'photos/' . $unique_name);
-
-      // echo '<img src="photos/ . $unique_name">';
+    }
     }
 
 
