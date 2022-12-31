@@ -26,8 +26,8 @@
 
     }
 
-  PHP part 80 (file upload part 05) remove file name
-
+    PHP part 80 (file upload part 05) remove file name
+    PHP part 81 ( file upload part 06  )
 
 -->
 
@@ -43,6 +43,7 @@
 </head>
 <body>
   <?php
+
     if(isset($_POST['upload'])){
       $file = $_FILES['profile_photo'];
 
@@ -55,16 +56,28 @@
 
       // Get file name extension
       $file_arr = explode('.',$file_name);
-      echo $extension = end($file_arr);
+      $extension = end($file_arr);
 
 
      //Unique File name
      $unique_name_pro = time() . rand(1, 999999999);
      $unique_name = md5($unique_name_pro) . '.' . $extension;
-     
+
+     if(empty($file_name)){
+      $msg = '<p class="alert alert-danger">Please Select a File ! <button class="close" data-dismiss="alert">&times;</button></p>';
+
+     }else if(in_array($extension, ['jpg', 'png','gif','jped', 'wep']) == false){
+      $msg = '<p class="alert alert-danger">Invalid file formate! <button class="close" data-dismiss="alert">&times;</button></p>';
+
+     }else {
+      $msg = '<p class="alert alert-success">File Upload Success. <button class="close" data-dismiss="alert">&times;</button></p>';
+
+     }
+
      //img upload function
       move_uploaded_file($file_tmpname, 'photos/' . $unique_name);
 
+      // echo '<img src="photos/ . $unique_name">';
     }
 
 
@@ -76,6 +89,12 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="mb-4">File Upload</h2>
+                <?php 
+                    if(isset($msg)){
+                      echo $msg;
+                    }
+
+                ?>
                 <form action="" method="POST" enctype="multipart/form-data">
                   <div class="form-group mb-3">
                     <label for="file_upload">
