@@ -5,8 +5,26 @@
   PHP part 78 ( file upload part 03  )
   
     Note: When use file use enctype="multipart/form-data" then we use $_FILES() function.
-
      move_uploaded_file() => For file upload
+
+  PHP part 79 ( file upload part 04 => Unique file name )
+    if(isset($_POST['upload'])){
+      $file = $_FILES['profile_photo'];
+
+      // File Info
+      $file_name = $file['name'];
+      $file_tmpname = $file['tmp_name'];
+      $file_size = $file['size'];
+
+      //Unique File name
+      $unique_name_pro = time() . rand(1, 999999999);
+      
+      $unique_name = md5($unique_name_pro) . $file_name;
+
+      //img upload function
+        move_uploaded_file($file_tmpname, 'photos/' . $unique_name);
+
+    }
 
 -->
 
@@ -25,14 +43,18 @@
     if(isset($_POST['upload'])){
       $file = $_FILES['profile_photo'];
 
-      // File Info
+    // File Info
      $file_name = $file['name'];
      $file_tmpname = $file['tmp_name'];
      $file_size = $file['size'];
 
-     //For Upload function name move_uploaded_file()
-      move_uploaded_file($file_tmpname, 'photos/' . $file_name);
+     //Unique File name
+     $unique_name_pro = time() . rand(1, 999999999);
+    
+     $unique_name = md5($unique_name_pro) . $file_name;
 
+     //img upload function
+      move_uploaded_file($file_tmpname, 'photos/' . $unique_name);
 
     }
 
