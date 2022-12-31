@@ -51,7 +51,7 @@
      $file_name = $file['name'];
      $file_tmpname = $file['tmp_name'];
      $file_size = $file['size'];
-     echo $file_in_kb = $file_size / 1024;
+     $file_in_kb = $file_size / 1024;
 
 
 
@@ -98,6 +98,9 @@
 
                 ?>
                 <form action="" method="POST" enctype="multipart/form-data">
+                  <div class="from-group mb-2">
+                    <img width="100" id="upload_img" src="" alt="">
+                  </div>
                   <div class="form-group mb-3">
                     <label for="file_upload">
                       <img width="50" src="assets/img/file-upload.png" 
@@ -118,6 +121,24 @@
 
     <script src="assets/js/jquery-3.6.3.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      })
+
+      $('input[name="profile_photo"]').change(function(e){
+       let file_url = URL.createObjectURL(e.target.files[0]);
+
+        $('img#upload_img').attr('src', file_url);
+
+      });
+
+
+
+
+
+    </script>
 </body>
 </html>
 
