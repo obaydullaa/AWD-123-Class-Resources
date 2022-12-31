@@ -26,6 +26,9 @@
 
     }
 
+  PHP part 80 (file upload part 05) remove file name
+
+
 -->
 
 <!DOCTYPE html>
@@ -48,11 +51,17 @@
      $file_tmpname = $file['tmp_name'];
      $file_size = $file['size'];
 
+
+
+      // Get file name extension
+      $file_arr = explode('.',$file_name);
+      echo $extension = end($file_arr);
+
+
      //Unique File name
      $unique_name_pro = time() . rand(1, 999999999);
-    
-     $unique_name = md5($unique_name_pro) . $file_name;
-
+     $unique_name = md5($unique_name_pro) . '.' . $extension;
+     
      //img upload function
       move_uploaded_file($file_tmpname, 'photos/' . $unique_name);
 
