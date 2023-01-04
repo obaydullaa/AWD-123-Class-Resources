@@ -14,4 +14,6 @@
 // new PDO(); // new use it bcz it's oop
 
 
-new mysqli('localhost','obaydul', 123456);
+$network = new mysqli('localhost','obaydul', 123456);
+// $network -> query("CREATE DATABASE sm"); // DB create
+$network -> query("DROP DATABASE sm"); // DB create
