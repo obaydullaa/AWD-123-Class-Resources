@@ -26,8 +26,10 @@
  * MySQL part 10 (  CREATE TABLE  )
  */
 
- $network = new mysqli('localhost','obaydul', 123456, 'sms'); // connect database
- 
+
+ $network = new mysqli('localhost','mydb','asdfg', 'b129'); // connect database
+//  $network -> query("CREATE DATABASE b129");
+
  $network -> query("CREATE TABLE users (
     id int(11),
     name varchar(100),
