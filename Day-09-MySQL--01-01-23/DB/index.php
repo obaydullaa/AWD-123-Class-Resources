@@ -27,15 +27,15 @@
  */
 
 
- $network = new mysqli('localhost','mydb','asdfg', 'b129'); // connect database
+ $network = new mysqli('localhost','rifat','asdfg'); // connect database
 //  $network -> query("CREATE DATABASE b129");
 
- $network -> query("CREATE TABLE users (
-    id int(11),
-    name varchar(100),
-    age int(3),
-    cell varchar(20),
-    )"); 
+//  $network -> query("CREATE TABLE users (
+//     id int(11),
+//     name varchar(100),
+//     age int(3),
+//     cell varchar(20),
+//     )");   
 
 
 
