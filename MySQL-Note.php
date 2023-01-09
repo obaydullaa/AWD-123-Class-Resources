@@ -6,7 +6,7 @@
 * MySQL part 07 ( db username ) create in PHP Myadmin.
 * SQL => Structured Query Language.
 * MySQL is 2 types: See Queel & No Seel Queel
-* 
+* we write query write in double quotation -> query("CREATE DATABASE ");
 */
 /* 
 * MySQL part 08 (  db connection  )
