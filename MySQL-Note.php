@@ -16,7 +16,7 @@
 $network = new mysqli('localhost', 'obaydul', '123456'); // connect in database
 
 <!-- For 2 statement communication in server -->
-$network -> prepare() // Secure 
+$network -> prepare() // Secure. Bcs it's do mysql injection.
 $network -> query()  // Good first use query statement.
 
 
