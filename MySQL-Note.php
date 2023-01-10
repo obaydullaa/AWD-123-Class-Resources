@@ -37,3 +37,12 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
     age int(3),
     cell varchar(20)
    )");   
+
+   /**
+    * Data Insert in sql
+    */
+
+   $connection = new mysqli('localhost', 'root', '', 'student');
+   $sql = "INSERT INTO users (name, age, cell) VALUES ('Obaydul', '30', '01755265017')";
+
+   $connection->query($sql);

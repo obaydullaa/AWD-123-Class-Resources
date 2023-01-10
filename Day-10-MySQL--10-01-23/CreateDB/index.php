@@ -1,24 +1,101 @@
 <?php
 
-// $connection = new mysqli('localhost','root','', 'raj');
+// $connection = new mysqli('localhost', 'root','','mydb');
 
-// $sql = "CREATE TABLE Users(
-//     id int AUTO_INCREMENT,
-//     name varchar(100),
-//     age int(3),
-//     cell varchar(15),
-//     PRIMARY KEY (id)
+// $sql = "CREATE TABLE users (
+//   id int AUTO_INCREMENT,
+//   name varchar(100),
+//   email varchar(100),
+//   cell varchar(15),
+//   username varchar(30),
+//   PRIMARY KEY (id)
 // )";
 
-// $connection->query($sql);
+// $connection-> query($sql);
 
 
-/**
- * MySQL part 13 (  INSERT 1  )
- */
 
- 
-$connection = new mysqli('localhost', 'root', '', 'student');
- $sql = "INSERT INTO users (name, age, cell) VALUES ('Obaydul', '30', '01755265017')";
+?>
 
- $connection->query($sql);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Design</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <?php
+    if(isset($_POST['add'])){
+       
+      // Get form values
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $cell = $_POST['cell'];
+      $uname = $_POST['uname'];
+
+      if(empty($name) || empty($email)|| empty($cell) || empty($uname)){
+        $msg = "<h6 class=\" alert alert-danger\">All Filed Are Required !</h6>";
+      }else{
+         $connection = new mysqli('localhost', 'root', '', 'mydb');
+
+        $sql = "INSERT INTO users(name, email, cell, username) VALUES('$name','$email','$cell','$uname')";
+        $connection-> query($sql);
+
+        $msg = "<h6 class=\" alert alert-success\"> Data Send to Database !</h6>";
+
+      }
+
+     
+
+    }
+
+
+  ?>
+    
+    <div class="from-wrap">
+        <div class="card">
+            <div class="card-body">
+                <h2>Add New Student</h2>
+                <?php
+                  if(isset($msg)){
+                   echo $msg;
+
+                  }
+
+                ?>
+                <form action="" method="POST">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Name</label>
+                      <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                     
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Cell</label>
+                      <input name="cell" type="text" class="form-control" id="exampleInputPassword1">
+                      
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Username</label>
+                      <input name="uname" type="text" class="form-control" id="exampleInputPassword1">
+                      
+                    </div>
+                    <button name="add" type="submit" class="btn btn-primary">Add</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-3.6.3.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
