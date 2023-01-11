@@ -1,4 +1,6 @@
 <?php
+// MySQL part 15 (  INSERT 3  )
+//==================================
 
 // $connection = new mysqli('localhost', 'root','','mydb');
 
@@ -12,6 +14,16 @@
 // )";
 
 // $connection-> query($sql);
+
+/**
+ * MySQL part 16 (  DELETE data from table  )
+ */
+
+ $connection = new mysqli('localhost', 'root','', 'mydb');
+
+ $sql = "DELETE FROM Users WHERE ID='14' ";
+
+ $connection->query($sql);
 
 
 

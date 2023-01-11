@@ -39,7 +39,7 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
    )");   
 
    /**
-    * Data Insert in sql
+    * Data Insert in sql (part 15 )
     */
 
    $connection = new mysqli('localhost', 'root', '', 'student');
