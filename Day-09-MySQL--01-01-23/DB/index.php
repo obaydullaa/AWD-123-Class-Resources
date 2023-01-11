@@ -36,15 +36,15 @@
  */
 
 
- $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect database
-//  $network -> query("CREATE DATABASE Student");  // Create Table 
+//  $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect database
+// //  $network -> query("CREATE DATABASE Student");  // Create Table 
 
- $network -> query("CREATE TABLE users (
-    id int(11),
-    name varchar(100),
-    age int(3),
-    cell varchar(20)
-   )");   
+//  $network -> query("CREATE TABLE users (
+//     id int(11),
+//     name varchar(100),
+//     age int(3),
+//     cell varchar(20)
+//    )");   
 
 
 

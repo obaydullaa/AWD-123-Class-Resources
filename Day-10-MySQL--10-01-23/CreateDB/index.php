@@ -19,12 +19,21 @@
  * MySQL part 16 (  DELETE data from table  )
  */
 
- $connection = new mysqli('localhost', 'root','', 'mydb');
+//  $connection = new mysqli('localhost', 'root','', 'mydb');
 
- $sql = "DELETE FROM Users WHERE ID='14' ";
+//  $sql = "DELETE FROM Users WHERE ID='14' ";
 
- $connection->query($sql);
+//  $connection->query($sql);
 
+/**
+ * MySQL part 17 (  DELETE  by prepare  )
+ */
+  $connection = new mysqli('localhost', 'root','', 'mydb');
+
+  $sql = "DELETE FROM Users WHERE ID='17' ";
+
+  $statement = $connection->prepare($sql);
+  $statement->execute();
 
 
 ?>

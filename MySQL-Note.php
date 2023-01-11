@@ -46,3 +46,13 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
    $sql = "INSERT INTO users (name, age, cell) VALUES ('Obaydul', '30', '01755265017')";
 
    $connection->query($sql);
+
+   /**
+   * MySQL part 16 (  DELETE data from table  )
+   */
+
+ $connection = new mysqli('localhost', 'root','', 'mydb');
+
+ $sql = "DELETE FROM Users WHERE ID='14' ";
+
+ $connection->query($sql);
