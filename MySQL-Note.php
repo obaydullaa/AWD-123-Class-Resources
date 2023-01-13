@@ -56,3 +56,22 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
  $sql = "DELETE FROM Users WHERE ID='14' ";
 
  $connection->query($sql);
+
+ /**
+ * MySQL part 17 (  DELETE  by prepare  )
+ */
+  $connection = new mysqli('localhost', 'root','', 'mydb');
+
+  $sql = "DELETE FROM Users WHERE ID='17' ";
+
+  $statement = $connection->prepare($sql);
+  $statement->execute(); 
+
+/**
+ * MySQL part 18 (update)
+ */
+  $connection = new mysqli('localhost', 'root','', 'mydb');
+
+  $sql = "UPDATE Users SET name='Rifat' WHERE id='19' ";
+
+  $connection->query($sql);

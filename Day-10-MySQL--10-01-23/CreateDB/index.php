@@ -28,12 +28,22 @@
 /**
  * MySQL part 17 (  DELETE  by prepare  )
  */
+  // $connection = new mysqli('localhost', 'root','', 'mydb');
+
+  // $sql = "DELETE FROM Users WHERE ID='17' ";
+
+  // $statement = $connection->prepare($sql);
+  // $statement->execute();
+
+/**
+ * MySQL part 18 (update)
+ */
   $connection = new mysqli('localhost', 'root','', 'mydb');
 
-  $sql = "DELETE FROM Users WHERE ID='17' ";
+  $sql = "UPDATE Users SET name='Rifat' WHERE id='19' ";
 
-  $statement = $connection->prepare($sql);
-  $statement->execute();
+  $connection->query($sql);
+
 
 
 ?>
@@ -48,7 +58,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
+<body> 
   <?php
     if(isset($_POST['add'])){
        
@@ -69,9 +79,6 @@
         $msg = "<h6 class=\" alert alert-success\"> Data Send to Database !</h6>";
 
       }
-
-     
-
     }
 
 
