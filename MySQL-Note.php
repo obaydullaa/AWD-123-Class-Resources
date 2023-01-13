@@ -75,3 +75,39 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
   $sql = "UPDATE Users SET name='Rifat' WHERE id='19' ";
 
   $connection->query($sql);
+
+
+/**
+ * MySQL part 19 (Select)
+ */
+
+  <?php
+    /**
+     * Type of fetch
+     * // Use for PDO
+     *  fetch()
+     * fetchAll();
+     * 
+     * fetch_array(); // data get index array and associative array. 
+     * fetch_assoc(); // data get only associative array.
+     * fetch_object() // data get associative array for catch different way.
+     * 
+     * 
+     * 
+     */
+    
+    $sql = "SELECT * FROM users";
+    $data = $connection->query($sql);
+
+    // if use fetch_assoc()
+    // $user_data = $data->fetch_assoc(); 
+    // echo $user_data['id'];
+
+    // / if use fetch_object()
+     
+    while($user_data = $data->fetch_object()){
+      echo"Name: ". $user_data->name." Email: ".$user_data->email." cell: ". $user_data->cell. "<hr>";
+    }
+
+    
+    ?>
