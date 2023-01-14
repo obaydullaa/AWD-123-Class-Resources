@@ -87,7 +87,7 @@
     <div class="from-wrap">
         <div class="card">
             <div class="card-body">
-                <h2>Add New Student</h2>
+                <h2>Add New User</h2>
                 <?php
                   if(isset($msg)){
                    echo $msg;
@@ -122,7 +122,9 @@
             </div>
         </div>
     </div>
-
+    /**
+ * MySQL part 19 (Select)
+ */
     <?php
     /**
      * Type of fetch
@@ -153,6 +155,49 @@
 
     
     ?>
+      <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#shop_modal">Add new product</a>
+                <br>
+                <br>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2>Shop App</h2>
+                        <hr>
+                        <table class="table table-striped shop-data">
+                            <thead>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Product Photo</td>
+                                    <td>Product Name</td>
+                                    <td>Price</td>
+                                    <td>Quantity</td>
+                                    <td>Total</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody id="product_list">                              
+
+                            <tr>
+                              <td1</td>
+                              <td>Images</td>
+                              <td>Obaydul</td>
+                              <td>$565</td>
+                              <td>4</td>
+                              <td>
+                                <a href="https://cdn.ostad.app/user/avatar/638dc11391cbb43930e05dd1"></a>
+                              </td>
+                          </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/jquery-3.6.3.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
