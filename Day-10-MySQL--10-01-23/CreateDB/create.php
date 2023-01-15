@@ -38,11 +38,11 @@
 /**
  * MySQL part 18 (update)
  */
-  $connection = new mysqli('localhost', 'root','', 'mydb');
+ include_once "auto-load.php";
 
-  $sql = "UPDATE Users SET name='Rifat' WHERE id='19' ";
+  // $sql = "UPDATE Users SET name='Rifat' WHERE id='19' ";
 
-  $connection->query($sql);
+  // $connection->query($sql);
 
 
 
@@ -51,12 +51,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Design</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+  <title>Form Design</title>
+
+  	<!-- ALL CSS FILES  -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+    
 </head>
 <body> 
   <?php
@@ -85,7 +86,8 @@
   ?>
     
     <div class="from-wrap">
-        <div class="card">
+      <a class="btn btn-sm btn-primary mb-3" href="index.html">All Users</a>
+        <div class="card shadow">
             <div class="card-body">
                 <h2>Add New User</h2>
                 <?php
@@ -122,82 +124,8 @@
             </div>
         </div>
     </div>
-    /**
- * MySQL part 19 (Select)
- */
-    <?php
-    /**
-     * Type of fetch
-     * // Use for PDO
-     *  fetch()
-     * fetchAll();
-     * 
-     * fetch_array(); // data get index array and associative array. 
-     * fetch_assoc(); // data get only associative array.
-     * fetch_object() // data get associative array for catch different way.
-     * 
-     * 
-     * 
-     */
-    
-    $sql = "SELECT * FROM users";
-    $data = $connection->query($sql);
-
-    // if use fetch_assoc()
-    // $user_data = $data->fetch_assoc(); 
-    // echo $user_data['id'];
-
-    // / if use fetch_object()
-     
-    while($user_data = $data->fetch_object()){
-      echo"Name: ". $user_data->name." Email: ".$user_data->email." cell: ". $user_data->cell. "<hr>";
-    }
-
     
     ?>
-      <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <a class="btn btn-primary" data-bs-toggle="modal" href="#shop_modal">Add new product</a>
-                <br>
-                <br>
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h2>Shop App</h2>
-                        <hr>
-                        <table class="table table-striped shop-data">
-                            <thead>
-                                <tr>
-                                    <td>#</td>
-                                    <td>Product Photo</td>
-                                    <td>Product Name</td>
-                                    <td>Price</td>
-                                    <td>Quantity</td>
-                                    <td>Total</td>
-                                    <td>Action</td>
-                                </tr>
-                            </thead>
-                            <tbody id="product_list">                              
-
-                            <tr>
-                              <td1</td>
-                              <td>Images</td>
-                              <td>Obaydul</td>
-                              <td>$565</td>
-                              <td>4</td>
-                              <td>
-                                <a href="https://cdn.ostad.app/user/avatar/638dc11391cbb43930e05dd1"></a>
-                              </td>
-                          </tr>
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="assets/js/jquery-3.6.3.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

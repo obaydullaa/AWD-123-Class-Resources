@@ -3,3 +3,8 @@
 	width: 400px;
 	margin: 50px auto;
 }
+
+
+.table.table-striped td img {
+	width: 50px;
+}

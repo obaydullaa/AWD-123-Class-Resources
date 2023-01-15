@@ -111,3 +111,7 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
 
     
     ?>
+  /**
+  * MySQL part 20 (auto file)
+  * File Create and organize file.
+ */
