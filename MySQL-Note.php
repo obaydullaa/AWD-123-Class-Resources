@@ -115,3 +115,29 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
   * MySQL part 20 (auto file)
   * File Create and organize file.
  */
+
+  /**
+  * MySQL part 21 (data show)
+ */
+    <tbody>
+      <?php
+        $sql = "SELECT * FROM users";
+        $data = $connection->query($sql);
+        $i = 1;
+        while ($users_data =  $data->fetch_object()):
+      ?>
+      <tr>
+        <td><?php echo $i++; ?></td>
+        <td><?php echo $users_data->name ?></td>
+        <td><?php echo $users_data->email ?></td>
+        <td><?php echo $users_data->cell ?></td>
+        <td><?php echo $users_data->username ?></td>
+        <td><img src="assets/img/user-image.jpg" alt=""></td>
+        <td>
+          <a class="btn btn-sm btn-info" href="#">View</a>
+          <a class="btn btn-sm btn-warning" href="#">Edit</a>
+          <a class="btn btn-sm btn-danger" href="#">Delete</a>
+        </td>
+      </tr>
+      <?php endwhile; ?>
+    </tbody>
