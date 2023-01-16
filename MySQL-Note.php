@@ -152,3 +152,10 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
  *
  
  $sql = "SELECT * FROM users LIMIT 5";
+
+
+ /**
+  * MySQL part 24 ( WHERE )
+ *
+
+ $sql = "SELECT * FROM users WHERE Location='Mirpur' ";

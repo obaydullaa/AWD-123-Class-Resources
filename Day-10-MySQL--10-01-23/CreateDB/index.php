@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 									<?php
-										$sql = "SELECT * FROM users LIMIT 5";
+										$sql = "SELECT * FROM users WHERE Location='Mirpur' ";
 										$data = $connection->query($sql);
 										$i = 1;
 										while ($users_data =  $data->fetch_object()):
