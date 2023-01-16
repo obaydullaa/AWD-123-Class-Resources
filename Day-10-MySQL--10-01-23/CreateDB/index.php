@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 									<?php
-										$sql = "SELECT * FROM users ORDER BY id ASC";
+										$sql = "SELECT * FROM users LIMIT 5";
 										$data = $connection->query($sql);
 										$i = 1;
 										while ($users_data =  $data->fetch_object()):

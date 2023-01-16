@@ -146,3 +146,9 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
   * MySQL part 22 ( ORDER BY ASC )
  *
  $sql = "SELECT * FROM users ORDER BY id ASC";
+
+ /**
+  * MySQL part 23 ( LIMIT )
+ *
+ 
+ $sql = "SELECT * FROM users LIMIT 5";
