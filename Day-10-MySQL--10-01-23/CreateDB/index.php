@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 									<?php
-										$sql = "SELECT * FROM users";
+										$sql = "SELECT * FROM users ORDER BY id ASC";
 										$data = $connection->query($sql);
 										$i = 1;
 										while ($users_data =  $data->fetch_object()):

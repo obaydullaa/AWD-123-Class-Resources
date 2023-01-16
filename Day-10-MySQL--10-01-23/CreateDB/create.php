@@ -86,7 +86,7 @@
   ?>
     
     <div class="from-wrap">
-      <a class="btn btn-sm btn-primary mb-3" href="index.html">All Users</a>
+      <a class="btn btn-sm btn-primary mb-3" href="index.php">All Users</a>
         <div class="card shadow">
             <div class="card-body">
                 <h2>Add New User</h2>

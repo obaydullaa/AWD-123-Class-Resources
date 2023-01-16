@@ -41,7 +41,7 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
    /**
     * Data Insert in sql (part 15 )
     */
-
+ 
    $connection = new mysqli('localhost', 'root', '', 'student');
    $sql = "INSERT INTO users (name, age, cell) VALUES ('Obaydul', '30', '01755265017')";
 
@@ -121,13 +121,13 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
  */
     <tbody>
       <?php
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users ORDER BY name ASC";
         $data = $connection->query($sql);
         $i = 1;
         while ($users_data =  $data->fetch_object()):
       ?>
       <tr>
-        <td><?php echo $i++; ?></td>
+        <td><?php echo $i; $i++; ?></td>
         <td><?php echo $users_data->name ?></td>
         <td><?php echo $users_data->email ?></td>
         <td><?php echo $users_data->cell ?></td>
@@ -141,3 +141,8 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
       </tr>
       <?php endwhile; ?>
     </tbody>
+
+  /**
+  * MySQL part 22 ( ORDER BY ASC )
+ *
+ $sql = "SELECT * FROM users ORDER BY id ASC";
