@@ -155,7 +155,8 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
 
 
  /**
-  * MySQL part 24 ( WHERE )
+  * MySQL part 24 ( WHERE & NOT )
  *
 
  $sql = "SELECT * FROM users WHERE Location='Mirpur' ";
+ $sql = "SELECT * FROM users WHERE NOT Location='Mirpur' ";
