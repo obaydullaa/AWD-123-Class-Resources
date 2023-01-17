@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 									<?php
-										$sql = "SELECT * FROM users WHERE NOT Location='Mirpur' ";
+										$sql = "SELECT * FROM users WHERE email='moriomnela@gmail.com' AND Location='Mirpur' ";
 										$data = $connection->query($sql);
 										$i = 1;
 										while ($users_data =  $data->fetch_object()):
