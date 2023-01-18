@@ -167,3 +167,18 @@ $network = new mysqli('localhost','rifat','asdfg', 'Student'); // connect databa
 
  $sql = "SELECT * FROM users WHERE gender='Female' OR Location='Mirpur' ";
  $sql = "SELECT * FROM users WHERE email='moriomnela@gmail.com' AND Location='Mirpur' ";
+
+
+/**
+  * MySQL part 27 ( cmd mysql )
+ *
+** Open CMD 
+
+1. mysql -u root -p // Connect Server
+2. show databases;    // see all data after connection_aborted (USED= ;)
+3. use mydb;     // in db
+4. select * from users  // see all data users
+5. select * from users order by id desc;
+6. select * from users where location='Uttara';
+7. insert into users (name, email, cell, username, location, gender) values ('Rajue', 'r@gmail.com', '555555', 'firoz', 'Uttara', 'Male')
+
