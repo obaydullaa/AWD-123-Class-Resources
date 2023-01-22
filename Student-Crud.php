@@ -24,4 +24,9 @@ db.php:-
         return $connection = new mysqli($host, $user, $pass, $db);
     }
 
+    /**
+     * Student Crud part 03 ( Students Table  )
+     */
+     // Create student database table.
+
     

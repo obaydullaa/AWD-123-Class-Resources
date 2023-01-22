@@ -1,3 +1,7 @@
+<?php
+	include_once "autoload.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +13,46 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-	
+
+	<?php
+
+		/**
+		 * Isseting student add form
+		 */
+
+		if(isset($_POST['stc'])) {
+			//get value
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$cell = $_POST['cell'];
+			$username = $_POST['username'];
+			$location = $_POST['location'];
+			$age = $_POST['age'];
+			$gender = $_POST['gender'];
+
+			$dept = $_POST['dept'];
+
+			if(empty($name) || empty($email) || empty($cell) || empty($username)){
+				$msg = "<p class=\"alert alert-danger\"> All Fields are required! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+				$msg = "<p class=\"alert alert-danger\"> Invalid Email Address! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+			}else {
+				connect()->query("INSERT INTO students (name, email, cell, username, ) VALUES ('$name', '$email', '$cell', '$username')");
+			}
+		}
+
+		// Fatal error: Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES ('Obaydulla', 'obaydulislam17@gmail.com', '01755265017', 'Okay')' at line 1 in C:\xampp\htdocs\AWD-123-Class-Resources\Day-11-MySql Crud --19-01-23\Student-Curd\index.php:40 Stack trace: #0 C:\xampp\htdocs\AWD-123-Class-Resources\Day-11-MySql Crud --19-01-23\Student-Curd\index.php(40): mysqli->query('INSERT INTO stu...') #1 {main} thrown in C:\xampp\htdocs\AWD-123-Class-Resources\Day-11-MySql Crud --19-01-23\Student-Curd\index.php on line 40
+	?>
+	 
 	
 
 	<div class="wrap-table">
 		<a class="btn btn-sm btn-primary mb-3" data-toggle="modal"  href="#add_student_modal">Add New Student</a>
+		<?php
+		 	if(isset($msg)){
+				echo $msg;
+			}
+		 ?>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>All Students</h2>
@@ -105,36 +144,36 @@
 					<h3>Add New Student</h3>
 				</div>
 				<div class="modal-body">
-					<form action="">
+					<form action="" method="POST" enctype="multipart/form-data  ">
 						<div class="row justify-content-center">
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Student Name</label>
-									<input class="form-control" type="text">
+									<input name="name" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Email</label>
-									<input class="form-control" type="email">
+									<input name="email" class="form-control" type="email">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Cell</label>
-									<input class="form-control" type="number">
+									<input name="cell" class="form-control" type="number">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Username</label>
-									<input class="form-control" type="text">
+									<input name="username" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Location</label>
-									<select class="from-control" name="" id="">
+									<select class="from-control" name="location" id="">
 										<option value="Mirpur">Mirpur</option>
 										<option value="Banani">Banani</option>
 										<option value="Uttara">Uttara</option>
@@ -147,20 +186,23 @@
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Age</label>
-									<input class="form-control" type="text">
+									<input name="age" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Gender</label>
-									<input class="form-control" type="text">
+									<div class="from-group radio-style">
+										<input name="gender" type="radio" checked value="Male" id="Male"> <label class="radio-input" for="Male">Male</label>
+										<input name="gender" type="radio" value="Female" id="Female"> <label class="radio-input" for="Female">Female</label>
+									</div>
 								</div>
 							</div>
 							
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Dept</label>
-									<select class="from-control" name="" id="">
+									<select class="from-control" name="dept" id="">
 										<option value="Mirpur">BBA</option>
 										<option value="EEE">EEE</option>
 										<option value="CSE">CSE</option>
@@ -177,14 +219,14 @@
 									<label for="student_photo" style="cursor: pointer;">
 										<img width="50" src="assets/media/img/image-icon.png" alt="">
 									</label>
-									<input id="student_photo" style="display: none;" class="form-control" type="file">
+									<input id="student_photo" name="photo" style="display: none;" class="form-control" type="file">
 								</div>
 							</div>
 							
 	
 							<div class="col-sm-12">
 								<div class="from-group mb-3">
-									<input class="btn btn-primary" type="submit" value="Add Student">
+									<input name="stc" class="btn btn-primary" type="submit" value="Add Student">
 								</div>
 							</div>
 						</div>

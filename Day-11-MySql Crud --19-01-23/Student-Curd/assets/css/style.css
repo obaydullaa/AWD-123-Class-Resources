@@ -58,3 +58,12 @@ input[type="submit"]  {
 	flex-direction: column;
 	display: flex;
 }
+.from-group.radio-style {
+	display: flex;
+	flex-direction: revert;
+	align-items: center;
+}
+
+.from-group.radio-style .radio-input {
+	margin-right: 5px;
+}
