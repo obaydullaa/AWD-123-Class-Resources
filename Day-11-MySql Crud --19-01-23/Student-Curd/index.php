@@ -37,7 +37,7 @@
 			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
 				$msg = "<p class=\"alert alert-danger\"> Invalid Email Address! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
 			}else {
-				connect()->query("INSERT INTO students (name, email, cell, username, ) VALUES ('$name', '$email', '$cell', '$username')");
+				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept')");
 			}
 		}
 
