@@ -78,3 +78,11 @@
 				//Upload profile photo
 				move_uploaded_file($file_name_tmp, 'images/' . $unique_name);
 				$msg = "<p class=\"alert alert-success\"> Data Stable. <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+
+    /**
+     * Student Crudv part 06 ( validate )
+    */
+    
+ function validate($msg, $type='danger') {
+    return "<p class=\"alert alert-$type\"> $msg ! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+ }

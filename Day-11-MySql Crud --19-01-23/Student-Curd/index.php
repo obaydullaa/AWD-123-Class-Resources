@@ -44,16 +44,17 @@
 
         	// Form Validation
 			if(empty($name) || empty($email) || empty($cell) || empty($username)){
-				$msg = "<p class=\"alert alert-danger\"> All Fields are required! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+				$msg = validate('All Fields are required');
 			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
-				$msg = "<p class=\"alert alert-danger\"> Invalid Email Address! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+				$msg =validate('Invalid Email Address'); 
 			}else {
 				// Data Insert
 				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
 
 				//Upload profile photo
 				move_uploaded_file($file_name_tmp, 'images/' . $unique_name);
-				$msg = "<p class=\"alert alert-success\"> Data Stable. <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+				
+				$msg =validate('Data Stable', 'success'); 
 
 			}
 		}
