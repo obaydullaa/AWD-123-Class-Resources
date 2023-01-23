@@ -29,19 +29,35 @@
 			$location = $_POST['location'];
 			$age = $_POST['age'];
 			$gender = $_POST['gender'];
-
 			$dept = $_POST['dept'];
 
+			// File manage
+			$file_name = $_FILES['profile_photo']['name'];
+	
+			$file_name_tmp = $_FILES['profile_photo']['tmp_name'];
+
+			$file_arr = explode('.', $file_name);
+			$file_ext = end($file_arr);
+
+			$unique_name = md5(time() . rand()) . '.' . $file_ext;
+
+
+        	// Form Validation
 			if(empty($name) || empty($email) || empty($cell) || empty($username)){
 				$msg = "<p class=\"alert alert-danger\"> All Fields are required! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
 			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
 				$msg = "<p class=\"alert alert-danger\"> Invalid Email Address! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
 			}else {
-				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept')");
+				// Data Insert
+				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+
+				//Upload profile photo
+				move_uploaded_file($file_name_tmp, 'images/' . $unique_name);
+				$msg = "<p class=\"alert alert-success\"> Data Stable. <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+
 			}
 		}
 
-		// Fatal error: Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES ('Obaydulla', 'obaydulislam17@gmail.com', '01755265017', 'Okay')' at line 1 in C:\xampp\htdocs\AWD-123-Class-Resources\Day-11-MySql Crud --19-01-23\Student-Curd\index.php:40 Stack trace: #0 C:\xampp\htdocs\AWD-123-Class-Resources\Day-11-MySql Crud --19-01-23\Student-Curd\index.php(40): mysqli->query('INSERT INTO stu...') #1 {main} thrown in C:\xampp\htdocs\AWD-123-Class-Resources\Day-11-MySql Crud --19-01-23\Student-Curd\index.php on line 40
 	?>
 	 
 	
@@ -144,7 +160,7 @@
 					<h3>Add New Student</h3>
 				</div>
 				<div class="modal-body">
-					<form action="" method="POST" enctype="multipart/form-data  ">
+					<form action="" method="POST" enctype="multipart/form-data">
 						<div class="row justify-content-center">
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
@@ -219,7 +235,7 @@
 									<label for="student_photo" style="cursor: pointer;">
 										<img width="50" src="assets/media/img/image-icon.png" alt="">
 									</label>
-									<input id="student_photo" name="photo" style="display: none;" class="form-control" type="file">
+									<input id="student_photo" name="profile_photo" style="display: none;" class="form-control" type="file">
 								</div>
 							</div>
 							

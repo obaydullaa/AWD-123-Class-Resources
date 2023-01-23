@@ -1,14 +1,16 @@
+<?php 
+
 // Note project
-1. Template setup
-2. Connection function
+// 1. Template setup
+// 2. Connection function
 
 
 /**
 * Student Crudv part 01 & 2 ( Template setup & Connect function)
 */
 
-Folder: app-> db.php * functions.php 
-db.php:- 
+// Folder: app-> db.php * functions.php 
+// db.php:- 
 
     /**
     * Make a Database connection
@@ -27,6 +29,52 @@ db.php:-
     /**
      * Student Crud part 03 ( Students Table  )
      */
-     // Create student database table.
 
-    
+     // Create student database table.- name
+        -email -cell -username -location -age -Gender -Photo -dept 
+
+    /**
+     * Student Crudv part 04 ( data insert )
+    */
+
+    if(isset($_POST['stc'])) {
+        //get value
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $cell = $_POST['cell'];
+        $username = $_POST['username'];
+        $location = $_POST['location'];
+        $age = $_POST['age'];
+        $gender = $_POST['gender'];
+
+        $dept = $_POST['dept'];
+
+        // Form Validation
+        if(empty($name) || empty($email) || empty($cell) || empty($username)){
+            $msg = "<p class=\"alert alert-danger\"> All Fields are required! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+        }else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+            $msg = "<p class=\"alert alert-danger\"> Invalid Email Address! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+        }else {
+            connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept')");
+        }
+    }
+
+    /**
+     * Student Crud part 05 ( data insert with photo )
+    */
+    		// File manage
+			$file_name = $_FILES['profile_photo']['name'];
+	
+			$file_name_tmp = $_FILES['profile_photo']['tmp_name'];
+
+			$file_arr = explode('.', $file_name);
+			$file_ext = end($file_arr);
+
+			$unique_name = md5(time() . rand()) . '.' . $file_ext;
+
+            // Data Insert
+				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+
+				//Upload profile photo
+				move_uploaded_file($file_name_tmp, 'images/' . $unique_name);
+				$msg = "<p class=\"alert alert-success\"> Data Stable. <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
