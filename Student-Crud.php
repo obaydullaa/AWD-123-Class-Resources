@@ -62,27 +62,52 @@
     /**
      * Student Crud part 05 ( data insert with photo )
     */
-    		// File manage
-			$file_name = $_FILES['profile_photo']['name'];
-	
-			$file_name_tmp = $_FILES['profile_photo']['tmp_name'];
+        // File manage
+        $file_name = $_FILES['profile_photo']['name'];
 
-			$file_arr = explode('.', $file_name);
-			$file_ext = end($file_arr);
+        $file_name_tmp = $_FILES['profile_photo']['tmp_name'];
 
-			$unique_name = md5(time() . rand()) . '.' . $file_ext;
+        $file_arr = explode('.', $file_name);
+        $file_ext = end($file_arr);
 
-            // Data Insert
-				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+        $unique_name = md5(time() . rand()) . '.' . $file_ext;
 
-				//Upload profile photo
-				move_uploaded_file($file_name_tmp, 'images/' . $unique_name);
-				$msg = "<p class=\"alert alert-success\"> Data Stable. <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+        // Data Insert
+        connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+
+        //Upload profile photo
+        move_uploaded_file($file_name_tmp, 'images/' . $unique_name);
+        $msg = "<p class=\"alert alert-success\"> Data Stable. <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
 
     /**
      * Student Crudv part 06 ( validate )
     */
     
- function validate($msg, $type='danger') {
-    return "<p class=\"alert alert-$type\"> $msg ! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
- }
+    function validate($msg, $type='danger') {
+        return "<p class=\"alert alert-$type\"> $msg ! <button class=\"close\" data-dismiss=\"alert\"> &times;</button> </p>";
+    }
+
+    /**
+     * Student Crudv part 07 ( all data show )
+    */
+
+
+    <?php
+    $data = connect()->query("SELECT * FROM students ORDER BY id DESC");
+
+    while($student = $data->fetch_object()) :
+
+?>
+<tr>
+    <td>1</td>
+    <td> <?php echo $student -> name; ?> </td>
+    <td> <?php echo $student -> email; ?> </td>
+    <td> <?php echo $student -> cell; ?> </td>
+    <td><img src="images/<?php echo $student->photo; ?> " alt=""></td>
+    <td>
+        <a class="btn btn-sm btn-info" href="#">View</a>
+        <a class="btn btn-sm btn-warning" href="#">Edit</a>
+        <a class="btn btn-sm btn-danger" href="#">Delete</a>
+    </td>
+</tr>
+<?php endwhile; ?>
