@@ -48,8 +48,10 @@
 			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
 				$msg =validate('Invalid Email Address'); 
 			}else {
+				
 				// Data Insert
-				connect()->query("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+				create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+				
 
 				//Upload profile photo
 				move_uploaded_file($file_name_tmp, 'images/' . $unique_name);

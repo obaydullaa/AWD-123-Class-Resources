@@ -112,6 +112,11 @@
 </tr>
 <?php endwhile; ?>
 
+<?php
+
 /**
 * Student Crudv part 08 ( all functions for all data  )
 */
+    function all($table, $order='DESC') {
+        return connect()->query("SELECT * FROM $table ORDER BY id $order");
+    }

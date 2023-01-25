@@ -2,8 +2,8 @@
 /**
  * Data create by create
  */
-   function create() {
-      
+   function create($sql) {
+      connect()->query($sql);
    }
 
 /**
@@ -17,7 +17,7 @@
  * Data create by create
  */
 function find() {
-
+   
 }
 
 
