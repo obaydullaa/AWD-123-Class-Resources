@@ -111,3 +111,7 @@
     </td>
 </tr>
 <?php endwhile; ?>
+
+/**
+* Student Crudv part 08 ( all functions for all data  )
+*/

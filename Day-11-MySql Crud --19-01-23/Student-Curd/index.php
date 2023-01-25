@@ -87,13 +87,13 @@
 					<tbody>
 
 						<?php
-							$data = connect()->query("SELECT * FROM students ORDER BY id DESC");
-
+							$data = all('students');
+							$i = 1;
 							while($student = $data->fetch_object()) :
 
 						?>
 						<tr>
-							<td>1</td>
+							<td><?php echo $i++; ?></td>
 							<td> <?php echo $student -> name; ?> </td>
 							<td> <?php echo $student -> email; ?> </td>
 							<td> <?php echo $student -> cell; ?> </td>
