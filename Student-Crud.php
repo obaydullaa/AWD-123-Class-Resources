@@ -120,3 +120,17 @@
     function all($table, $order='DESC') {
         return connect()->query("SELECT * FROM $table ORDER BY id $order");
     }
+
+/**
+ * Student Crudv part 09 ( create  ) 
+ */
+
+function create($sql) {
+    connect()->query($sql);
+    }
+// Data Insert
+    create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+
+/**
+ * Student Crudv part 10 ( file upload function 1 )
+ */
