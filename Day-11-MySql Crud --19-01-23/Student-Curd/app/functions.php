@@ -48,9 +48,10 @@ function update() {
   * File upload function
   */
 
-  function move($file, $location = '/') {
+  function move($file, $location='/') {
 
    // File management
+   
    $file_name = $file['name'];
    $file_name_tmp = $file['tmp_name'];
    $file_arr = explode('.', $file_name);

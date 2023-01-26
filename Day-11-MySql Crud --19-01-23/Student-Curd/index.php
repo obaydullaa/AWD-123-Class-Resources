@@ -34,7 +34,7 @@
 			
 
 
-        	// Form Validation
+      // Form Validation
 			if(empty($name) || empty($email) || empty($cell) || empty($username)){
 				$msg = validate('All Fields are required');
 			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
@@ -43,20 +43,16 @@
 
 				
 				//Upload profile photo
-				$unique_name = move($_FILES['photo'], 'images/');
+				$unique_name = move($_FILES['profile_photo'],'photo/');
 				
 				// Data Insert
 				create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
-			
 				
 				$msg =validate('Data Stable', 'success'); 
 
 			}
 		}
-
-	?>
-	 
-	
+	?>	
 
 	<div class="wrap-table">
 		<a class="btn btn-sm btn-primary mb-3" data-toggle="modal"  href="#add_student_modal">Add New Student</a>
@@ -92,7 +88,7 @@
 							<td> <?php echo $student -> name; ?> </td>
 							<td> <?php echo $student -> email; ?> </td>
 							<td> <?php echo $student -> cell; ?> </td>
-							<td><img src="images/<?php echo $student->photo; ?> " alt=""></td>
+							<td><img src="photo/<?php echo $student->photo; ?> " alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
