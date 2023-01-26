@@ -43,7 +43,7 @@
 
 				
 				//Upload profile photo
-				$unique_name = move($_FILES['profile_photo'],'photo/');
+				$unique_name = move($_FILES['profile_photo'],'images/');
 				
 				// Data Insert
 				create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
@@ -88,7 +88,7 @@
 							<td> <?php echo $student -> name; ?> </td>
 							<td> <?php echo $student -> email; ?> </td>
 							<td> <?php echo $student -> cell; ?> </td>
-							<td><img src="photo/<?php echo $student->photo; ?> " alt=""></td>
+							<td><img src="images/<?php echo $student->photo; ?> " alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
