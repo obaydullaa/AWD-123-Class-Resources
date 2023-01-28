@@ -24,8 +24,8 @@ function find() {
 /**
  * Data create by create
  */
-function delete() {
-
+function delete($table, $id) {
+   connect()->query("DELETE FROM $table WHERE id='$id' ");
 }
 
 /**

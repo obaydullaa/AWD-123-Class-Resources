@@ -134,3 +134,46 @@ function create($sql) {
 /**
  * Student Crudv part 10 ( file upload function 1 )
  */
+
+ function move($file, $location='/', array $type = ['jpg', 'png', 'gif', 'jpeg']) {
+
+    // File management
+    
+    $file_name = $file['name'];
+    $file_name_tmp = $file['tmp_name'];
+    $file_arr = explode('.', $file_name);
+    $file_ext = end($file_arr);
+    $unique_name = md5(time() . rand()) . '.' . $file_ext;
+ 
+    $msg = '';
+    if(in_array($file_ext, $type) == false) {
+       $msg = validate('Invalid file format');
+    } else {
+       // Upload File
+       move_uploaded_file($file_name_tmp, $location . $unique_name);
+    }
+ 
+    return [
+       'unique_name' => $unique_name,
+       'err_msg'     => $msg
+    ];
+    
+   }
+
+   /**
+    * Student Crudv part 12 ( file upload function 3 )
+    */
+
+      /**
+ * Data create by create
+ */
+if(isset($_GET['delete_id'])){
+    $delete_id = $_GET['delete_id'];
+    delete('students', $delete_id);
+}
+
+function delete($table, $id) {
+    connect()->query("DELETE FROM $table WHERE id='$id' ");
+ }
+
+ <a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>">Delete</a>

@@ -1,5 +1,16 @@
 <?php
 	include_once "autoload.php";
+
+	/**
+	 * Student Data Delete
+	 */
+	if(isset($_GET['delete_id'])){
+		$delete_id = $_GET['delete_id'];
+
+		delete('students', $delete_id);
+		header("location:index.php");
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +110,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="?student_id_1">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>">Delete</a>
 							</td>
 						</tr>
 						<?php endwhile; ?>
