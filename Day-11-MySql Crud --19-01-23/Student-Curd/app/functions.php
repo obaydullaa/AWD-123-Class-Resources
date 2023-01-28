@@ -48,7 +48,7 @@ function update() {
   * File upload function
   */
 
-  function move($file, $location='/') {
+  function move($file, $location='/', array $type = ['jpg', 'png', 'gif', 'jpeg']) {
 
    // File management
    
@@ -58,8 +58,17 @@ function update() {
    $file_ext = end($file_arr);
    $unique_name = md5(time() . rand()) . '.' . $file_ext;
 
-   // Upload File
-   move_uploaded_file($file_name_tmp, $location . $unique_name);
-   return $unique_name;
+   $msg = '';
+   if(in_array($file_ext, $type) == false) {
+      $msg = validate('Invalid file format');
+   } else {
+      // Upload File
+      move_uploaded_file($file_name_tmp, $location . $unique_name);
+   }
+
+   return [
+      'unique_name' => $unique_name,
+      'err_msg'     => $msg
+   ];
    
   }

@@ -40,15 +40,22 @@
 			}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
 				$msg =validate('Invalid Email Address'); 
 			}else {
-
 				
 				//Upload profile photo
-				$unique_name = move($_FILES['profile_photo'],'images/');
-				
-				// Data Insert
-				create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
-				
-				$msg =validate('Data Stable', 'success'); 
+				$data = move($_FILES['profile_photo'],'images/');
+
+				$unique_name = $data['unique_name'];
+				$err_msg = $data['err_msg'];
+
+				if(empty($err_msg)){
+					// Data Insert
+					create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
+					
+					$msg =validate('Data Stable', 'success'); 
+
+				}else {
+					$msg = $err_msg;
+				}
 
 			}
 		}
