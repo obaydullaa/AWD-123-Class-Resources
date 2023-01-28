@@ -6,7 +6,9 @@
 	 */
 	if(isset($_GET['delete_id'])){
 		$delete_id = $_GET['delete_id'];
+		$photo_name = $_GET['photo'];
 
+		unlink('images/' . $photo_name);
 		delete('students', $delete_id);
 		header("location:index.php");
 	}
@@ -110,7 +112,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>&photo=<?php echo $student -> photo; ?>">Delete</a>
 							</td>
 						</tr>
 						<?php endwhile; ?>

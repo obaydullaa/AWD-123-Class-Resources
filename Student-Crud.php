@@ -164,7 +164,7 @@ function create($sql) {
     * Student Crudv part 12 ( file upload function 3 )
     */
 
-      /**
+/**
  * Data create by create
  */
 if(isset($_GET['delete_id'])){
@@ -177,3 +177,7 @@ function delete($table, $id) {
  }
 
  <a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>">Delete</a>
+
+ /**
+ * Student Crudv part 13 ( delete )
+ */
