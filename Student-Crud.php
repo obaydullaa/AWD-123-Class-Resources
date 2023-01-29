@@ -132,7 +132,7 @@ function create($sql) {
     create("INSERT INTO students (name, email, cell, username, location, age, gender, dept, photo) VALUES ('$name', '$email', '$cell', '$username', '$location','$age', '$gender','$dept', '$unique_name')");
 
 /**
- * Student Crudv part 10 ( file upload function 1 )
+ * Student Crudv part 10 ( file upload function 1 & 2)
  */
 
  function move($file, $location='/', array $type = ['jpg', 'png', 'gif', 'jpeg']) {
@@ -181,3 +181,20 @@ function delete($table, $id) {
  /**
  * Student Crudv part 13 ( delete )
  */
+<?php
+	include_once "autoload.php";
+
+	/**
+	 * Student Data Delete
+	 */
+	if(isset($_GET['delete_id'])){
+		$delete_id = $_GET['delete_id'];
+		$photo_name = $_GET['photo'];
+
+		unlink('images/' . $photo_name);
+		delete('students', $delete_id);
+		header("location:index.php");
+	}
+	
+?>
+ <a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>&photo=<?php echo $student -> photo; ?>">Delete</a>
