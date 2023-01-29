@@ -44,9 +44,6 @@
 			$gender = $_POST['gender'];
 			$dept = $_POST['dept'];
 
-			
-
-
       // Form Validation
 			if(empty($name) || empty($email) || empty($cell) || empty($username)){
 				$msg = validate('All Fields are required');
@@ -112,7 +109,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>&photo=<?php echo $student -> photo; ?>">Delete</a>
+								<a id="delete_btn" class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>&photo=<?php echo $student -> photo; ?>">Delete</a>
 							</td>
 						</tr>
 						<?php endwhile; ?>
@@ -233,11 +230,24 @@
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
 	<script>
+		//Upload photo
 		$('#student_photo').change(function(e) {
 			let file_url = URL.createObjectURL(e.target.files[0]);
 			$('#load_student_photo').attr('src', file_url);
+		});
+
+		// Alert Delete Message
+		$('#delete_btn').click(function() {
+			let confirmation = confirm("Are You Sure ?");
+
+			if (confirmation == true) {
+				return true;
+			} else {
+				return false;
+			}
 
 		});
+
 	</script>
 </body>
 </html>
