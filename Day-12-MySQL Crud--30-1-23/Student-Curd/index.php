@@ -107,7 +107,7 @@
 							<td> <?php echo $student -> cell; ?> </td>
 							<td><img src="images/<?php echo $student->photo; ?> " alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
+								<a class="btn btn-sm btn-info" href="show.php?show_id<?php echo $student -> id; ?>">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
 								<a id="delete_btn" class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>&photo=<?php echo $student -> photo; ?>">Delete</a>
 							</td>

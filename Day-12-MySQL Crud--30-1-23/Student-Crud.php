@@ -214,3 +214,7 @@ function delete($table, $id) {
         }
 
     });
+
+    /**
+     * Student Crudv part 15 ( show page design with id )
+     */
