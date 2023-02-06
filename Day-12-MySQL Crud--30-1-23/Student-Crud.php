@@ -218,3 +218,10 @@ function delete($table, $id) {
     /**
      * Student Crudv part 15 ( show page design with id )
      */
+
+     // Design Details Single student page design.
+
+
+     /**
+      * Student Crudv part 16 ( show single student )
+      */

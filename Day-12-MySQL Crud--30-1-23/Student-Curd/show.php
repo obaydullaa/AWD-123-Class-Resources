@@ -4,14 +4,13 @@
 	/**
 	 * Student Data Delete
 	 */
-	if(isset($_GET['delete_id'])){
-		$delete_id = $_GET['delete_id'];
-		$photo_name = $_GET['photo'];
+	if(isset($_GET['show_id'])) {
+    $id = $_GET['show_id'];
 
-		unlink('images/' . $photo_name);
-		delete('students', $delete_id);
-		header("location:index.php");
-	}
+    $data = connect()->query("SELECT * FROM students WHERE id='$id'");
+    $student =  $data->fetch_object();
+
+  }
 	
 ?>
 
@@ -19,7 +18,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Student Database System</title>
+	<title><?php echo $student->name; ?></title>
 	<!-- ALL CSS FILES  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -31,9 +30,9 @@
     <div class="row">
       <div class="col-lg-7 mx-auto">
         <div class="card mt-5">
-          <img class="simg shadow mb-2" src="images/d645e9f86c2b7e05977c12dd309dbd21.jpg" width="200" alt="">
-          <h2 class="text-center mb-0">Md. Obaydulla</h2>
-          <p class="text-center">UserName</p>
+          <img class="simg shadow mb-2" src="images/<?php echo $student->photo; ?>" width="200" alt="">
+          <h2 class="text-center mb-0"><?php echo $student->name; ?></h2>
+          <p class="text-center"><?php echo $student->username; ?></p>
         </div>
         <div class="card-body">
           <table class="table">
