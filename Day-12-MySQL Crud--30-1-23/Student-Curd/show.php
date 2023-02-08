@@ -2,16 +2,15 @@
 	include_once "autoload.php";
 
 	/**
-	 * Student Data Delete
+	 * Show Single student
 	 */
-	if(isset($_GET['show_id'])) {
-    $id = $_GET['show_id'];
+    if (isset($_GET['show_id'])) {
+      $id = $_GET['show_id'];
 
-    $data = connect()->query("SELECT * FROM students WHERE id='$id'");
-    $student =  $data->fetch_object();
+      $data = connect()->query("SELECT * FROM students WHERE id='$id'");
+      $student =  $data->fetch_object();   
 
-  }
-	
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +24,7 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+  
 
 	 <div class="container bg-white py-5">
     <div class="row">
@@ -37,28 +37,32 @@
         <div class="card-body">
           <table class="table">
             <tr>
-              <th>Name</th>
-              <th>Email</th>
+              <td>Name</td>
+              <td><?php echo $student->name; ?></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><?php echo $student->email; ?></td>
             </tr>
             <tr>
               <td>Obaydul</td>
               <td>obaydul@gmail.com</td>
             </tr>
             <tr>
-              <td>Obaydul</td>
-              <td>obaydul@gmail.com</td>
+              <td>Cell</td>
+              <td><?php echo $student->cell; ?></td>
             </tr>
             <tr>
-              <td>Obaydul</td>
-              <td>obaydul@gmail.com</td>
+              <td>Gender</td>
+              <td><?php echo $student->gender; ?></td>
             </tr>
             <tr>
-              <td>Obaydul</td>
-              <td>obaydul@gmail.com</td>
+              <td>Dep</td>
+              <td><?php echo $student->dept; ?></td>
             </tr>
             <tr>
-              <td>Obaydul</td>
-              <td>obaydul@gmail.com</td>
+              <td>Location</td>
+              <td><?php echo $student->location; ?></td>
             </tr>
           </table>
           <a class="btn btn-primary btn-sm" href="index.php">Back</a>
