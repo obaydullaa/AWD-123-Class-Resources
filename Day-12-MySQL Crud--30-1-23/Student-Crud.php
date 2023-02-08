@@ -225,3 +225,19 @@ function delete($table, $id) {
      /**
       * Student Crudv part 16 ( show single student )
       */
+      	/**
+	 * Show Single student
+	 */
+    <a class="btn btn-sm btn-info" href="show.php?show_id=<?php echo $student -> id; ?>">View</a>
+
+    if (isset($_GET['show_id'])) {
+        $id = $_GET['show_id'];
+  
+        $data = connect()->query("SELECT * FROM students WHERE id='$id'");
+        $student =  $data->fetch_object();   
+      }
+      <td><?php echo $student->name; ?></td>
+
+      /**
+       * Student Crudv part 17 ( edit page design  )
+       */
