@@ -78,8 +78,9 @@
 								<div class="from-group mb-3">
 									<label for="">Gender</label>
 									<div class="from-group radio-style">
-										<input name="gender" type="radio" checked value="Male" id="Male"> <label class="radio-input" for="Male">Male</label>
-										<input name="gender" type="radio" value="Female" id="Female"> <label class="radio-input" for="Female">Female</label>
+										<!-- <input name="gender" type="radio" <?php if($edit_data->gender == "Male") echo 'checked'; ?> value="Male" id="Male"> <label class="radio-input" for="Male">Male</label> -->
+										<input name="gender" type="radio" <?php echo ($edit_data->gender == "Male") ? 'checked': ''  ?> value="Male" id="Male"> <label class="radio-input" for="Male">Male</label>
+										<input name="gender" type="radio" <?php echo ($edit_data->gender == "Female") ? 'checked': ''  ?>  value="Female" id="Female"> <label class="radio-input" for="Female">Female</label>
 									</div>
 								</div>
 							</div>

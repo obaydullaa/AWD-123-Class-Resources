@@ -266,3 +266,15 @@ function delete($table, $id) {
 	}
 
     <input name="name" class="form-control" value="<?php echo $edit_data->name; ?>" type="text">
+
+
+    /**
+     * Student Crudv part 19 ( gender dynamic by using ternary  )
+     */
+
+    //  use if else 
+
+     <?php if($edit_data->gender == "Male") echo 'checked'; ?> 
+
+    //  Use ternary Operator 
+    <?php echo ($edit_data->gender == "Male") ? 'checked': ''  ?>
