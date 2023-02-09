@@ -241,3 +241,28 @@ function delete($table, $id) {
       /**
        * Student Crudv part 17 ( edit page design  )
        */
+      // student edit page design 
+
+    /**
+     * Student Crudv part 18 ( find )
+     */
+
+
+	include_once "autoload.php";
+	/**
+	 * find Edit student data
+	 */
+
+    function find($table, $id) {
+        $data = connect()->query("SELECT * FROM $table WHERE id='$id'");
+         return $data->fetch_object();
+     }
+     
+
+	if (isset($_GET['edit_id'])) {
+		$id = $_GET['edit_id'];
+
+		$edit_data = find('students', $id);
+	}
+
+    <input name="name" class="form-control" value="<?php echo $edit_data->name; ?>" type="text">

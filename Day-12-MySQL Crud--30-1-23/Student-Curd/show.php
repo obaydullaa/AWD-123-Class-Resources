@@ -7,8 +7,7 @@
     if (isset($_GET['show_id'])) {
       $id = $_GET['show_id'];
 
-      $data = connect()->query("SELECT * FROM students WHERE id='$id'");
-      $student =  $data->fetch_object();   
+      $student = find('students', $id); 
 
     }
 ?>
@@ -29,6 +28,7 @@
 	 <div class="container bg-white py-5">
     <div class="row">
       <div class="col-lg-7 mx-auto">
+        <a class="btn btn-primary btn-sm" href="index.php">Back</a>
         <div class="card mt-5">
           <img class="simg shadow mb-2" src="images/<?php echo $student->photo; ?>" width="200" alt="">
           <h2 class="text-center mb-0"><?php echo $student->name; ?></h2>
@@ -65,7 +65,6 @@
               <td><?php echo $student->location; ?></td>
             </tr>
           </table>
-          <a class="btn btn-primary btn-sm" href="index.php">Back</a>
         </div>
       </div>
     </div>

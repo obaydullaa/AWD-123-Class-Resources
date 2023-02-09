@@ -1,5 +1,13 @@
 <?php
 	include_once "autoload.php";
+	/**
+	 * find Edit student data
+	 */
+	if (isset($_GET['edit_id'])) {
+		$id = $_GET['edit_id'];
+
+		$edit_data = find('students', $id);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -26,25 +34,25 @@
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Student Name</label>
-									<input name="name" class="form-control" type="text">
+									<input name="name" class="form-control" value="<?php echo $edit_data->name; ?>" type="text">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Email</label>
-									<input name="email" class="form-control" type="email">
+									<input name="email" class="form-control" value="<?php echo $edit_data->email; ?>" type="email">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Cell</label>
-									<input name="cell" class="form-control" type="number">
+									<input name="cell" class="form-control" value="<?php echo $edit_data->cell; ?>" type="number">
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Username</label>
-									<input name="username" class="form-control" type="text">
+									<input name="username" class="form-control" value="<?php echo $edit_data->username; ?>" type="text">
 								</div>
 							</div>
 							<div class="col-sm-6">
@@ -63,7 +71,7 @@
 							<div class="col-sm-6">
 								<div class="from-group mb-3">
 									<label for="">Age</label>
-									<input name="age" class="form-control" type="text">
+									<input name="age" class="form-control" value="<?php echo $edit_data->age; ?>" type="text">
 								</div>
 							</div>
 							<div class="col-sm-6">
@@ -94,7 +102,7 @@
 									<label for="">Profile Photo</label>
 									<img  width="150"  id="load_student_photo" style="max-width: 100%;" src="" alt="">
 									<label for="student_photo" style="cursor: pointer;">
-										<img width="50" src="assets/media/img/image-icon.png" alt="">
+										<img width="250" src="images/<?php echo $edit_data->photo; ?>" alt="">
 									</label>
 									<input id="student_photo" name="profile_photo" style="display: none;" class="form-control" type="file">
 								</div>
