@@ -89,10 +89,10 @@
 								<div class="from-group mb-3">
 									<label for="">Dept</label>
 									<select class="from-control" name="dept" id="">
-										<option value="Mirpur">BBA</option>
-										<option value="EEE">EEE</option>
-										<option value="CSE">CSE</option>
-										<option value="English">English</option>
+										<option <?php echo ($edit_data->dep == 'BBA') ? 'checked' : '';  ?> value="Mirpur">BBA</option>
+										<option <?php echo ($edit_data->dep == 'EEE') ? 'checked' : '';  ?>  value="EEE">EEE</option>
+										<option  <?php echo ($edit_data->dep == 'CSE') ? 'checked' : '';  ?>  value="CSE">CSE</option>
+										<option  <?php echo ($edit_data->dep == 'English') ? 'checked' : '';  ?>  value="English">English</option>
 										<option value="Bangla">Bangla</option>
 									</select>
 								</div>

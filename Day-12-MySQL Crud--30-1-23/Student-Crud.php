@@ -278,3 +278,7 @@ function delete($table, $id) {
 
     //  Use ternary Operator 
     <?php echo ($edit_data->gender == "Male") ? 'checked': ''  ?>
+
+    /**
+     * Student Crudv part 20 ( dept dynamic  )
+    */
