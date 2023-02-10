@@ -282,3 +282,9 @@ function delete($table, $id) {
     /**
      * Student Crudv part 20 ( dept dynamic  )
     */
+    <input name="name" class="form-control" value="<?php echo $edit_data->name; ?>" type="text">
+
+    
+    /**
+     * Student Crudv part 21 ( location dynamic  ).wmv
+     */

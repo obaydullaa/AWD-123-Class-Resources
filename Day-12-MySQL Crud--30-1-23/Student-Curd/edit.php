@@ -59,11 +59,11 @@
 								<div class="from-group mb-3">
 									<label for="">Location</label>
 									<select class="from-control" name="location" id="">
-										<option value="Mirpur">Mirpur</option>
-										<option value="Banani">Banani</option>
-										<option value="Uttara">Uttara</option>
-										<option value="Badda">Badda</option>
-										<option value="Gulshan">Gulshan</option>
+										<option <?php echo ($edit_data-> location) ? "Mirpur" : "selected"; ?> value="Mirpur">Mirpur</option>
+										<option <?php echo ($edit_data-> location) ? "Banani" : "selected"; ?> value="Banani">Banani</option>
+										<option <?php echo ($edit_data-> location) ? "Uttara" : "selected"; ?>  value="Uttara">Uttara</option>
+										<option <?php echo ($edit_data-> location) ? "Badda" : "selected"; ?> value="Badda">Badda</option>
+										<option <?php echo ($edit_data-> location) ? "Gulshan" : "selected"; ?> value="Gulshan">Gulshan</option>
 									</select>
 								</div>
 							</div>
