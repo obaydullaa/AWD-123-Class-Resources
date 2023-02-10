@@ -1,5 +1,35 @@
 <?php
 	include_once "autoload.php";
+
+	/**
+ * Isseting student add form
+ */
+
+if(isset($_POST['stc'])) {
+	//get value
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$cell = $_POST['cell'];
+	$username = $_POST['username'];
+	$location = $_POST['location'];
+	$age = $_POST['age'];
+	$gender = $_POST['gender'];
+	$dept = $_POST['dept'];
+
+	$id = $_GET['edit_id'];
+
+	// Form Validation
+	if(empty($name) || empty($email) || empty($cell) || empty($username)){
+		$msg = validate('All Fields are required');
+	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+		$msg =validate('Invalid Email Address'); 
+	}else {
+		
+		connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept' WHERE id='$id' ");
+
+	}
+}
+
 	/**
 	 * find Edit student data
 	 */
@@ -21,36 +51,6 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-<?php
-
-/**
- * Isseting student add form
- */
-
-if(isset($_POST['stc'])) {
-	//get value
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$cell = $_POST['cell'];
-	$username = $_POST['username'];
-	$location = $_POST['location'];
-	$age = $_POST['age'];
-	$gender = $_POST['gender'];
-	$dept = $_POST['dept'];
-
-	// Form Validation
-	if(empty($name) || empty($email) || empty($cell) || empty($username)){
-		$msg = validate('All Fields are required');
-	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
-		$msg =validate('Invalid Email Address'); 
-	}else {
-		
-		
-
-	}
-}
-?>	
-  
 
 <div class="container mt-5">
   <div class="row">
@@ -125,10 +125,10 @@ if(isset($_POST['stc'])) {
 								<div class="from-group mb-3">
 									<label for="">Dept</label>
 									<select class="from-control" name="dept" id="">
-										<option <?php echo ($edit_data->dep == 'BBA') ? 'checked' : '';  ?> value="Mirpur">BBA</option>
-										<option <?php echo ($edit_data->dep == 'EEE') ? 'checked' : '';  ?>  value="EEE">EEE</option>
-										<option  <?php echo ($edit_data->dep == 'CSE') ? 'checked' : '';  ?>  value="CSE">CSE</option>
-										<option  <?php echo ($edit_data->dep == 'English') ? 'checked' : '';  ?>  value="English">English</option>
+										<option <?php echo ($edit_data->dept == 'BBA') ? 'checked' : '';  ?> value="Mirpur">BBA</option>
+										<option <?php echo ($edit_data->dept == 'EEE') ? 'checked' : '';  ?>  value="EEE">EEE</option>
+										<option  <?php echo ($edit_data->dept == 'CSE') ? 'checked' : '';  ?>  value="CSE">CSE</option>
+										<option  <?php echo ($edit_data->dept == 'English') ? 'checked' : '';  ?>  value="English">English</option>
 										<option value="Bangla">Bangla</option>
 									</select>
 								</div>
