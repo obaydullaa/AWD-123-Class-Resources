@@ -21,6 +21,35 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+<?php
+
+/**
+ * Isseting student add form
+ */
+
+if(isset($_POST['stc'])) {
+	//get value
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$cell = $_POST['cell'];
+	$username = $_POST['username'];
+	$location = $_POST['location'];
+	$age = $_POST['age'];
+	$gender = $_POST['gender'];
+	$dept = $_POST['dept'];
+
+	// Form Validation
+	if(empty($name) || empty($email) || empty($cell) || empty($username)){
+		$msg = validate('All Fields are required');
+	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+		$msg =validate('Invalid Email Address'); 
+	}else {
+		
+		
+
+	}
+}
+?>	
   
 
 <div class="container mt-5">
@@ -29,6 +58,13 @@
     <a class="btn btn-primary btn-sm mb-3" href="index.php">Back</a>
       <div class="card">
         <div class="card-body">
+					<h2>Student Data Edit</h2>
+						<?php 
+							if(isset($msg)){
+								echo $msg;
+							}
+						?>
+					<hr>
         <form action="" method="POST" enctype="multipart/form-data">
 						<div class="row justify-content-center">
 							<div class="col-sm-6">
@@ -59,7 +95,7 @@
 								<div class="from-group mb-3">
 									<label for="">Location</label>
 									<select class="from-control" name="location" id="">
-										<option <?php echo ($edit_data-> location) ? "Mirpur" : "selected"; ?> value="Mirpur">Mirpur</option>
+										<optionc value="Mirpur">Mirpur</optionc>
 										<option <?php echo ($edit_data-> location) ? "Banani" : "selected"; ?> value="Banani">Banani</option>
 										<option <?php echo ($edit_data-> location) ? "Uttara" : "selected"; ?>  value="Uttara">Uttara</option>
 										<option <?php echo ($edit_data-> location) ? "Badda" : "selected"; ?> value="Badda">Badda</option>

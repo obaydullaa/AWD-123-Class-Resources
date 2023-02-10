@@ -284,7 +284,14 @@ function delete($table, $id) {
     */
     <input name="name" class="form-control" value="<?php echo $edit_data->name; ?>" type="text">
 
-    
+
     /**
      * Student Crudv part 21 ( location dynamic  ).wmv
      */
+     Student Crudv part 22 ( photo update )
+
+
+     /**
+      * Student Crudv part 22 ( photo update )
+      */
+    //   1. Copy from index.php 
