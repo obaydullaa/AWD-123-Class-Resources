@@ -288,10 +288,51 @@ function delete($table, $id) {
     /**
      * Student Crudv part 21 ( location dynamic  ).wmv
      */
-     Student Crudv part 22 ( photo update )
-
+ 
+     <option <?php echo ($edit_data-> location == 'Mirpur') ? 'selected' : ''; ?> value="Mirpur">Mirpur</option>
 
      /**
       * Student Crudv part 22 ( photo update )
       */
     //   1. Copy from index.php 
+
+    <?php
+	include_once "autoload.php";
+
+	/**
+ * Isseting student add form
+ */
+if(isset($_POST['stc'])) {
+	//get value
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$cell = $_POST['cell'];
+	$username = $_POST['username'];
+	$location = $_POST['location'];
+	$age = $_POST['age'];
+	$gender = $_POST['gender'];
+	$dept = $_POST['dept'];
+
+	$id = $_GET['edit_id'];
+
+	// Form Validation
+	if(empty($name) || empty($email) || empty($cell) || empty($username)){
+		$msg = validate('All Fields are required');
+	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+		$msg =validate('Invalid Email Address'); 
+	}else {
+		
+		connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept' WHERE id='$id' ");
+
+	}
+}
+
+	/**
+	 * find Edit student data
+	 */
+	if (isset($_GET['edit_id'])) {
+		$id = $_GET['edit_id'];
+
+		$edit_data = find('students', $id);
+	}
+?>

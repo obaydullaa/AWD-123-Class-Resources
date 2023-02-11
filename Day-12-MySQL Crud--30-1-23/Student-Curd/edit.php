@@ -4,7 +4,6 @@
 	/**
  * Isseting student add form
  */
-
 if(isset($_POST['stc'])) {
 	//get value
 	$name = $_POST['name'];
@@ -95,11 +94,11 @@ if(isset($_POST['stc'])) {
 								<div class="from-group mb-3">
 									<label for="">Location</label>
 									<select class="from-control" name="location" id="">
-										<optionc value="Mirpur">Mirpur</optionc>
-										<option <?php echo ($edit_data-> location) ? "Banani" : "selected"; ?> value="Banani">Banani</option>
-										<option <?php echo ($edit_data-> location) ? "Uttara" : "selected"; ?>  value="Uttara">Uttara</option>
-										<option <?php echo ($edit_data-> location) ? "Badda" : "selected"; ?> value="Badda">Badda</option>
-										<option <?php echo ($edit_data-> location) ? "Gulshan" : "selected"; ?> value="Gulshan">Gulshan</option>
+										<option <?php echo ($edit_data-> location == 'Mirpur') ? 'selected' : ''; ?> value="Mirpur">Mirpur</option>
+										<option <?php echo ($edit_data-> location == 'Banani') ? 'selected' : ''; ?> value="Banani">Banani</option>
+										<option <?php echo ($edit_data-> location == 'Uttara') ? 'selected' : ''; ?>  value="Uttara">Uttara</option>
+										<option <?php echo ($edit_data-> location == 'Badda') ? 'selected' : ''; ?> value="Badda">Badda</option>
+										<option <?php echo ($edit_data-> location == 'Gulshan') ? 'selected' : ''; ?> value="Gulshan">Gulshan</option>
 									</select>
 								</div>
 							</div>
@@ -125,10 +124,10 @@ if(isset($_POST['stc'])) {
 								<div class="from-group mb-3">
 									<label for="">Dept</label>
 									<select class="from-control" name="dept" id="">
-										<option <?php echo ($edit_data->dept == 'BBA') ? 'checked' : '';  ?> value="Mirpur">BBA</option>
-										<option <?php echo ($edit_data->dept == 'EEE') ? 'checked' : '';  ?>  value="EEE">EEE</option>
-										<option  <?php echo ($edit_data->dept == 'CSE') ? 'checked' : '';  ?>  value="CSE">CSE</option>
-										<option  <?php echo ($edit_data->dept == 'English') ? 'checked' : '';  ?>  value="English">English</option>
+										<option <?php echo ($edit_data->dept == 'BBA') ? 'selected' : '';  ?> value="BBA">BBA</option>
+										<option <?php echo ($edit_data->dept == 'EEE') ? 'selected' : '';  ?>  value="EEE">EEE</option>
+										<option  <?php echo ($edit_data->dept == 'CSE') ? 'selected' : '';  ?>  value="CSE">CSE</option>
+										<option  <?php echo ($edit_data->dept == 'English') ? 'selected' : '';  ?>  value="English">English</option>
 										<option value="Bangla">Bangla</option>
 									</select>
 								</div>
@@ -148,7 +147,7 @@ if(isset($_POST['stc'])) {
 	
 							<div class="col-sm-12">
 								<div class="from-group mb-3">
-									<input name="stc" class="btn btn-primary" type="submit" value="Add Student">
+									<input name="stc" class="btn btn-primary" type="submit" value="Updated Student">
 								</div>
 							</div>
 						</div>
