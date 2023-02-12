@@ -301,6 +301,7 @@ function delete($table, $id) {
 
 	/**
  * Isseting student add form
+ * ======================================
  */
 if(isset($_POST['stc'])) {
 	//get value
@@ -321,8 +322,16 @@ if(isset($_POST['stc'])) {
 	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
 		$msg =validate('Invalid Email Address'); 
 	}else {
+
+        if(!empty($_FILES['new_photo']['name'])) {
+			$data = move($_FILES['new_photo'], 'images/');
+			$photo_name = $data['unique_name'];
+			unlink('images/' . $_POST['old_photo']);
+		}else {
+			$photo_name = $_POST['old_photo'];
+		}
 		
-		connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept' WHERE id='$id' ");
+    connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept', photo='$photo_name' WHERE id='$id' ");
 
 	}
 }
@@ -336,3 +345,16 @@ if(isset($_POST['stc'])) {
 		$edit_data = find('students', $id);
 	}
 ?>
+
+//markup
+<div class="col-sm--6">
+    <div class="from-group mb-3">
+        <label for="">Profile Photo</label>
+        <img  width="150"  id="load_student_photo_edit" style="max-width: 100%;" src="images/<?php echo $edit_data->photo;  ?>" alt="">
+        <label for="student_photo_edit" style="cursor: pointer;">
+            <img width="50" src="assets/media/img/image-icon.png" alt="">
+        </label>
+        <input id="student_photo_edit" name="new_photo" style="display: none;" class="form-control" type="file">
+        <input type="hidden" value="<?php echo $edit_data->photo; ?>" name="old_photo">
+    </div>
+</div>

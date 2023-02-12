@@ -23,8 +23,16 @@ if(isset($_POST['stc'])) {
 	}else if(filter_var($email, FILTER_VALIDATE_EMAIL) == false){
 		$msg =validate('Invalid Email Address'); 
 	}else {
+
+		if(!empty($_FILES['new_photo']['name'])) {
+			$data = move($_FILES['new_photo'], 'images/');
+			$photo_name = $data['unique_name'];
+			unlink('images/' . $_POST['old_photo']);
+		}else {
+			$photo_name = $_POST['old_photo'];
+		}
 		
-		connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept' WHERE id='$id' ");
+		connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept', photo='$photo_name' WHERE id='$id' ");
 
 	}
 }
@@ -131,16 +139,17 @@ if(isset($_POST['stc'])) {
 										<option value="Bangla">Bangla</option>
 									</select>
 								</div>
-							</div>
-							
+							</div> 
+		   					
 							<div class="col-sm--6">
 								<div class="from-group mb-3">
 									<label for="">Profile Photo</label>
-									<img  width="150"  id="load_student_photo" style="max-width: 100%;" src="" alt="">
-									<label for="student_photo" style="cursor: pointer;">
-										<img width="250" src="images/<?php echo $edit_data->photo; ?>" alt="">
+									<img  width="150"  id="load_student_photo_edit" style="max-width: 100%;" src="images/<?php echo $edit_data->photo;  ?>" alt="">
+									<label for="student_photo_edit" style="cursor: pointer;">
+										<img width="50" src="assets/media/img/image-icon.png" alt="">
 									</label>
-									<input id="student_photo" name="profile_photo" style="display: none;" class="form-control" type="file">
+									<input id="student_photo_edit" name="new_photo" style="display: none;" class="form-control" type="file">
+									<input type="hidden" value="<?php echo $edit_data->photo; ?>" name="old_photo">
 								</div>
 							</div>
 							
@@ -158,14 +167,19 @@ if(isset($_POST['stc'])) {
   </div>
 </div>
 
-
-
 	<!-- JS FILES  -->
 	<script src="assets/js/jquery-3.4.1.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
 	<script>
+			//Upload photo
+			$('#student_photo_edit').change(function(e) {
+
+			let file_url = URL.createObjectURL(e.target.files[0]);
+			$('#load_student_photo_edit').attr('src', file_url);
+		}); 
+
 
 	</script>
 </body>
