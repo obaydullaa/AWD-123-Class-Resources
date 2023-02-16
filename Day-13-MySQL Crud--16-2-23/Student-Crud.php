@@ -281,6 +281,7 @@ function delete($table, $id) {
 
     /**
      * Student Crudv part 20 ( dept dynamic  )
+     * =======================================================================================
     */
     <input name="name" class="form-control" value="<?php echo $edit_data->name; ?>" type="text">
 
@@ -293,6 +294,7 @@ function delete($table, $id) {
 
      /**
       * Student Crudv part 22 ( photo update )
+      *===========================================================================================
       */
     //   1. Copy from index.php 
 
@@ -358,3 +360,23 @@ if(isset($_POST['stc'])) {
         <input type="hidden" value="<?php echo $edit_data->photo; ?>" name="old_photo">
     </div>
 </div>
+
+     /**
+      * Student Crudv part 23 ( update )
+      *===========================================================================================
+      */
+
+      // change location after updated data.
+      connect()->query("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept', photo='$photo_name' WHERE id='$id' ");
+		header('location:index.php');
+        
+    /**
+     * Data create by create
+     */
+    function update($sql) {
+        connect()->query($sql);
+    }
+ 
+    update("UPDATE students SET name='$name', email='$email', cell='$cell', username='$username', location='$location', age='$age', gender='$gender', dept='$dept', photo='$photo_name' WHERE id='$id' ");
+
+    header('location:index.php');

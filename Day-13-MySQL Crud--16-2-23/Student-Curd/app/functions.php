@@ -32,8 +32,8 @@ function delete($table, $id) {
 /**
  * Data create by create
  */
-function update() {
-
+function update($sql) {
+   connect()->query($sql);
 }
 
 
