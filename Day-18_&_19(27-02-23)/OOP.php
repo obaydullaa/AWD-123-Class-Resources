@@ -1,4 +1,55 @@
 <?php
+
+
+// All content
+/**
+ *    // Object Oriented Programming - PHP 
+    	
+        - What is OOP & Why 
+        - class & Object 
+        - property & Method 
+        - Use property & Method out of a class 
+        - Use property & Method in of a class 
+        - static method & property & its use 
+        - OOP constant 
+        - constract & Destract 
+        - Inheritance / Extends 
+        - Acess Modifier
+        - abstract class and method
+        - Final class & final Method 
+	- App structure with class 
+
+
+        - Interface & Implements 
+        - Traits
+	- Method chaining 
+	- Type Hint
+        - Magic methods
+		- __get()
+		- __set()
+		- __call()
+		- __constract()
+		- __destruct()
+	
+	// Image Upload helper class , , , 
+	// Query String with method chaining 
+	// Helper class 
+
+
+ 
+        - Namespace 
+        - Autoloading class 
+        - PSR-4 - project orientation 
+        - CRUD by OOP 
+
+	- MVC
+	- Design patern 
+ */
+
+
+
+
+
 /** 
  * Date: 27-02-2023
  * ==================================================
@@ -13,16 +64,16 @@
  * - OOP constant 
  * - constract & Destract
  * 
- * 
-        
+ *  
 */
 
 
+ //class & Object 
 
-//class & Object 
 
-// class
-// class Student {
+ // class
+
+ // class Student {
 //     public $name = "Obaydul \n"; // Property
 
 
@@ -93,22 +144,53 @@
  * first run constract and last run destract middle run others.
  */
 
-  class Student {
+//   class Student {
+//     public static $name = "Obaydul \n"; // Property
+//     public $AGE = 12;
+
+//     public function info() {
+//         echo "This body Information \n";
+//     }
+//     public function __destruct() {
+//         echo "My Name Is __destruct \n";
+//     }
+//     public function __construct(){
+//         echo "My Name Is __construct \n";
+//     }
+
+// }
+
+// $stu = new Student;
+
+// echo $stu->info();
+
+
+/**
+ * Inheritance / Extends
+ * =================================================
+ */
+
+   class Student {
     public static $name = "Obaydul \n"; // Property
     public $AGE = 12;
 
-    public function info() {
-        echo "This body Information \n";
+    public function eat() {
+        echo "I love eat. \n";
     }
-    public function __destruct() {
-        echo "My Name Is __destruct \n";
-    }
-    public function __construct(){
-        echo "My Name Is __construct \n";
-    }
-
 }
 
-$stu = new Student;
+class Information {
+    public function info() {
+        echo "I am obaydulla and i am a frontend developer.";
+    }
+}
 
-echo $stu->info();
+class AllInfo extends Information {
+    public function allData () {
+        echo "Im am allInfo method.";
+    }
+}
+
+$totto = new AllInfo;
+
+$totto->info(); 
