@@ -1,5 +1,7 @@
 <?php
 /** 
+ * Date: 27-02-2023
+ * ==================================================
  *  Object Oriented Programming - PHP 
  * 
  * - What is OOP & Why 
@@ -8,7 +10,7 @@
  * - Use property & Method out of a class
  * - Use property & Method in of a class
  * - static method & property & its use
- * -OOP constant 
+ * - OOP constant 
  * - constract & Destract
  * 
  * 
@@ -76,12 +78,37 @@
  * ==================================
  */
 
- class Student {
-   public const NAME = "Obaydul";
+//  class Student {
+//    public const NAME = "Obaydul";
+
+// }
+
+// // Access constant property
+// echo Student::NAME;
+
+
+/**
+ * - constract & Destract
+ * =======================================================================
+ * first run constract and last run destract middle run others.
+ */
+
+  class Student {
+    public static $name = "Obaydul \n"; // Property
+    public $AGE = 12;
+
+    public function info() {
+        echo "This body Information \n";
+    }
+    public function __destruct() {
+        echo "My Name Is __destruct \n";
+    }
+    public function __construct(){
+        echo "My Name Is __construct \n";
+    }
 
 }
 
-// Access constant property
-echo Student::NAME;
+$stu = new Student;
 
-
+echo $stu->info();
