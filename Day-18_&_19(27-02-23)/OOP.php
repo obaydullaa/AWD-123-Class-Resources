@@ -8,7 +8,11 @@
  * - Use property & Method out of a class
  * - Use property & Method in of a class
  * - static method & property & its use
+ * -OOP constant 
+ * - constract & Destract
  * 
+ * 
+        
 */
 
 
@@ -45,23 +49,39 @@
  * ====================================================
  */
 
+//  class Student {
+//     public static $name = "Obaydul \n"; // Property
+//     public $AGE = 12;
+
+//     public static function dev() {
+//         echo "My Name is Obaydulla \n"; // Method
+//     }
+
+//     public function info() {
+//         echo $this->dev();
+//     }
+
+//     public static function tomi() {
+//         echo "I am Tomi.";
+//     }
+
+// }
+// // Access static property and method.
+// Student::dev();
+// echo Student::$name;
+
+
+/**
+ * OOP constant 
+ * ==================================
+ */
+
  class Student {
-    public static $name = "Obaydul \n"; // Property
-
-
-    public static function dev() {
-        echo "My Name is Obaydulla \n"; // Method
-    }
-
-    public function info() {
-        echo $this->dev();
-    }
-
-    public static function tomi() {
-        echo "I am Tomi.";
-    }
+   public const NAME = "Obaydul";
 
 }
-// Access static property and method.
-Student::dev();
-echo Student::$name;
+
+// Access constant property
+echo Student::NAME;
+
+
