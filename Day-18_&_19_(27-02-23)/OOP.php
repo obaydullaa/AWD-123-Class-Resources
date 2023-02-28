@@ -205,31 +205,66 @@
  * ===================================================
  */
 
+//  class A {
+//     public function funcA(){
+//         echo "I am class A \n";
+//     }
+//  }
 
- class A {
-    public function funcA(){
-        echo "I am class A \n";
-    }
- }
 
-
- class B extends A {
-    public function funcB(){
-        echo parent::funcA();
-    }
- }
- class C extends B {
-    public function funcC(){
-        // echo "I am class C \n";
-        // echo $this->funcA();
-        echo parent::funcB();
-    }
- }
+//  class B extends A {
+//     public function funcB(){
+//         echo parent::funcA();
+//     }
+//  }
+//  class C extends B {
+//     public function funcC(){
+//         // echo "I am class C \n";
+//         // echo $this->funcA();
+//         echo parent::funcB();
+//     }
+//  }
 
 
 //  $b = new B;
 //  $b->funcB();
 
- $c = new C;
+//  $c = new C;
 //  $c->funcB();
- $c->funcC();
+//  $c->funcC();
+
+ /**
+  * OOP part 12 -- Method overriding ( extends 2 )
+  *=====================================================
+
+  */
+
+//    class A {
+//     public function funcA(){
+//         echo "I am class A \n";
+//     }
+//  }
+
+
+//  class B extends A {
+//     public function funcB(){
+//         echo parent::funcA();
+//     }
+//     public function funcA(){  // Method overriding
+//         echo "I am class A -- & in B \n";
+//     }
+//  }
+//  class C extends B {
+//     public function funcC(){
+//         echo parent::funcB();
+//     }
+    
+//     public function funcA(){  // Method overriding
+//         echo "I am class A -- & in C \n";
+//     }
+//  }
+
+
+//  $c = new C;
+//  //  $c->funcB();
+//   $c->funcA();
