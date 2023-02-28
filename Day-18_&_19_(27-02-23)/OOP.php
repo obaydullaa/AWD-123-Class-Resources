@@ -198,3 +198,38 @@
 // $st = new Student;
 
 // echo $st::$name;
+
+
+/**
+ * OOP part 11 ( multi extends )
+ * ===================================================
+ */
+
+
+ class A {
+    public function funcA(){
+        echo "I am class A \n";
+    }
+ }
+
+
+ class B extends A {
+    public function funcB(){
+        echo parent::funcA();
+    }
+ }
+ class C extends B {
+    public function funcC(){
+        // echo "I am class C \n";
+        // echo $this->funcA();
+        echo parent::funcB();
+    }
+ }
+
+
+//  $b = new B;
+//  $b->funcB();
+
+ $c = new C;
+//  $c->funcB();
+ $c->funcC();
