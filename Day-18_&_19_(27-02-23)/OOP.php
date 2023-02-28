@@ -268,3 +268,77 @@
 //  $c = new C;
 //  //  $c->funcB();
 //   $c->funcA();
+
+/**
+ * OOP part 13 ( public, private, protected ) //Acess Modifier
+ * =============================================================
+ * 
+ * 
+ */
+
+
+// Public and Private
+
+// class A {
+//     private function funcA(){
+//         echo "I am class A \n";
+//     }
+//     public function funcAA(){
+//         echo $this->funcA();
+//     }
+// }
+
+
+//  class B extends A {
+//     public function funcB(){
+//         // echo "I am class B \n";
+
+//         // echo parent::funcA();
+//     }
+
+//  }
+
+
+//  $a = new A;
+//  $a->funcAA();
+
+//  $a = new B;
+//  $a->funcA();
+
+// Protected
+
+// class A {
+//     private function funcA(){
+//         echo "I am class A \n";
+//     }
+
+//     protected function funcAA(){
+//         echo "I am class AA \n";
+//     }
+    
+//     protected function funcAAP(){
+//         echo $this->funcAA();
+//     }
+
+    
+// }
+
+
+//  class B extends A {
+//     public function funcB(){
+//         echo parent::funcAA();
+//     }
+
+//  }
+
+
+//  $a = new B;
+//  $a->funcAA();
+
+//  $a = new A;
+//  $a->funcAAP();
+
+
+//  $a = new B;
+//  $a->funcB();
+ 
