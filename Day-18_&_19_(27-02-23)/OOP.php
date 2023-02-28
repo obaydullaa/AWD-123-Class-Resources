@@ -170,27 +170,31 @@
  * =================================================
  */
 
-   class Student {
-    public static $name = "Obaydul \n"; // Property
-    public $AGE = 12;
+//    class Student {
+//     public static $name = "Obaydulla \n"; // Property
+//     public $AGE = 12;
 
-    public function eat() {
-        echo "I love eat. \n";
-    }
-}
+//     public function eat() {
+//         echo "I love eat. \n";
+//     }
+// }
 
-class Information {
-    public function info() {
-        echo "I am obaydulla and i am a frontend developer.";
-    }
-}
+// class Information {
+//     public function info() {
+//         echo "I am obaydulla and i am a frontend developer. \n";
+//     }
+// }
 
-class AllInfo extends Information {
-    public function allData () {
-        echo "Im am allInfo method.";
-    }
-}
+// class AllInfo extends Information {
+//     public function allData () {
+//         echo "Im am allInfo method.";
+//     }
+// }
 
-$totto = new AllInfo;
+// $totto = new AllInfo;
 
-$totto->info(); 
+// $totto->info(); 
+
+// $st = new Student;
+
+// echo $st::$name;
