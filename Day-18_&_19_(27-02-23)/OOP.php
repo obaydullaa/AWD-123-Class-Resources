@@ -342,3 +342,50 @@
 //  $a = new B;
 //  $a->funcB();
  
+
+/**
+ * OOP part 14 ( final class and abstract class )
+ * =================================================================
+ * abstract class: don't create object it use only extends
+ * final class : don't extends because it's a final class.
+ */
+
+// abstract class
+// abstract class A {
+//     public function funcA(){
+//         echo "I am class A \n";
+//     }
+// }
+
+//  class B extends A {
+//     public function funcB(){
+//         echo parent::funcA();
+//     }
+//  }
+
+// // $a = new A; 
+// // $a->funcA();
+
+// $a = new B; 
+// $a->funcA();
+
+
+// Final class
+// class A {
+//     public final function funcA(){
+//         echo "I am class A \n";
+//     }
+// }
+
+//  class B extends A {
+//     public function funcA(){
+//         echo "I am class B \n";
+//     }
+// }
+ 
+
+// // $a = new A; 
+// // $a->funcA();
+
+// $a = new B; 
+// $a->funcA();
