@@ -4,14 +4,16 @@
  * User Management System
  */
 
- class User {
+ class User extends Database {
     
     /**
      * User add to database
      */
     
     public function userTomeJao($name, $email, $cell, $username) {
-        echo "My name is $name";
+
+        parent::create("INSERT INTO users (name, email, cell, username) VALUES('$name', '$email', '$cell', '$username' )");
+
     }
     
  }

@@ -23,21 +23,22 @@
 	/**
 	 * Isseting from
 	 */
-	if(isset($_POST['add']) ){
-		//get value
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$cell = $_POST['cell'];
-		$username = $_POST['username'];
 
-	}
+	// initialize variables with default values
+		$name = '';
+		$email = '';
+		$cell = '';
+		$username = '';
 
-	$user -> userTomeJao($name, $email, $cell, $username);
+		if( isset($_POST['add']) ){
+			// get value
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$cell = $_POST['cell'];
+			$username = $_POST['username'];
+		}
 
-
-
-
-
+		$user -> userTomeJao($name, $email, $cell, $username);
 
 ?>
 	

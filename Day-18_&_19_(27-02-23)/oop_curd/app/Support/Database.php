@@ -4,7 +4,7 @@
  * Database Management System
  */
 
- class Database {
+ abstract class Database {
 	
     private $host = 'localhost';
     private $user = 'root';
@@ -24,8 +24,8 @@
     /**
     * Create Data
     */
-    protected function create () {
-
+    protected function create ($sql) {
+        $this-> connection() -> query($sql);
     }
 
     /**

@@ -445,3 +445,48 @@
         }
             
     }
+
+    /**
+     * OOP part 19 ( data send to database )
+     * ======================================================
+     */
+
+     /**
+ * User Management System
+ */
+
+ class User extends Database {
+    
+    /**
+     * User add to database
+     */
+    
+    public function userTomeJao($name, $email, $cell, $username) {
+
+        parent::create("INSERT INTO users (name, email, cell, username) VALUES('$name', '$email', '$cell', '$username' )");
+
+    }
+    
+ }
+
+     /**
+     * Database Connection
+     */
+
+    //  public function connection() {
+    //     return $this->connection = new mysqli($this->host,$this->user,$this->pas, $this->db);
+    //  }
+
+    // /**
+    // * Create Data
+    // */
+    // protected function create ($sql) {
+    //     $this-> connection() -> query($sql);
+    // }
+
+    // /**
+    // * find Data
+    // */
+    // protected function find () {
+
+    // }
