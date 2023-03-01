@@ -413,3 +413,35 @@
  * OOP part 17 ( Add form design )
  * ===========================================
  */
+
+
+ /**
+  * OOP part 18 ( Data send to controller )
+  * =====================================================
+  */
+
+    /**
+     * Isseting from
+     */
+    if(isset($_POST['add']) ){
+        //get value
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $cell = $_POST['cell'];
+        $username = $_POST['username'];
+
+    }
+
+    $user -> userTomeJao($name, $email, $cell, $username);
+
+    class User {
+        
+        /**
+         * User add to database
+         */
+
+        public function userTomeJao($name, $email, $cell, $username) {
+            echo "My name is $name";
+        }
+            
+    }

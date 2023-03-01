@@ -1,3 +1,11 @@
+<?php
+	include "autoload.php";
+
+	$user = new User;
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +17,29 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+
+<?php
+
+	/**
+	 * Isseting from
+	 */
+	if(isset($_POST['add']) ){
+		//get value
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$cell = $_POST['cell'];
+		$username = $_POST['username'];
+
+	}
+
+	$user -> userTomeJao($name, $email, $cell, $username);
+
+
+
+
+
+
+?>
 	
 	
 
@@ -108,25 +139,25 @@
 				<div class="modal-body">
 					<h2>Add new user</h2>
 					<hr>
-					<form action="">
+					<form action="" method="POST">
 						<div class="form-group">
 							<label for="">Name</label>
-							<input class="form-control" type="text" name="" id="">
+							<input class="form-control" type="text" name="name">
 						</div>
 						<div class="form-group">
 							<label for="">Email</label>
-							<input class="form-control" type="text" email="" id="">
+							<input class="form-control" type="text" name="email">
 						</div>
 						<div class="form-group">
 							<label for="">Cell</label>
-							<input class="form-control" type="number" cell="" id="">
+							<input class="form-control" type="number" name="cell">
 						</div>
 						<div class="form-group">
 							<label for="">Username</label>
-							<input class="form-control" type="text" username="" id="">
+							<input class="form-control" type="text" name="username">
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Add New User" class="btn btn-primary" name="" id="">
+							<input type="submit" value="Add New User" class="btn btn-primary" name="add">
 						</div>
 					</form>
 				</div>
