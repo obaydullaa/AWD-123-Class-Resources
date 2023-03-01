@@ -13,8 +13,12 @@
 	
 
 	<div class="wrap-table shadow">
+		<a class="btn btn-sm btn-primary" data-toggle="modal" href="#user_add_modal">Add new student</a>
+		<br>
+		<br>
+		<br>
 		<div class="card">
-			<div class="card-body">
+			<div class="card-body shadow">
 				<h2>All Data</h2>
 				<table class="table table-striped">
 					<thead>
@@ -98,6 +102,37 @@
 	
 
 
+	<div class="modal fade" id="user_add_modal">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h2>Add new user</h2>
+					<hr>
+					<form action="">
+						<div class="form-group">
+							<label for="">Name</label>
+							<input class="form-control" type="text" name="" id="">
+						</div>
+						<div class="form-group">
+							<label for="">Email</label>
+							<input class="form-control" type="text" email="" id="">
+						</div>
+						<div class="form-group">
+							<label for="">Cell</label>
+							<input class="form-control" type="number" cell="" id="">
+						</div>
+						<div class="form-group">
+							<label for="">Username</label>
+							<input class="form-control" type="text" username="" id="">
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Add New User" class="btn btn-primary" name="" id="">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
