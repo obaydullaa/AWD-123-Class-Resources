@@ -51,7 +51,8 @@
     /**
     * all Data
     */
-    protected function all () {
+    protected function all ($table, $order='DESC') {
+      return $this-> connection() -> query("SELECT * FROM $table ORDER by id $order");
 
     }
 

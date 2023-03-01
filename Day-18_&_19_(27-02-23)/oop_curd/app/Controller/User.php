@@ -15,5 +15,16 @@
         parent::create("INSERT INTO users (name, email, cell, username) VALUES('$name', '$email', '$cell', '$username' )");
 
     }
+
+    /**
+     * All Users
+     */
+
+     public function sobUserCholeAso()  {
+        return parent::all("users" );
+     }
+
+
+
     
  }
