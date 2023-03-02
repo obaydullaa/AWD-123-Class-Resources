@@ -497,3 +497,66 @@
      * ========================================================
      * 
      */
+
+     
+    class User extends Database {
+        
+        /**
+         * User add to database
+         */
+        
+        public function userTomeJao($name, $email, $cell, $username) {
+
+            parent::create("INSERT INTO users (name, email, cell, username) VALUES('$name', '$email', '$cell', '$username' )");
+
+        }
+
+        /**
+         * all Data
+        */
+        protected function all ($table, $order='DESC') {
+            return $this-> connection() -> query("SELECT * FROM $table ORDER by id $order");
+    
+        }
+
+        /**
+         * All Users
+         */
+
+        public function sobUserCholeAso()  {
+            return parent::all("users" );
+        }
+    }
+
+
+     /**
+      *OOP part 21 ( data delete )
+      *=========================================================== 
+      
+      */
+
+      // class: Database
+      
+      class User extends Database {
+    
+         /**
+          * Delete User account
+          */
+         public function userDhonso($id) {
+            parent::delete('users', $id);
+         }
+    
+        
+     }
+
+
+      if(isset($_GET['delete_id']) ) {
+		$id = $_GET['delete_id'];
+
+            $user -> userDhonso($id);
+            header("location:index.php");
+
+        }
+
+
+      <a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $d -> id; ?>">Delete</a>

@@ -4,6 +4,7 @@
  * User Management System
  */
 
+
  class User extends Database {
     
     /**
@@ -24,6 +25,12 @@
         return parent::all("users" );
      }
 
+     /**
+      * Delete User account
+      */
+     public function userDhonso($id) {
+        parent::delete('users', $id);
+     }
 
 
     

@@ -3,6 +3,13 @@
 
 	$user = new User;
 
+	if(isset($_GET['delete_id']) ) {
+		$id = $_GET['delete_id'];
+
+		$user -> userDhonso($id);
+		header("location:index.php");
+
+	}
 
 ?>
 
@@ -40,6 +47,7 @@
 
 		$user -> userTomeJao($name, $email, $cell, $username);
 
+
 ?>
 	
 	
@@ -68,20 +76,21 @@
 
 							$data = $user-> sobUserCholeAso();
 							$i = 1;
-							while($b = $data->fetch_object() ):
+
+							while($d = $data->fetch_object() ):
 
 						?>
 
 						<tr>
 							<td><?php echo $i; $i++; ?></td>
-							<td><?php echo $b->name; ?></td>
-							<td><?php echo $b->email; ?></td>
-							<td><?php echo $b->cell; ?></td>
+							<td><?php echo $d->name; ?></td>
+							<td><?php echo $d->email; ?></td>
+							<td><?php echo $d->cell; ?></td>
 							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $d -> id; ?>">Delete</a>
 							</td>
 						</tr>
 						<?php endwhile; ?>

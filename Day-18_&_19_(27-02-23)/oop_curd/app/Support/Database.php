@@ -38,8 +38,8 @@
     /**
     * delete Data
     */
-    protected function delete () {
-
+    protected function delete ($table, $id) {
+      $this-> connection() -> query("DELETE FROM $table WHERE id = '$id' ");
     }
     /**
     * update Data
