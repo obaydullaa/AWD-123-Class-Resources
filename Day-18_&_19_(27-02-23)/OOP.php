@@ -536,7 +536,7 @@
       */
 
       // class: Database
-      
+
       class User extends Database {
     
          /**
@@ -560,3 +560,9 @@
 
 
       <a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $d -> id; ?>">Delete</a>
+
+
+      /**
+       * OOP part 22 ( Quarity string dev )
+       * ====================================================
+       */
