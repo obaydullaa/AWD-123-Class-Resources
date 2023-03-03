@@ -1,19 +1,20 @@
 <?php
 
-// interface is see class but it't not class.-> baddo kore ja ai ai class thakte hove...
-
-interface A {
-    public function dev();
-    public function info($name, $job, $age);
-}
-
-class B implements A {
+Trait A {
     public function dev() {
-
-    }
-    public function info($name, $job, $age){
-        
+        return "I am from dev A";
     }
 }
 
+class B {
+    public function food() {
+        return "I am from B";
+    }
+}
+class C extends B {
+    use A;
+}
 
+$c = new C;
+
+echo $c ->dev();

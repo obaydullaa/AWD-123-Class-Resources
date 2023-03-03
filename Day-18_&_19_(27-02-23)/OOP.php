@@ -736,3 +736,27 @@ index.php  ->
         }
     }
 
+    /**
+     * OOP part 28 ( Trait )
+     * =========================================
+     * amra ektar sate arekta extends korte pare... and jeta extends kore setai access korte pare.. amon jodi hoi... jeta extends korse seta bade aro class access korte chai se khete trait use kora hoi... 
+     */
+
+
+    Trait A {
+        public function dev() {
+            return "I am from dev A";
+        }
+    }
+    class B {
+        public function food() {
+            return "I am from B";
+        }
+    }
+    class C extends B {
+        use A;    // Trait use korte hobe..
+    }
+    
+    $c = new C;
+    echo $c ->dev();
+    
