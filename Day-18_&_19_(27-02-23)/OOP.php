@@ -633,3 +633,58 @@ $supportStudent = new SupportStudent;
 
 $controllerStudent->info();
 $supportStudent->info();
+
+
+/**
+ * OOP part 24 ( autoload )
+ * ===========================================
+ * 
+ */
+
+//  Step One
+//================================
+
+autoload.php ->
+
+    // include_once "App/Controllers/Staff.php";
+    // include_once "App/Controllers/Student.php";
+    // include_once "App/Controllers/User.php";
+
+    // include_once "App/Support/Auth.php";
+    // include_once "App/Support/Database.php";
+    // include_once "App/Support/Student.php";
+
+index.php  ->
+
+    // include "autoload.php";
+
+    // use App\Controllers\Student as ControllerStudent;
+    // use App\Support\Student as SupportStudent;
+
+    // $controllerStudent = new ControllerStudent;
+    // $supportStudent = new SupportStudent;
+
+    // $controllerStudent->info();
+    // $supportStudent->info();
+
+
+    //  Step Two
+//================================
+
+autoload.php ->
+    
+    // spl_autoload_register(function($class_name) {
+    //     include_once $class_name . ".php";
+    // });
+
+
+index.php  -> 
+
+    // use App\Controllers\Student;
+    // use App\Support\Student as SupportStudent;
+
+    // $stu = new Student;
+    // $sti = new SupportStudent;
+
+    // $stu -> info();
+    // $sti -> info();
