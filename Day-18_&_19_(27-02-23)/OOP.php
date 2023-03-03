@@ -690,10 +690,27 @@ index.php  ->
     // $sti -> info();
 
     /**
-     * OOP Final step      part 25 ( psr 4 part 1 )
+     * OOP Final step part 25 ( psr 4 part 1 )
      * ===========================================================
      */
 
-     1. Dwonload composer
-     2. composer init
-     3. github mail 
+    //  1. Dwonload composer
+    //  2. composer init
+    //  3. github user name add 
+    // complite instruction
+
+
+    /**
+     * OOP part 26 ( psr 4 part 2 )
+     * ====================================
+     */
+
+         //  1. Dwonload composer
+    //  2. composer init
+    //  3. github user name add 
+    // complite instruction
+
+
+    // cmd -> composer install
+
+    // link: include_once "vendor/autoload.php";
