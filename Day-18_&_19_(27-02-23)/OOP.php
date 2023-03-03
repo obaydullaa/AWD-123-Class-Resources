@@ -592,3 +592,44 @@
             'age' => 'Obaydul',
             'phone' => 'Obaydul@gmail.com',
         ]);
+
+
+
+
+/**
+ * OOP part 23 ( Namespace )
+ * ===============================================
+ */
+
+// 1 use every file namespace file location.
+namespace App\Support;
+class Student {
+    
+}
+
+// 2.  access namespace class
+
+include "App/Controllers/Student.php";
+include "App/Support/Student.php";
+
+$stu = new App\Controllers\Student;
+
+// 3.  access namespace class best way
+
+use App\Controllers\Student;
+
+$stu = new Student;
+
+//4. some class name access use aliases 
+
+include "App/Controllers/Student.php";
+include "App/Support/Student.php";
+
+use App\Controllers\Student as ControllerStudent;
+use App\Support\Student as SupportStudent;
+
+$controllerStudent = new ControllerStudent;
+$supportStudent = new SupportStudent;
+
+$controllerStudent->info();
+$supportStudent->info();
