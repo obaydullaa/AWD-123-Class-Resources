@@ -705,7 +705,7 @@ index.php  ->
      * ====================================
      */
 
-         //  1. Dwonload composer
+    //  1. Dwonload composer
     //  2. composer init
     //  3. github user name add 
     // complite instruction
@@ -714,3 +714,25 @@ index.php  ->
     // cmd -> composer install
 
     // link: include_once "vendor/autoload.php";
+
+    /**
+     * OOP part 27 ( interface, implements )
+     * ==================================================
+     */
+
+    // interface is see class but it't not class.-> baddo kore ja ai ai class thakte hove...
+
+    interface A {
+        public function dev();
+        public function info($name, $job, $age);
+    }
+
+    class B implements A {
+        public function dev() {
+
+        }
+        public function info($name, $job, $age){
+            
+        }
+    }
+
