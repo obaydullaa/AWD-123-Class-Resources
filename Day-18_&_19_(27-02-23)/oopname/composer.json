@@ -1,0 +1,19 @@
+{
+    "name": "obaydullaa/ooptest",
+    "description": "This is test project.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Obaydullaa\\Ooptest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "obaydullaa",
+            "email": "cr7obaydul@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

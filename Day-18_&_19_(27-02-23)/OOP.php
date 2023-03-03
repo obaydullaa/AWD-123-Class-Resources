@@ -688,3 +688,12 @@ index.php  ->
 
     // $stu -> info();
     // $sti -> info();
+
+    /**
+     * OOP Final step      part 25 ( psr 4 part 1 )
+     * ===========================================================
+     */
+
+     1. Dwonload composer
+     2. composer init
+     3. github mail 
