@@ -847,3 +847,5 @@ $a = new A;
 $a -> eat();
 
 // echo $a -> name = "Rifat";
+
+

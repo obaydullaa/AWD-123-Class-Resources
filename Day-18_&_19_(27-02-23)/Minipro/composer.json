@@ -1,0 +1,13 @@
+{
+    "name": "obaydullaa/minipro",
+    "description": "This is a project for learning.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {}, 
+    "autoload":{
+        "psr-4": {
+            "App\\" : "app/"
+        }
+    }
+}
