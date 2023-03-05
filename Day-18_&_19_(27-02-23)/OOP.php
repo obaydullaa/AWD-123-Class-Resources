@@ -843,8 +843,8 @@ class A {
 
 }
 
-$a = new A;
-$a -> eat();
+// $a = new A;
+// $a -> eat();
 
 // echo $a -> name = "Rifat";
 
