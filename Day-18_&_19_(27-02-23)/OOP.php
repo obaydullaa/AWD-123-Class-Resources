@@ -849,3 +849,14 @@ class A {
 // echo $a -> name = "Rifat";
 
 
+/**
+ * OOP part 31 ( project setup )
+ * ===============================================
+ */
+
+// Project setup Done
+
+/**
+ * OOP part 32 ( Helper methods )
+ * ===========================================
+ */
