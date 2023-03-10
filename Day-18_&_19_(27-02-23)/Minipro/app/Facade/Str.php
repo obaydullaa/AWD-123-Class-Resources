@@ -3,7 +3,10 @@
 namespace App\Facade;
 
 trait Str {
-    public static function hat($text, $type="u") {
+    /**
+     * Test transform Class 
+     */
+    public static function hat($text, $type="c") {
 
         switch ($type) {
             case 'u':
@@ -21,8 +24,7 @@ trait Str {
                 break;
         }
 
-        return "<span style=\"text-transform:$trans;\">$text </span>";
-
+        return "<span style=\"text-transform:$trans;\">$text</span>";
     }
     
 }

@@ -6,6 +6,6 @@ use App\Controllers\Staff;
 
 $staff = new Staff;
 
-echo $staff -> amni(' Amra amni amni khai');
+echo $staff -> amni('We will be full stack developer.');
 
 
