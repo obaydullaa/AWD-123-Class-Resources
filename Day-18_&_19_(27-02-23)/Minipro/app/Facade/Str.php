@@ -4,7 +4,7 @@ namespace App\Facade;
 
 trait Str {
     /**
-     * Test transform Class 
+     * Text transform Class 
      */
     public static function hat($text, $type="c") {
 
@@ -26,5 +26,14 @@ trait Str {
 
         return "<span style=\"text-transform:$trans;\">$text</span>";
     }
+
+    /**
+     * Slug Make
+     */
+
+     public static function slug($title) {
+        $low = strtolower($title);
+        return str_replace(' ', '-', $low);
+     } 
     
 }
