@@ -1,0 +1,24 @@
+{
+    "name": "obaydullaa/minipro",
+    "description": "this is minipro protject.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Obaydullaa\\Minipro\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "obaydullaa",
+            "email": "cr7obaydul@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload" : {
+        "psr-4": {
+            "App\\" : "app"
+        }
+    }
+}
