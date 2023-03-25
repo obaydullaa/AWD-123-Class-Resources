@@ -12,8 +12,11 @@
 	
 	
 
-	<div class="wrap-table shadow">
-		<div class="card">
+	<div class="wrap-table">
+		<a class="btn btn-primary" href="add-student.php">Add new Student</a>
+		<br>
+		<br>
+		<div class="card shadow">
 			<div class="card-body">
 				<h2>All Data</h2>
 				<table class="table table-striped">

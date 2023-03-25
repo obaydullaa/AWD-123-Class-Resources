@@ -12,8 +12,11 @@
 	
 	
 
-	<div class="wrap shadow">
-		<div class="card">
+	<div class="wrap">
+		<a class="btn btn-primary" href="index.php">Back</a>
+		<br>
+		<br>
+		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign Up</h2>
 				<form action="">
