@@ -1,3 +1,18 @@
+<?php
+
+
+
+	include_once "vendor/autoload.php";
+
+	// use App\Support\Database;
+
+	// $db = new Database;
+
+
+	// $db-> connection();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
