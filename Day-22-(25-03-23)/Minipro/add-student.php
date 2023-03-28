@@ -1,17 +1,28 @@
 <?php
 
-
-
 	include_once "vendor/autoload.php";
 
-	// use App\Support\Database;
+	use App\Controllers\Student;
 
-	// $db = new Database;
+	$stu = new student;
 
+	// Get Value
+	if(isset($_POST['add'])) {
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$cell = $_POST['cell'];
+		$pass = $_POST['pass'];
+		$photo = $_FILES['photo'];
+	}
 
-	// $db-> connection();
+	// Error check
+	if(empty($name) || empty($email) || empty($cell) ){
+		$msg = "<p class='alert alert-danger'>All file are requird !</p>";
+	}else {
+		$stu -> createNewStudent($name, $email, $cell,$pass,$photo);
+	}
 
-?>
+	?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,25 +45,34 @@
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign Up</h2>
-				<form action="">
+				<?php
+					if(isset($msg) ){
+						echo $msg;
+					}
+				?>
+				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
-						<input class="form-control" type="text">
+						<input name="name" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input class="form-control" type="text">
+						<input name="email" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input class="form-control" type="text">
+						<input name="cell" class="form-control" type="text">
 					</div>
 					<div class="form-group">
-						<label for="">Username</label>
-						<input class="form-control" type="text">
+						<label for="">Password</label>
+						<input name="pass" class="" type="password">
 					</div>
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Sign Up">
+						<label for="">Photo</label>
+						<input name="photo" class="" type="file">
+					</div>
+					<div class="form-group">
+						<input name="add" class="btn btn-primary" type="submit" value="Sign Up">
 					</div>
 				</form>
 			</div>

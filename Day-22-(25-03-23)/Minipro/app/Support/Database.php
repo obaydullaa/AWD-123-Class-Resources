@@ -27,8 +27,21 @@
     /**
     * Create Data
     */
-    protected function create ($sql) {
-        $this-> connection() -> query($sql);
+    protected function create (string $table, array $data) {
+        // Get col name
+        $arr_key = array_keys($data);
+        $db_col = implode(',', $arr_key);
+    
+        // Get Values
+        $arr_val = array_values($data);
+        $data_str = '';
+        foreach($arr_val as $val) {
+            $data_str .= "'". $val. "',";
+        }
+        $data_val =  substr($data_str, 0, -1);
+        
+
+        $this -> connection()-> query("INSERT INTO $table ($db_col) VALUES($data_val)");
     }
 
     /**
