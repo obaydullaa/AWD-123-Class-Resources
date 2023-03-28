@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Support\Database;
+use App\Facade\HASH;
 
 class Student extends Database {
 
@@ -18,7 +19,7 @@ class Student extends Database {
         'name' => $name,
         'email' => $email,
         'cell' => $cell,
-        'password' => $pass,
+        'password' => HASH::make($pass),
         'photo' => ''
     ]);
 
