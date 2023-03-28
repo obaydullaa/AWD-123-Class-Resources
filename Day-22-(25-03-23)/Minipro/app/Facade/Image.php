@@ -27,5 +27,7 @@ trait Image {
         return md5(time().rand()) . '.' . strtolower($file_extension);
      }
 
+     
+
     
 }
