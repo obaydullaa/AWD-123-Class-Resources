@@ -28,4 +28,13 @@ class Student extends Database {
 
     }
 
+
+    /**
+     * Get all students
+     */
+    public function allStudent() {
+        return $this -> all('student');
+    }
+
+
 }
