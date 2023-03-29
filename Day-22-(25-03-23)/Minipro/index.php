@@ -1,9 +1,13 @@
 <?php
 	include_once "vendor/autoload.php";
-
 	use App\Controllers\Student;
-
 	$stu = new Student;
+
+	if(isset($_GET['delete_id'])){
+		$id = $_GET['delete_id'];
+		$stu -> deleteStudent($id);
+		header("location:index.php");
+	}
 	
 ?>
 
@@ -55,7 +59,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete_id=<?php echo $student -> id; ?>">Delete</a>
 							</td>
 						</tr>	
 						<?php endwhile; ?>		

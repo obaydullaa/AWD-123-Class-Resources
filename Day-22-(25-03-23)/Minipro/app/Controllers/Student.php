@@ -36,5 +36,11 @@ class Student extends Database {
         return $this -> all('student');
     }
 
+    /**
+     * Delete Student
+     */
+    public function deleteStudent($id) {
+         $this -> delete('student', $id);
+    }
 
 }
