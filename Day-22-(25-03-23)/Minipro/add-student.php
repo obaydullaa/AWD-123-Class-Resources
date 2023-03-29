@@ -1,9 +1,7 @@
 <?php
 
 	include_once "vendor/autoload.php";
-
 	use App\Controllers\Student;
-
 	$stu = new student;
 
 	// Get Value

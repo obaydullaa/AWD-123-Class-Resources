@@ -43,4 +43,11 @@ class Student extends Database {
          $this -> delete('student', $id);
     }
 
+    /**
+     * Single Student
+     */
+    public function showSingleStudent($id) {
+        return  $this -> find('student', $id);
+    }
+
 }

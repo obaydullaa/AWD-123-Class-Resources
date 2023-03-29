@@ -47,8 +47,9 @@
     /**
     * find Data
     */
-    protected function find () {
-
+    protected function find ($table, $id) {
+      $data = $this -> connection()-> query("SELECT * FROM $table WHERE id='$id'");
+      return $data -> fetch_object();
     }
 
     /**
