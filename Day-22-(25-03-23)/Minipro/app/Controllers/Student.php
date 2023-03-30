@@ -49,5 +49,11 @@ class Student extends Database {
     public function showSingleStudent($id) {
         return  $this -> find('student', $id);
     }
+    /**
+     * Edit info
+     */
+     public function editInfo($id) {
+        return $this -> find('student', $id);
+     }
 
 }
