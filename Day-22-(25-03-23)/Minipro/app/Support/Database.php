@@ -48,7 +48,7 @@
     * find Data
     */
     protected function find ($table, $id) {
-      $data = $this -> connection()-> query("SELECT * FROM $table WHERE id='$id'");
+      $data = $this -> connection()-> query("SELECT * FROM $table WHERE id=$id");
       return $data -> fetch_object();
     }
 
@@ -61,8 +61,17 @@
     /**
     * update Data
     */
-    protected function update () {
 
+    protected function update (string $table, int $id, array $data) {
+        
+        $query_string = '';
+        foreach($data as $key => $value) {
+            $query_string .= $key ."= '" .$value . "', ";
+        }
+        
+        $update_str = substr($query_string, 0, -2);
+
+        $this->connection()->query("UPDATE $table SET $update_str WHERE id='$id'");
     }
 
     /**
@@ -83,7 +92,8 @@
     /**
     * onWhere Data
     */
-    protected function onWhere () {
+    protected function onWhere ( ) {
 
-    }
+ }
+
  }

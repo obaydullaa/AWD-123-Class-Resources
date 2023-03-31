@@ -7,7 +7,6 @@
 	// get edit id 
 	if(isset($_GET['edit_id']) ){
 		$id = $_GET['edit_id'];
-		$edit_data = $stu -> editInfo($id);
 	}else {
 		header('location:index.php'); 
 	}
@@ -17,16 +16,19 @@
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$cell = $_POST['cell'];
-		$pass = $_POST['pass'];
-		$photo = $_FILES['photo'];
+		$old_photo = $_POST['old_photo'];
+		$new_photo = $_FILES['new_photo'];
 	}
 
 	// Error check
 	if(empty($name) || empty($email) || empty($cell) ){
 		$msg = "<p class='alert alert-danger'>All file are requird !</p>";
 	}else {
-		$stu -> createNewStudent($name, $email, $cell,$pass,$photo);
+		$stu -> updateStudentData($name, $email, $cell,$old_photo,$new_photo, $id );
 	}
+
+
+	$edit_data = $stu -> editInfo($id);
 
 	?>
 
@@ -70,9 +72,10 @@
 						<input name="cell" class="form-control" value="<?php echo $edit_data->cell; ?>" type="text">
 					</div>
 					<div class="form-group">
-						<img width="200" src="photos/students/<?php echo $edit_data->photo;  ?>" alt="">
+						<img width="200" src="photos/students/<?php echo $edit_data->photo; ?>" alt="">
 						<label for="">Photo</label>
-						<input name="photo" class="" type="file">
+						<input name="new_photo" class="" type="file">
+						<input name="old_photo" class="" value="<?php echo $edit_data->photo; ?>" type="hidden">
 					</div>
 					<div class="form-group">
 						<input name="add" class="btn btn-primary" type="submit" value="Update Now">

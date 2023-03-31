@@ -56,4 +56,27 @@ class Student extends Database {
         return $this -> find('student', $id);
      }
 
+     /**
+      * Updated student Data
+      */
+
+      public function updateStudentData($name, $email, $cell,$old_photo,$new_photo, $id ){
+
+        if(empty($new_photo['name'])){
+            $photo_name = $old_photo;
+        }else {
+            $p_name = $this -> move($new_photo, 'photos/students/');
+            $photo_name = $p_name['file_name'];
+
+            unlink('photos/students');
+        }
+
+        $this -> update('student', $id, [
+            'name' => $name,
+            'email' => $email,
+            'cell' => $cell,
+            'photo' => $photo_name,
+        ]);
+      }
+
 }
