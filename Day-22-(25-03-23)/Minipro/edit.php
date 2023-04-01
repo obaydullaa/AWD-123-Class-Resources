@@ -26,8 +26,6 @@
 	}else {
 		$stu -> updateStudentData($name, $email, $cell,$old_photo,$new_photo, $id );
 	}
-
-
 	$edit_data = $stu -> editInfo($id);
 
 	?>
