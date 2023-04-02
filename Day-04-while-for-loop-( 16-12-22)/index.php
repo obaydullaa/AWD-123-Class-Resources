@@ -94,6 +94,6 @@
     PHP Loop =>  for
 */ 
 
-for($i = 10; $i > 0; $i--){
-    echo "value for $i \n";
-} 
+// for($i = 10; $i > 0; $i--){
+//     echo "value for $i \n";
+// } 
