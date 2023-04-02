@@ -95,5 +95,5 @@
 */ 
 
 for($i = 10; $i > 0; $i--){
-    echo "value for $i ";
-}
+    echo "value for $i \n";
+} 
