@@ -9,6 +9,19 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+
+<?php
+	if(isset($_POST['insert'])) {
+		// Form value
+		echo $name = $_POST['name'];
+		echo $email = $_POST['email'];
+		echo $cell = $_POST['cell'];
+		echo $roll = $_POST['email'];
+
+	}
+
+
+?>
 	
 	
 
@@ -16,7 +29,7 @@
 		<div class="card">
 			<div class="card-body">
 				<h2>Sign Up</h2>
-				<form action="">
+				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
 						<input name="name" class="form-control" type="text">
