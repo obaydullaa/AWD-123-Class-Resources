@@ -18,6 +18,12 @@
 		$cell = $_POST['cell'];
 		$roll = $_POST['roll'];
 
+		if(isset($email)){
+			$email_arr = explode('@', $email);
+			$inst_mail = end($email_arr);
+		}
+
+
 		if(empty($name)){
 			$err['name'] = "<p style='color: red;'>*Required <p>";
 		}
@@ -39,10 +45,13 @@
 		}else if(filter_var($email, FILTER_VALIDATE_EMAIL)== false){
 			
 			$msg = "<p class=\"alert alert-warning\" >Invalid Email Address..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+		}else if($inst_mail !== 'gmail.com'){
+			$msg = "<p class=\"alert alert-warning\" >Please Valid mail..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+
 		}
 		
 		else {
-			$msg =  "<p class=\"alert alert-danger\">Data is stable. <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+			$msg =  "<p class=\"alert alert-success\">Data is stable. <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}
 
 	}

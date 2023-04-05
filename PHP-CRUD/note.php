@@ -74,15 +74,24 @@
 * ==============================
  */
  <?php
-else if(filter_var($email, FILTER_VALIDATE_EMAIL)== false){
-			
-    $msg = "<p class=\"alert alert-warning\" >Invalid Email Address..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+    else if(filter_var($email, FILTER_VALIDATE_EMAIL)== false){
+                
+        $msg = "<p class=\"alert alert-warning\" >Invalid Email Address..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+    }
+
+
+/**
+ * Step: 05: Target mail check
+ */
+if(isset($email)){
+    $email_arr = explode('@', $email);
+    $inst_mail = end($email_arr);
 }
 
+else if($inst_mail !== 'gmail.com'){
+    $msg = "<p class=\"alert alert-warning\" >Please Valid mail..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 
-
-
-
+}
 
 
 
