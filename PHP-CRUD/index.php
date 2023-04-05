@@ -13,11 +13,17 @@
 <?php
 	if(isset($_POST['insert'])) {
 		// Form value
-		echo $name = $_POST['name'];
-		echo $email = $_POST['email'];
-		echo $cell = $_POST['cell'];
-		echo $roll = $_POST['email'];
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$cell = $_POST['cell'];
+		$roll = $_POST['roll'];
 
+		// Form validation
+		if(empty($name) || empty($email) || empty($cell) || empty($roll) ){
+			$msg = "All Fields Are Required.";
+		}else {
+			$msg = "Data is stable.";
+		}
 	}
 
 
@@ -29,6 +35,11 @@
 		<div class="card">
 			<div class="card-body">
 				<h2>Sign Up</h2>
+				<?php 
+					if(isset($msg)){
+						echo $msg;
+					} 
+				?>
 				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
