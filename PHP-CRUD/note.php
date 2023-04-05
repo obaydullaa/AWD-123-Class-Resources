@@ -31,14 +31,15 @@
         */
 
 
-<?php
+    <?php
 		if(empty($name) || empty($email) || empty($cell) || empty($roll) ){
 			// $msg = "All Fields Are Required.";
 			$msg = "<p class=\"alert alert-danger\" >All filed are required..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}else {
 			$msg =  "<p class=\"alert alert-danger\">Data is stable. <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}
-?>
+        ?>
+
     <h2>Sign Up</h2>
     <?php 
         if(isset($msg)){
@@ -68,8 +69,29 @@
         ?>
 	</div>
 
+/**
+*  Step 04: EMail Validation
+* ==============================
+ */
+ <?php
+else if(filter_var($email, FILTER_VALIDATE_EMAIL)== false){
+			
+    $msg = "<p class=\"alert alert-warning\" >Invalid Email Address..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+}
 
-//  Step 04:
+
+
+
+
+
+
+
+
+
+
+
+
+//  
 //  Step 05:
 
 

@@ -35,7 +35,13 @@
 		if(empty($name) || empty($email) || empty($cell) || empty($roll) ){
 			// $msg = "All Fields Are Required.";
 			$msg = "<p class=\"alert alert-danger\" >All filed are required..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
-		}else {
+
+		}else if(filter_var($email, FILTER_VALIDATE_EMAIL)== false){
+			
+			$msg = "<p class=\"alert alert-warning\" >Invalid Email Address..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+		}
+		
+		else {
 			$msg =  "<p class=\"alert alert-danger\">Data is stable. <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}
 
