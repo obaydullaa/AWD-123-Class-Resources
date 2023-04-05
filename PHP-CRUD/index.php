@@ -18,15 +18,28 @@
 		$cell = $_POST['cell'];
 		$roll = $_POST['roll'];
 
+		if(empty($name)){
+			$err['name'] = "<p style='color: red;'>*Required <p>";
+		}
+		if(empty($email)){
+			$err['email'] = "<p style='color: red;'>*Required <p>";
+		}
+		if(empty($cell)){
+			$err['cell'] = "<p style='color: red;'>*Required <p>";
+		}
+		if(empty($roll)){
+			$err['roll'] = "<p style='color: red;'>*Required <p>";
+		}
+
 		// Form validation
 		if(empty($name) || empty($email) || empty($cell) || empty($roll) ){
-			$msg = "All Fields Are Required.";
+			// $msg = "All Fields Are Required.";
+			$msg = "<p class=\"alert alert-danger\" >All filed are required..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}else {
-			$msg = "Data is stable.";
+			$msg =  "<p class=\"alert alert-danger\">Data is stable. <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}
+
 	}
-
-
 ?>
 	
 	
@@ -44,18 +57,38 @@
 					<div class="form-group">
 						<label for="">Name</label>
 						<input name="name" class="form-control" type="text">
+						<?php
+							if(isset($err['name'])) {
+								echo $err['name'];
+							}
+						?>
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
 						<input name="email" class="form-control" type="text">
+						<?php
+							if(isset($err['email'])) {
+								echo $err['email'];
+							}
+						?>
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
 						<input name="cell" class="form-control" type="text">
+						<?php
+							if(isset($err['cell'])) {
+								echo $err['cell'];
+							}
+						?>
 					</div>
 					<div class="form-group">
 						<label for="">Roll</label>
 						<input name="roll" class="form-control" type="text">
+						<?php
+							if(isset($err['roll'])) {
+								echo $err['roll'];
+							}
+						?>
 					</div>
 					<div class="form-group">
 						<input name="insert" class="btn btn-primary" type="submit" value="Sign Up">
