@@ -107,5 +107,28 @@ else if(in_array($cell_start, ['013', '014', '015', '016', '017', '018', '019'])
     $msg = "<p class=\"alert alert-warning\" >Please Valid Phone Number..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 }
 
+?>
 
+/**
+ * Step 06: file upload markup
+ * =========================================================
+ * 
+ */
+<div class="wrap shadow">
+		<div class="card">
+			<div class="card-body">
+				<h2>File Upload</h2>
+				<form action="" method="POST">
+					<div class="form-group">
+						<label for="file-upload"><img width="50" data-placement="right" data-toggle="to0ltip" title="Profile Photo" src="images.png" style="cursor: pointer;" alt=""></label>
+						<input style="display: none;" type="file"  id="file-upload" class="form-control">
+					</div>
 
+					<div class="form-group">
+						<input name="insert" class="btn btn-primary" type="submit" value="Submit">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
