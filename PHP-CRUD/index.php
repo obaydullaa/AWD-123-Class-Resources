@@ -22,6 +22,11 @@
 			$email_arr = explode('@', $email);
 			$inst_mail = end($email_arr);
 		}
+		
+		if(isset($cell)){
+			$cell_start = substr($cell, 0, 3);
+		}
+
 
 
 		if(empty($name)){
@@ -48,6 +53,8 @@
 		}else if($inst_mail !== 'gmail.com'){
 			$msg = "<p class=\"alert alert-warning\" >Please Valid mail..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 
+		}else if(in_array($cell_start, ['013', '014', '015', '016', '017', '018', '019']) == false) {
+			$msg = "<p class=\"alert alert-warning\" >Please Valid Phone Number..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
 		}
 		
 		else {

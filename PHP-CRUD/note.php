@@ -94,13 +94,18 @@ else if($inst_mail !== 'gmail.com'){
 }
 
 
+/**
+ * Step 05: Cell number validation
+ * =========================================================
+ * 
+ */
 
+ if(isset($cell)){
+    $cell_start = substr($cell, 0, 3);
+}
+else if(in_array($cell_start, ['013', '014', '015', '016', '017', '018', '019']) == false) {
+    $msg = "<p class=\"alert alert-warning\" >Please Valid Phone Number..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+}
 
-
-
-
-
-//  
-//  Step 05:
 
 
