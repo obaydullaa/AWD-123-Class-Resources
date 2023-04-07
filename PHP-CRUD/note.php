@@ -118,16 +118,23 @@ else if(in_array($cell_start, ['013', '014', '015', '016', '017', '018', '019'])
 /**
  * Upload
  */
-	if(isset($_POST['upload'])) {
-		$file = $_FILES['profile_photo'];
+    if(isset($_POST['upload'])) {
+        $file = $_FILES['profile_photo'];
 
-		// file info
-		$file_name = $file['name'];  
-		$file_tpmname = $file['tmp_name'];  
-		$file_size = $file['size'];
+        // file info
+        $file_name = $file['name'];  
+        $file_tpmname = $file['tmp_name'];  
+        $file_size = $file['size'];
 
-		move_uploaded_file($file_tpmname,'photos/'.$file_name );
-	}
+        // unique file name
+        $unique_name_pro = time() . $file_name;
+        $unique_name = md5($unique_name_pro) . $file_name;
+
+        echo $unique_name;
+
+        move_uploaded_file($file_tpmname,'photos/'. $unique_name_pro );
+    }
+
 	
 ?>
 	

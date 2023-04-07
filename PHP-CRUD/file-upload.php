@@ -21,8 +21,12 @@
 		$file_name = $file['name'];  
 		$file_tpmname = $file['tmp_name'];  
 		$file_size = $file['size'];
+ 
+		// unique file name
+        $unique_name_pro = time() . $file_name;
+        $unique_name = md5($unique_name_pro) . $file_name;
 
-		move_uploaded_file($file_tpmname,'photos/'.$file_name );
+        move_uploaded_file($file_tpmname,'photos/'. $unique_name_pro );
 		
 		
 	}
