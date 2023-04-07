@@ -21,12 +21,16 @@
 		$file_name = $file['name'];  
 		$file_tpmname = $file['tmp_name'];  
 		$file_size = $file['size'];
+
+		// Get Extension
+		$file_arr = explode('.',$file_name);
+		$extension = end($file_arr);
  
 		// unique file name
-        $unique_name_pro = time() . $file_name;
-        $unique_name = md5($unique_name_pro) . $file_name;
+        $unique_name_pro = time() . rand(1, 99999);
+        $unique_name = md5($unique_name_pro) . '.'. $extension;
 
-        move_uploaded_file($file_tpmname,'photos/'. $unique_name_pro );
+        move_uploaded_file($file_tpmname,'photos/' . $unique_name);
 		
 		
 	}
