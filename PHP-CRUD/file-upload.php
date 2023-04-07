@@ -30,7 +30,18 @@
         $unique_name_pro = time() . rand(1, 99999);
         $unique_name = md5($unique_name_pro) . '.'. $extension;
 
-        move_uploaded_file($file_tpmname,'photos/' . $unique_name);
+	
+		if(empty($file_name)){
+			$msg = "<p class=\"alert alert-danger\">Please Elect a file..! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+
+		}else if(in_array($extension, ['jpg','jpeg','git','webp'])== false) {
+			$msg = "<p class=\"alert alert-warning\">Invalid File Format .! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+		}else{
+			move_uploaded_file($file_tpmname,'photos/'. $unique_name );
+			$msg = "<p class=\"alert alert-success\">File Upload Success ! <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+
+		}
+        
 		
 		
 	}
@@ -44,7 +55,11 @@
 		<div class="card">
 			<div class="card-body">
 				<h2>File Upload</h2>
-
+				<?php 
+				if(isset($file_name)) {
+					echo $msg;
+				}
+				?>
 				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="file-upload"><img width="50" data-placement="right" data-toggle="to0ltip" title="Profile Photo" src="images.png" style="cursor: pointer;" alt=""></label>
