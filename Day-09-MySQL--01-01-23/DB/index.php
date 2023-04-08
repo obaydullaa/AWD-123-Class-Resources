@@ -28,7 +28,7 @@
 
 // $network = new mysqli('localhost','obaydul', 123456); // connect database
 // $network -> query("CREATE DATABASE sm"); // DB create
-// $network -> query("DROP DATABASE sm"); // DB Drop
+// $network -> query("DROP DATABASE sm"); // DB Drop // Delete
 
 
 /**
