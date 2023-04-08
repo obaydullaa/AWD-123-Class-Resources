@@ -42,8 +42,6 @@
 
 		}
         
-		
-		
 	}
 	
 	
@@ -61,6 +59,9 @@
 				}
 				?>
 				<form action="" method="POST" enctype="multipart/form-data">
+					<div class="from-group">
+						<img style="max-width:100%" id="upload_img" src="" alt="">
+					</div>
 					<div class="form-group">
 						<label for="file-upload"><img width="50" data-placement="right" data-toggle="to0ltip" title="Profile Photo" src="images.png" style="cursor: pointer;" alt=""></label>
 						<input name="profile_photo" style="display: none;" type="file"  id="file-upload" class="form-control">
@@ -91,6 +92,12 @@
 		$(function () {
 			$('[data-toggle="tooltip"]').tooltip()
 		})
+		$('input[name="profile_photo"]').change(function(e){
+			console.log(e);
+			let fil_url = URL.createObjectURL(e.target.files[0]);
+			$('img#upload_img').attr('src', fil_url);
+		}) 
+
 	</script>
 </body>
 </html>

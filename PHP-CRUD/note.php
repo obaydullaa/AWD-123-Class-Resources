@@ -157,4 +157,21 @@ else if(in_array($cell_start, ['013', '014', '015', '016', '017', '018', '019'])
 			</div>
 		</div>
 	</div>
+
+/**
+ * Step 07: Browser img preview
+ * =========================================================
+ * 
+ */
 	
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    $('input[name="profile_photo"]').change(function(e){
+        console.log(e);
+        let fil_url = URL.createObjectURL(e.target.files[0]);
+        $('img#upload_img').attr('src', fil_url);
+    }) 
+
+</script>
