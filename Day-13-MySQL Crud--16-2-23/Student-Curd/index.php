@@ -98,7 +98,6 @@
 							$data = all('students');
 							$i = 1;
 							while($student = $data->fetch_object()) :
-
 						?>
 						<tr>
 							<td><?php echo $i++; ?></td>
