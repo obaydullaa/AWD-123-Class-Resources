@@ -9,6 +9,18 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+
+	<div class="menu mt-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<a class="btn btn-primary btn-sm" href="index.php">All Students</a>
+					<a class="btn btn-primary btn-sm" href="create.php">Add New Student</a>
+					<a class="btn btn-primary btn-sm" href="profile.php">Profile</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	
 
