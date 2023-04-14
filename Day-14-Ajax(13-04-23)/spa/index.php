@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<a class="btn btn-primary btn-sm" href="index.php">All Students</a>
-					<a class="btn btn-primary btn-sm" href="create.php">Add New Student</a>
+					<a id="add_student" class="btn btn-primary btn-sm" href="create.php">Add New Student</a>
 					<a class="btn btn-primary btn-sm" href="profile.php">Profile</a>
 				</div>
 			</div>
@@ -23,6 +23,9 @@
 	</div>
 	
 	
+
+<div class="app">
+
 
 	<div class="wrap-table shadow">
 		<div class="card">
@@ -107,11 +110,8 @@
 			</div>
 		</div>
 	</div>
-	
 
-
-
-
+</div>
 
 
 
@@ -120,5 +120,30 @@
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script>
+		$('#add_student').click(function() {
+
+			$.ajax({
+				url: 'create.php',
+				success: function(data) {
+					$('.app').html(data);
+				}
+			});
+			
+			return false;
+		})
+		
+		$('#add_student').click(function() {
+
+			$.ajax({
+				url: 'create.php',
+				success: function(data) {
+					$('.app').html(data);
+				}
+			});
+			
+			return false;
+		})
+	</script>
 </body>
 </html>
