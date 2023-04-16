@@ -24,9 +24,9 @@
 	
 	
 
-<div class="app">
+	<div class="app">
 
-</div>
+	</div>
 
 
 
@@ -60,17 +60,40 @@
 			return false;
 		});
 
-		$('#all').click(function() {
-			$.ajax({
-				url: 'all.php',
-				success: function(data) {
-					$('.app').html(data);
-				}
-			});
+		// $('#all').click(function() {
+		// 	$.ajax({
+		// 		url: 'all.php',
+		// 		success: function(data) {
+		// 			$('.app').html(data);
+		// 		}
+		// 	});
 			
+		// 	return false;
+		// });
+
+		$.ajax({
+			url: 'all.php',
+			success: function(data) {
+				$('.app').html(data);
+			}
+		});
+
+		$('student_form').submit(function() {
+			alert();
+		});
+
+		$(document).on('submit','#student_form', function() {
+			let name = $('#name').val();
+			let email = $('#email').val();
+			let cell = $('#cell').val();
+			let username = $('#username').val();
+
+			alert(name + email + cell + username);
+
 			return false;
 		});
-		
+
+	
 	</script>
 </body>
 </html>
