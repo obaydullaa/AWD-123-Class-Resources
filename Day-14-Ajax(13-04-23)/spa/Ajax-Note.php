@@ -1,5 +1,6 @@
 <?php
 
+?>
 <script>
 
     $('#add_student').click(function() { // select button of link
@@ -23,7 +24,6 @@
         let username = $('#username').val();
 
         alert(name + email + cell + username);
-
         return false;
     });
 
