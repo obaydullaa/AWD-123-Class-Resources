@@ -1,5 +1,7 @@
 <?php
 
+
+
 ?>
 <script>
 
@@ -11,7 +13,6 @@
                 $('.app').html(data);
             }
         });
-        
         return false;
     });
 
