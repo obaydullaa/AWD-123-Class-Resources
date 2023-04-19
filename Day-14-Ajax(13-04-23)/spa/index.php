@@ -60,16 +60,16 @@
 			return false;
 		});
 
-		// $('#all').click(function() {
-		// 	$.ajax({
-		// 		url: 'all.php',
-		// 		success: function(data) {
-		// 			$('.app').html(data);
-		// 		}
-		// 	});
+		$('#all').click(function() {
+			$.ajax({
+				url: 'all.php',
+				success: function(data) {
+					$('.app').html(data);
+				}
+			});
 			
-		// 	return false;
-		// });
+			return false;
+		});
 
 		$.ajax({
 			url: 'all.php',
