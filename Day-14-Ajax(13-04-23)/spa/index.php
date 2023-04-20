@@ -88,7 +88,12 @@
 			let cell = $('#cell').val();
 			let username = $('#username').val();
 
-			alert(name + email + cell + username);
+			$.ajax({
+				url~: 'ajax_template/ajax.php',
+				success: function(data) {
+					alert(data);
+				}
+			})
 
 			return false;
 		});
