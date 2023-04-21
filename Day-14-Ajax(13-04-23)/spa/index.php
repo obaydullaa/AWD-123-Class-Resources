@@ -89,13 +89,13 @@
 			let username = $('#username').val();
 
 			$.ajax({
-				url~: 'ajax_template/ajax.php',
+				url: 'ajax_template/ajax.php',
 				success: function(data) {
 					alert(data);
 				}
 			})
 
-			return false;
+			return false; 
 		});
 
 	
