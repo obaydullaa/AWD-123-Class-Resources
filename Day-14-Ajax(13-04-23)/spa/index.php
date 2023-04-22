@@ -35,6 +35,7 @@
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script>
 		$('#add_student').click(function() {
 
@@ -98,7 +99,12 @@
 					username: username
 				},
 				success: function(data) {
-					alert(data);
+					alert('Student added successful ');
+					// data reset
+					$('#name').val('');
+					$('#email').val('');
+					$('#cell').val('');
+					$('#username').val('');
 				}
 			})
 
