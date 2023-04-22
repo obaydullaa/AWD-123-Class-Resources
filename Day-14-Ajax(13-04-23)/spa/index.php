@@ -90,6 +90,13 @@
 
 			$.ajax({
 				url: 'ajax_template/ajax.php',
+				method: "POST",
+				data: {
+					name : name,
+					email: email,
+					cell: cell,
+					username: username
+				},
 				success: function(data) {
 					alert(data);
 				}
