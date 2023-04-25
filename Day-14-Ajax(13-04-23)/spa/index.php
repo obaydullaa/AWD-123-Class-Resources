@@ -90,7 +90,10 @@
 			let cell = $('#cell').val();
 			let username = $('#username').val();
 
-			$.ajax({
+			if(name == '' || email == '' || cell == '' || username == ''){
+				swal("opps", "All Field Are Required","warning");
+			} else {
+				$.ajax({
 				url: 'ajax_template/ajax.php',
 				method: "POST",
 				data: {
@@ -100,8 +103,6 @@
 					username: username
 				},
 				success: function(data) {
-					swal('Student added successful ');
-
 					// data reset
 					$('#name').val('');
 					$('#email').val('');
@@ -109,6 +110,9 @@
 					$('#username').val('');
 				}
 			})
+			}
+
+			
 
 			return false; 
 		});
