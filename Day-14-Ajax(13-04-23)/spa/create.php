@@ -3,6 +3,7 @@
 	<div class="card">
 		<div class="card-body">
 			<h2>Add new Student</h2>
+			<div class="msg"></div>
 			<form id="student_form">
 				<div class="form-group">
 					<label for="">Name</label>

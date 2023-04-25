@@ -103,6 +103,8 @@
 					username: username
 				},
 				success: function(data) {
+				swal("Success", "All Field Are Required","success");
+
 					// data reset
 					$('#name').val('');
 					$('#email').val('');
