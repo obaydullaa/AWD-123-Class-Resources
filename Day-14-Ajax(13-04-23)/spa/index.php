@@ -118,6 +118,12 @@
 
 			return false; 
 		});
+		$.ajax({
+			url: 'ajax_template/all-student.php',
+			success: function(data) {
+				alert(data);
+			}
+		})
 
 	
 	</script>
