@@ -119,7 +119,7 @@
 
 			return false; 
 		});
-		alldata()
+		allData()
 		function allData() {
 			$.ajax({
 				url: 'ajax_template/all-student.php',
@@ -128,6 +128,15 @@
 				}
 			})
 		}
+
+
+		$(document).on('click', 'a.delete-btn', function() {
+			let id = $(this).attr('delete_id');
+			alert(id);
+
+			return false;
+		}); 
+
 	
 	</script>
 </body>

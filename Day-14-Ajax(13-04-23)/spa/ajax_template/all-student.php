@@ -17,7 +17,7 @@ while($stu = $data->fetch_object()) :
         <td>
             <a class="btn btn-sm btn-info" href="#">View</a>
             <a class="btn btn-sm btn-warning" href="#">Edit</a>
-            <a class="btn btn-sm btn-danger" href="#">Delete</a>
+            <a delete_id="<?php echo $stu->id; ?>" class="btn btn-sm btn-danger delete-btn" href="#">Delete</a>
         </td>
     </tr>
 <?php
