@@ -86,35 +86,15 @@
 		});
 
 		$(document).on('submit','#student_form', function() {
-			let name = $('#name').val();
-			let email = $('#email').val();
-			let cell = $('#cell').val();
-			let username = $('#username').val();
 
-			if(name == '' || email == '' || cell == '' || username == ''){
-				swal("opps", "All Field Are Required","warning");
-			} else {
-				$.ajax({
+			$.ajax({
 				url: 'ajax_template/ajax.php',
-				method: "POST",
-				data: {
-					name : name,
-					email: email,
-					cell: cell,
-					username: username
-				},
+				method: 'POST',
+				data:  $(this).serialize(),
 				success: function(data) {
-				swal("Success", "All Field Are Required","success");
-
-					// data reset
-					$('#name').val('');
-					$('#email').val('');
-					$('#cell').val('');
-					$('#username').val('');
+					console.log(data);
 				}
-			})
-			}
-
+			});
 			
 
 			return false; 

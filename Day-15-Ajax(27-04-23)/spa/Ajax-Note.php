@@ -19,6 +19,7 @@
     // get value from input and store variable.
 
     $(document).on('submit','#student_form', function() {
+        // Manual system
         let name = $('#name').val();
         let email = $('#email').val();
         let cell = $('#cell').val();
@@ -98,5 +99,34 @@ $(document).on('click', 'a.delete-btn', function() {
         $connection = new mysqli('localhost', 'root', '', 'ajax');
         $data = $connection->query("DELETE FROM students WHERE id = '$id'");
 
+    // Ajax Part two---
+
+    // Serialize system get data
+        // form data get use -> name="name" 
+    //ajax.php ->
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $cell = $_POST['cell'];
+        $username= $_POST['username'];
+
+        $connection = new mysqli('localhost', 'root', '', 'ajax');
+        $connection->query("INSERT INTO students (name, email, cell, username) VALUES ('$name', '$email', '$cell', '$username')");
+
+
+
+	$(document).on('submit','#student_form', function() {
+
+        $.ajax({
+            url: 'ajax_template/ajax.php',
+            method: 'POST',
+            data:  $(this).serialize(),
+            success: function(data) {
+                console.log(data);
+            }
+        });
+
+
+        return false; 
+     });
 
 </script>
