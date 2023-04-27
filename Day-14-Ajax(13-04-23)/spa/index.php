@@ -132,7 +132,31 @@
 
 		$(document).on('click', 'a.delete-btn', function() {
 			let id = $(this).attr('delete_id');
-			alert(id);
+			swal({
+				title: "Are you sure?",
+				text: "Delete Student Data",
+				icon: "warning",
+				buttons: true,
+				dangerMode: true,
+				}).then((confirm) => {
+				if (confirm) {
+					$.ajax({
+						url: 'ajax_template/delete.php',
+						method: "POST",
+						data: {
+							id: id,
+						},
+						success: function(data) {
+							swal("Success", "Student data delete..","success");
+							allData()
+						}
+					});
+				} else {
+					swal("Safe", "Student data  safe now..","success");
+				}
+				});
+
+		
 
 			return false;
 		}); 
