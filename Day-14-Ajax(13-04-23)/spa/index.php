@@ -67,6 +67,7 @@
 				url: 'all.php',
 				success: function(data) {
 					$('.app').html(data);
+					allData()
 				}
 			});
 			
@@ -118,13 +119,15 @@
 
 			return false; 
 		});
-		$.ajax({
-			url: 'ajax_template/all-student.php',
-			success: function(data) {
-				$('#all_student_data').html(data);
-			}
-		})
-
+		alldata()
+		function allData() {
+			$.ajax({
+				url: 'ajax_template/all-student.php',
+				success: function(data) {
+					$('#all_student_data').html(data);
+				}
+			})
+		}
 	
 	</script>
 </body>
