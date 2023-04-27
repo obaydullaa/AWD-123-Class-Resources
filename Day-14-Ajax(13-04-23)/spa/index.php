@@ -121,7 +121,7 @@
 		$.ajax({
 			url: 'ajax_template/all-student.php',
 			success: function(data) {
-				alert(data);
+				$('#all_student_data').html(data);
 			}
 		})
 
