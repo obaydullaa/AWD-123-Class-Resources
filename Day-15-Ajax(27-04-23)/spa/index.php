@@ -90,9 +90,13 @@
 			$.ajax({
 				url: 'ajax_template/ajax.php',
 				method: 'POST',
-				data:  $(this).serialize(),
+				data: new FormData(this),
+				contentType: false,
+				processData: false,
 				success: function(data) {
-					console.log(data);
+					swal("Safe", "Student Added Successful","success");
+
+					$('#student_form')[0].reset();
 				}
 			});
 			

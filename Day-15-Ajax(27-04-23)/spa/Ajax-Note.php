@@ -129,4 +129,25 @@ $(document).on('click', 'a.delete-btn', function() {
         return false; 
      });
 
+     // Use form dataObject
+
+$(document).on('submit','#student_form', function() {
+
+    $.ajax({
+        url: 'ajax_template/ajax.php',
+        method: 'POST',
+        data: new FormData(this),
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            swal("Safe", "Student Added Successful","success");
+
+            $('#student_form')[0].reset();
+        }
+    });
+
+
+    return false; 
+});
+
 </script>
