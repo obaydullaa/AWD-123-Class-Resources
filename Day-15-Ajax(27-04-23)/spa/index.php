@@ -16,7 +16,6 @@
 				<div class="col-lg-12">
 					<a id="all" class="btn btn-primary btn-sm" href="index.php">All Students</a>
 					<a id="add_student" class="btn btn-primary btn-sm" href="create.php">Add New Student</a>
-					<a id="profile" class="btn btn-primary btn-sm" href="profile.php">Profile</a>
 				</div>
 			</div>
 		</div>
@@ -50,17 +49,27 @@
 			return false;
 		});
 		
-		$('#profile').click(function() {
-
+		$(document).on('click','#profile', function(e){
+			e.preventDefault();
 			$.ajax({
 				url: 'profile.php',
 				success: function(data) {
 					$('.app').html(data);
 				}
 			});
-			
-			return false;
-		});
+
+		})
+		$(document).on('click','#back', function(e){
+			e.preventDefault();
+			$.ajax({
+				url: 'all.php',
+				success: function(data) {
+					$('.app').html(data);
+					allData();
+				}
+			});
+
+		})
 
 		$('#all').click(function() {
 			$.ajax({

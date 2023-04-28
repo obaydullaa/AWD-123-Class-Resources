@@ -145,9 +145,58 @@ $(document).on('submit','#student_form', function() {
             $('#student_form')[0].reset();
         }
     });
-
-
     return false; 
 });
+
+// ajax.php ->
+// image upload use jQuery
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $cell = $_POST['cell'];
+    $username= $_POST['username'];
+
+    $file_name = time() . $_FILES['photo']['name'];
+    $file_tmp_name = $_FILES['photo']['tmp_name'];
+
+    $connection = new mysqli('localhost', 'root', '', 'ajax');
+    $connection->query("INSERT INTO students (name, email, cell, username, photo) VALUES ('$name', '$email', '$cell', '$username', '$file_name')");
+
+    move_uploaded_file($file_tmp_name, '../photos/' . $file_name);
+
+
+// jason to array 
+//=========================
+// php thake data js ar kase dite hole json a conver kore dite hobe.
+//====================================================================
+
+
+// $food = ['alo', 'potol', 'alo', 'kumara', 'gazor', 'folkopi'];
+
+$food = [
+    'food' => 'apple',
+    'name' => 'oabydulla',
+    'age' => 27
+];
+
+// echo "<pre>";
+// print_r($food);
+
+// Array convert to jason use php function
+$json_data = json_encode($food);
+
+
+$array_data  = json_decode($json_data);
+
+// echo "<pre>";
+// print_r($array_data);
+
+echo $array_data->name;
+
+
+
+
+
+
 
 </script>
