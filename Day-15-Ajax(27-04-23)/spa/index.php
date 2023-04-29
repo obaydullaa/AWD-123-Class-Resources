@@ -51,8 +51,15 @@
 		
 		$(document).on('click','#profile', function(e){
 			e.preventDefault();
+
+			let id = $(this).attr('profile_id'); 
+
 			$.ajax({
 				url: 'profile.php',
+				method: 'POST',
+				data: {
+					id: id,
+				},
 				success: function(data) {
 					$('.app').html(data);
 				}

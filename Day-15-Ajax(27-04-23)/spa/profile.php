@@ -1,33 +1,38 @@
+<?php 
 
+$id = $_POST['id'];
+
+$connection = new mysqli('localhost', 'root', '', 'ajax');
+$data = $connection->query("SELECT * FROM students WHERE id='$id'");
+
+$profile_data = $data->fetch_object();
+
+?>
 
 <div class="wrap-table shadow">
 	<div class="card">
 		<div class="card-body text-center">
-			<h2>User Profile : Obaydulla</h2>
-			<img style="width: 200px; height: 200px; border-radius: 50%; margin: 50px auto;" src="assets/media/img/pp_photo/_MG_1216.jpg" alt="">
-			<h2>Md. Obaydulla</h2>
-			<h2>01755265017</h2>
+			<h2>User Profile : <?php echo $profile_data->name; ?></h2>
+			<img style="width: 200px; height: 200px; border-radius: 50%; margin: 50px auto;" src="photos/<?php echo $profile_data->photo; ?>" alt="">
+			<h2><?php echo $profile_data->name; ?></h2>
+			<h2><?php echo $profile_data->cell; ?></h2>
 
 			<table class="table mt-3">
 				<tr>
 					<td>Name</td>
-					<td>Name</td>
+					<td><?php echo $profile_data->name; ?></td>
 				</tr>
 				<tr>
-					<td>Name</td>
-					<td>Name</td>
+					<td>Eamil</td>
+					<td><?php echo $profile_data->email; ?></td>
 				</tr>
 				<tr>
-					<td>Name</td>
-					<td>Name</td>
+					<td>User Name</td>
+					<td><?php echo $profile_data->username; ?></td>
 				</tr>
 				<tr>
-					<td>Name</td>
-					<td>Name</td>
-				</tr>
-				<tr>
-					<td>Name</td>
-					<td>Name</td>
+					<td>Cell</td>
+					<td><?php echo $profile_data->cell; ?></td>
 				</tr>
 			</table>
 			<a id="back" class="btn btn-primary" href="javascript: voi(0)">Back</a>
