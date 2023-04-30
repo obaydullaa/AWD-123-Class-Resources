@@ -17,13 +17,13 @@
         - Acess Modifier
         - abstract class and method
         - Final class & final Method 
-	- App structure with class 
+	    - App structure with class 
 
 
         - Interface & Implements 
         - Traits
-	- Method chaining 
-	- Type Hint
+        - Method chaining 
+        - Type Hint
         - Magic methods
 		- __get()
 		- __set()
@@ -34,13 +34,11 @@
 	// Image Upload helper class , , , 
 	// Query String with method chaining 
 	// Helper class 
-
-
  
-        - Namespace 
-        - Autoloading class 
-        - PSR-4 - project orientation 
-        - CRUD by OOP 
+    - Namespace 
+    - Autoloading class 
+    - PSR-4 - project orientation 
+    - CRUD by OOP 
 
 	- MVC
 	- Design patern 
@@ -90,7 +88,9 @@
 //     }
 
 // }
+
 // Object
+//===============
 // $stu = new Student;
 // echo $stu->name;
 // $stu->info();
