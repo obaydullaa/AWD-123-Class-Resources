@@ -95,7 +95,7 @@
 // echo $stu->name;
 // $stu->info();
 
-// Student::tomi();
+// Student::tomi(); // scope regulation operator
 
 /**
  * static method & property & its use 
