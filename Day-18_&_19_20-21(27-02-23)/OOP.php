@@ -141,7 +141,9 @@
 /**
  * - constract & Destract
  * =======================================================================
- * first run constract and last run destract middle run others.
+ * first run constract in upper and lower and last run destract middle run others.
+ * first object create then call constract and destract . example: $stu = new Student; // now run  constract and destract
+ * 
  */
 
 //   class Student {
@@ -151,10 +153,10 @@
 //     public function info() {
 //         echo "This body Information \n";
 //     }
-//     public function __destruct() {
+//     public function __destruct() { // building oop method 
 //         echo "My Name Is __destruct \n";
 //     }
-//     public function __construct(){
+//     public function __construct(){ // building oop method 
 //         echo "My Name Is __construct \n";
 //     }
 
