@@ -343,7 +343,7 @@
 
 //  $a = new B;
 //  $a->funcB();
- 
+  
 
 /**
  * OOP part 14 ( final class and abstract class )
