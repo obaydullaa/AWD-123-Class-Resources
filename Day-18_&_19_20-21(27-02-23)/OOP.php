@@ -433,7 +433,6 @@
         $email = $_POST['email'];
         $cell = $_POST['cell'];
         $username = $_POST['username'];
-
     }
 
     $user -> userTomeJao($name, $email, $cell, $username);
@@ -449,6 +448,7 @@
         }
             
     }
+    
 
     /**
      * OOP part 19 ( data send to database )
