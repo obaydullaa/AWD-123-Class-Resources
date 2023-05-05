@@ -353,6 +353,7 @@
  */
 
 // abstract class
+//===============================
 // abstract class A {
 //     public function funcA(){
 //         echo "I am class A \n";
@@ -373,6 +374,7 @@
 
 
 // Final class
+//==============================
 // class A {
 //     public final function funcA(){
 //         echo "I am class A \n";
