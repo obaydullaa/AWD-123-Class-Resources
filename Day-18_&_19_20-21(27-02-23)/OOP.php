@@ -568,11 +568,11 @@
 
         function create(string $table, array $data) {
 
-            // Get column name
+            // Get column name dynamic
             $arr_key = array_keys($data);
             $col_name = implode(',', $arr_key);
 
-            // get value
+            // get value from dynamic
             $arr_val = array_values($data);
             $values = '';
 
