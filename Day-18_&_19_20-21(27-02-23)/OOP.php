@@ -503,16 +503,14 @@
      */
 
      
-    class User extends Database {
+    class User extends Database { 
         
         /**
          * User add to database
          */
         
         public function userTomeJao($name, $email, $cell, $username) {
-
             parent::create("INSERT INTO users (name, email, cell, username) VALUES('$name', '$email', '$cell', '$username' )");
-
         }
 
         /**
@@ -520,7 +518,6 @@
         */
         protected function all ($table, $order='DESC') {
             return $this-> connection() -> query("SELECT * FROM $table ORDER by id $order");
-    
         }
 
         /**
