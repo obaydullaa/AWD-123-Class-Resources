@@ -553,10 +553,8 @@
 
       if(isset($_GET['delete_id']) ) {
 		$id = $_GET['delete_id'];
-
             $user -> userDhonso($id);
             header("location:index.php");
-
         }
 
 
