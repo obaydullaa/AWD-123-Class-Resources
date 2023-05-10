@@ -13,42 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('student', 'App\Http\Controllers\studentController@ageCal');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ 
+// Route::namespace('App\Http\Controllers') -> prefix('b129') -> group(function() {
+//     Route::get('student/{name}/{year}', 'studentController@ageCal');
+// });
 
-// single route
-Route::get('/hello', function () {
-    return view('hello.hello');
-});
-
-Route::prefix('student')->group(function(){
-
-    Route::get("name", function() {
-        echo "My name is Obaydulla";
-    });
-    Route::get("create", function() {
-        echo "Create a student.";
-    });
-    Route::get("roll", function() {
-        echo "My roll no is 05.";
-    });
-
-});
-
-Route::prefix('product')->group(function(){
-    Route::get('item-name', function(){
-        echo "Item name is fashions";
-    });
-    Route::get('quantity', function(){
-        echo 50;
-    });
-
-    Route::get('all', function(){
-        echo "All Product is here";
-    })-> name('all product');
-});
-
-
+// controller
+// class StudentController extends Controller
+// {
+//     //
+//     public function ageCal($name, $year) {
+        
+//         $age = 2023 - $year;
+//         echo "My name is {$name} age is {$age} year old";
+//     }
+// }
