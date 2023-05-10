@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| be assigned to the "web" middleware group. Make something great! 
 |
 */
 
@@ -35,6 +35,7 @@ Route::prefix('student')->group(function(){
     Route::get("roll", function() {
         echo "My roll no is 05.";
     });
+
 });
 
 Route::prefix('product')->group(function(){
@@ -44,6 +45,10 @@ Route::prefix('product')->group(function(){
     Route::get('quantity', function(){
         echo 50;
     });
+
+    Route::get('all', function(){
+        echo "All Product is here";
+    })-> name('all product');
 });
 
 
