@@ -24,3 +24,26 @@ Route::get('/hello', function () {
     return view('hello.hello');
 });
 
+Route::prefix('student')->group(function(){
+
+    Route::get("name", function() {
+        echo "My name is Obaydulla";
+    });
+    Route::get("create", function() {
+        echo "Create a student.";
+    });
+    Route::get("roll", function() {
+        echo "My roll no is 05.";
+    });
+});
+
+Route::prefix('product')->group(function(){
+    Route::get('item-name', function(){
+        echo "Item name is fashions";
+    });
+    Route::get('quantity', function(){
+        echo 50;
+    });
+});
+
+
