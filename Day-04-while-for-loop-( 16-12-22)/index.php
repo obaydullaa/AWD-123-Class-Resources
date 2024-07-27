@@ -67,7 +67,7 @@
 //     echo "All are not same";
 // }
 
-/*
+/* 
     PHP Part-30: (While loop)
     PHP Loop => while, do while, for, foreach
 */

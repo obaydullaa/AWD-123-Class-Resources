@@ -7,8 +7,9 @@ $name = 'obaydul';
 $age = 20;
 $job = 'Frontend Developer';
 
+
 // write variable in single quote 
-// echo 'my name is ' .$name.' and I am a ' .$job. ' And I am ' .$age.' years old ';
+echo 'my name is ' .$name.' and I am a ' .$job. ' And I am ' .$age.' years old ';
 
 // echo "\n";
 // write variable in dubble quote 

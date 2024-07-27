@@ -113,14 +113,14 @@
  * PHP Part: 40 (Heading Function);
  */
 
-// function bigHeading($head, $tag = 'h1',$align = 'center', $color = '#000'){
-//       echo "<$tag style=\"text-align: $align; color:$color\"> $head </$tag>";
+function bigHeading($head, $tag = 'h1',$align = 'center', $color = '#000'){
+      echo "<$tag style=\"text-align: $align; color:$color\"> $head </$tag>";
   
-// }
+}
 
 
-//  bigHeading("Obaydullla",'h1', 'center', 'red');
-//  bigHeading("IslamObaydulla",'h1', 'center', 'blue');
+ bigHeading("Obaydullla",'h1', 'center', 'red');
+ bigHeading("IslamObaydulla",'h1', 'center', 'blue');
 
 
 /**
