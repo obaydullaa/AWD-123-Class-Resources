@@ -9,7 +9,7 @@
 4. Boolean: True of False.
 5. Array: Collection of multiple data. Exam: array['obaydulla', 'Bangladesh']; OR ['Obaydulla', 'Bangladesh'];
 6. Null: Empty.
-7. Object. it is a
-8. Resource.
+7. Object. An object in PHP is like a combination of data and functions. For example, a Car object has properties like color and make, and methods like drive() and honk(). It's a way to group related data and actions.
+8. Resource: A resource in PHP is a special variable that holds a reference to an external resource, such as a file handle, database connection, or network connection, enabling interaction with these external systems.
 
 */
