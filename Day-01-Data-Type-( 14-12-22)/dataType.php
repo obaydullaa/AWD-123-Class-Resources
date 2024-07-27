@@ -9,7 +9,7 @@
 4. Boolean: True of False.
 5. Array: Collection of multiple data. Exam: array['obaydulla', 'Bangladesh']; OR ['Obaydulla', 'Bangladesh'];
 6. Null: Empty.
-7. Object.
+7. Object. it is a
 8. Resource.
 
 */
