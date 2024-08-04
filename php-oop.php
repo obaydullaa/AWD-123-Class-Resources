@@ -18,22 +18,41 @@
 
 // echo $stu->age;
 
-class Student {
-    public $name = "Obaydullla";
-    public $email = "obaydullla@gmail.com";
-    public $phone = 01755265017;
+// class Student {
+//     public $name = "Obaydullla";
+//     public $email = "obaydullla@gmail.com";
+//     public $phone = 01755265017;
 
-    public function info () {
-        echo "My name is ". $this->name . " and email ". $this->email;
+//     public function info () {
+//         echo "My name is ". $this->name . " and email ". $this->email;
+//     }
+
+//     public function profileName () {
+//         echo $this->info();
+//     }
+
+
+// }
+
+
+// $profile = new Student;
+// echo $profile->profileName(); // echo  => My name is Obaydullla and email obaydullla@gmail.com
+
+
+
+class Dev {
+    public static $age = 50;
+    public static $name = "Obaydulla";
+
+    public static function name () {
+        return "My name is " . Dev::$name;
     }
-
-    public function profileName () {
-        echo $this->info();
-    }
-
 
 }
+echo Dev::name();
 
+// $out = New Dev;
 
-$profile = new Student;
-echo $profile->profileName(); // echo  => My name is Obaydullla and email obaydullla@gmail.com
+// echo Dev::$age;
+// echo "<br>";
+// echo $out->age;
