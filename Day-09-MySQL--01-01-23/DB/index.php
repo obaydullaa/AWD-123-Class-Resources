@@ -46,6 +46,7 @@
 //     cell varchar(20)
 //    )");    
 
+$dataBase= new mysqli('localhost', 'obaydul', 'obaydul');
 
 
 
