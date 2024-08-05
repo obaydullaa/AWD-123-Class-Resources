@@ -152,39 +152,109 @@
  * OOP part 11 ( multi extends )
  */
 
- 
-class A {
-    public function dev() {
-        echo "I am Python Developer";
+// class A {
+//     public function dev() {
+//         echo "I am Python Developer";
+//     }
+//     public function food() {
+//         echo "I am Love Food";
+//     }
+// }
+
+
+// class B extends A {
+//     public function learn() {
+//         echo "I Love learn Laravel ";
+//     }
+// }
+
+// class C extends B {
+//     public function read() {
+//         // echo "I am mehtod of C"; 
+
+//         // echo  $this->dev();
+//         echo  parent::learn();
+//     }
+// }
+
+// $b = new  C();
+
+// echo $b->read();
+
+
+/**
+ * OOP part 12 ( extends 2 ) method over ridin
+ */
+
+// class A {
+//     public function dev() {
+//         echo "I am Python Developer";
+//     }
+//     public function food() {
+//         echo "I am Love Food";
+//     }
+// }
+
+
+// class B extends A {
+//     public function learn() {
+//         echo "I Love learn Laravel ";
+//     }
+//     public function dev() {
+//         echo "I am Flatter Developer";
+//     }
+// }
+
+// class C extends B {
+
+//     public function dev() {
+//         echo "I am jango Developer";
+//     }
+//     public function read() {
+//         echo "I am mehtod of C"; 
+
+//         // echo  $this->dev();
+//         // echo  parent::learn();
+//     }
+// }
+
+// $b = new  C();
+
+// echo $b->dev();
+
+
+
+/**
+ * OOP part 13 ( public, private, protected )
+ * Public jakono way used kora jbe
+ * Private oi class ar baire use korte hole private method ar modde diye jaite hobe.
+ * protected only extends kore use kora jabe.
+ */
+
+class Family {
+
+    protected function age() {
+        echo "I am 27 Year Old.";
     }
-    public function food() {
-        echo "I am Love Food";
+
+    public function boyos() {
+        // $this->age();
+        
     }
+
 }
 
+class Publicc extends Family {
 
-class B extends A {
     public function learn() {
-        echo "I Love learn Laravel ";
+        echo $this->age();
     }
+
 }
 
-class C extends B {
-    public function read() {
-        // echo "I am mehtod of C"; 
 
-        // echo  $this->dev();
-        echo  parent::learn();
-    }
-}
+// $fa = new Family;
+// $fa->age();
 
-$b = new  C();
-
-echo $b->read();
-
-
-
-
-
-
-
+$fa = new Publicc;
+$fa->learn();
