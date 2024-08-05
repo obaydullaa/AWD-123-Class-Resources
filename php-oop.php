@@ -231,30 +231,88 @@
  * protected only extends kore use kora jabe.
  */
 
-class Family {
+// class Family {
 
-    protected function age() {
-        echo "I am 27 Year Old.";
-    }
+//     protected function age() {
+//         echo "I am 27 Year Old.";
+//     }
 
-    public function boyos() {
-        // $this->age();
+//     public function boyos() {
+//         // $this->age();
         
-    }
+//     }
 
-}
+// }
 
-class Publicc extends Family {
+// class Publicc extends Family {
 
-    public function learn() {
-        echo $this->age();
-    }
+//     public function learn() {
+//         echo $this->age();
+//     }
 
-}
+// }
+
+// // $fa = new Family;
+// // $fa->age();
+
+// $fa = new Publicc;
+// $fa->learn();
 
 
-// $fa = new Family;
-// $fa->age();
+/**
+ * OOP part 14 ( final class and abstract class )
+ * abstract class holo amon ek doroner class ja instance create kora jai na.. extends kore use korte hobe 
+ * final class holo eta extends  kora jabe na bcs i'ts final
+ * final method holo eta only ekbar use kora jabe 
+ */
 
-$fa = new Publicc;
-$fa->learn();
+// abstract Class A {
+//     public function bereyani () {
+//         echo "Kacchi Vai";
+//     }
+// }
+
+// Class B extends A {
+
+// }
+
+//  $b = new B;
+//  $b->bereyani();
+
+// Final Class 
+//--------------------------
+// final Class A {
+//     public function bereyani () {
+//         echo "Kacchi Vai";
+//     }
+// }
+
+
+
+//  $a = new A;
+//  $a->bereyani();
+
+// Final methods 
+//--------------------------
+// Class A {
+//     public final function bereyani () {
+//         echo "Kacchi Vai";
+//     }
+// }
+
+// Class B extends A {
+// }
+
+//  $a = new B;
+//  $a->bereyani();
+
+
+
+
+/**
+ * OOP part 15 ( Basic crud 1 )
+ * 
+ */
+
+
+ 
