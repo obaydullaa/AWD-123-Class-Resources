@@ -5,7 +5,7 @@
  */
 
 // class Student  {
-//     public $name = "student"; // Class ar modde variable nile setake propery bole empne class ar modde methods nile seta ke mehods bole.
+//     public $name = "student"; // Class ar modde variable nile setake propery bole r class ar modde functions nile seta ke mehods bole.
 //     public $age = 27;
 //     public $job = "Laravel Developer";
 

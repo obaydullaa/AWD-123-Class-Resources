@@ -1,0 +1,508 @@
+1. Mvc
+2. Relationship
+3. Eloquent query method
+ Skip,  take, orderby,  where,  jason contens
+4. Filtaring, searching, 
+5. Php oop concept
+6. function, Trait,  interface, constant ,  abstract , extends , implements, composer ki
+7. Objects, class ki kamne kaj kore
+8. Design
+9. Interview questions from google
+ 
+10.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইল নির্দেশক ।
+
+1. MVC
+=================================================================================
+
+MVC pattern মানে Model–view–controller
+
+Model–view–controller হল একটি সফটওয়্যার ডেভেলপমেন্ট একটি জনপ্রিয় আদর্শ বা নমুনা ।
+এই প্যাটার্নটি ব্যাবহার করা হয় সফটওয়্যারটি কে তিনটি ভাগে ভাগ করার জন্য।
+
+Model: মডেলের কাজ হল ডাটাবেসের সাথে যোগাযোগ করা, যেমন কিছু ডেটা যোগ করা বা কিছু ডেটা মুছে ফেলা ডাটাবেস থেকে ।
+
+View: view হল আমরা ওয়েব পেজে যা দেখি, এটি আমাদের ভিজ্যুয়াল অংশ। যেমন html css ।
+
+Controller: Controller সবকিছু নিয়ন্ত্রণ করে, কি নিয়ন্ত্রণ করে ? এটি মডেল কে ব্যাবহার করে ডাটাবেস থেকে ডাটা নিয়ে আসে এবং view এর মাঝে ডাটা দিয়ে HTML response তৈরি করে এবং অবশেষে HTML response কে ব্রাউজার এ পাঠায় ।
+
+
+২য় ভাগঃ লারাভেল এ MVC pattern এর ব্যাবহার
+
+যখন আমরা লারাভেল অ্যাপ্লিকেশনে একটি request পাঠাই, তখন এই request (অনুরোধ ) টি প্রথমে রুট ফাইলে (web.php) যায় এবং রুট ফাইলটি অ্যাপোরিয়েট কন্ট্রোলারের কাছে এই request (অনুরোধ ) টি পাঠায়। controller তারপর model কে ব্যবহৃত করে ডেটাবেস থেকে ডেটা আনে এবং view থেকে HTML, CSS নিয়ে আসে । তারপর ডেটা , html, css দিয়ে controller একটি response প্রস্তুত করে ব্রাউজারে ফেরত পাঠানোর জন্য । যখন ব্রাউজার রিকোয়েস্টের পরে রিসপন্স ফিরে পায় তখন HTML পেজটি সঠিকভাবে প্রদর্শন করে এবং আমরা ওয়েব পেজ দেখতে পাই।
+
+2. Relationship
+================================================================================
+https://laravel.code4mk.org/bangla/lara/relationships.html#%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%A8-%E0%A6%9F%E0%A7%81-%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A6%BF-%E0%A6%B0%E0%A6%BF%E0%A6%B2%E0%A7%87%E0%A6%B6%E0%A6%A8
+
+1. One to One
+------------------
+Best Friends
+
+Let's say you have a best friend named Alex. On Facebook, it's like you have a special connection with just Alex. In Laravel, this is called a "One to One" relationship. It means one person is connected to one other person in a special way.
+
+// In Laravel
+class User extends Model {
+    public function bestFriend() {
+        return $this->hasOne(BestFriend::class);
+    }
+}
+
+2. One to Many
+--------------------------
+Friends and Photos
+
+You like taking pictures, and you share many photos on Facebook. Each photo is connected to you. In Laravel, this is a "One to Many" relationship. It means one person can have many photos.
+
+// In Laravel
+class User extends Model {
+    public function photos() {
+        return $this->hasMany(Photo::class);
+    }
+}
+
+
+3. Many to One
+---------------------------
+Many Friends Commenting
+
+When you post a picture, many friends can comment on it. Each comment belongs to that one picture. This is called a "Many to One" relationship.
+// In Laravel
+class Comment extends Model {
+    public function photo() {
+        return $this->belongsTo(Photo::class);
+    }
+}
+
+4. Many to Many
+-----------------------
+Friends and Groups
+
+You and your friends might be part of several groups on Facebook, like a "Soccer Club" or "Art Club." Each friend can be in many groups, and each group can have many friends. This is called a "Many to Many" relationship.
+
+// In Laravel
+class User extends Model {
+    public function groups() {
+        return $this->belongsToMany(Group::class);
+    }
+}
+
+class Group extends Model {
+    public function users() {
+        return $this->belongsToMany(User::class);
+    }
+}
+
+5. Has Many Through
+-------------------------------
+Grandparents and Grandchildren
+
+Imagine your grandparents have many grandchildren through their children (your parents). In Laravel, this is called a "Has Many Through" relationship. It means you can find a connection through another person.
+// In Laravel
+class Grandparent extends Model {
+    public function grandchildren() {
+        return $this->hasManyThrough(Grandchild::class, Parent::class);
+    }
+}
+এটা এক ধরনের শর্টকাট এ রিলেশন করার মতো এবং অনেক গুলো রিলেশন একবারে নিক্ষেপ করা । আপনি মানব বন্ধন দেখেছেন , সেখানে এক জনের হাতের সাথে অন্য আরেক জনের হাত যুক্ত হয়ে বিশাল লাইন হয় । প্রথম আর শেষের মানুষ এর সংযোগ আছে না ?
+
+প্রথম আর শেষের মানুষের হাত সংযুক্ত না , তারপর ও কিন্তু যুক্ত আছে । কেমনে যুক্ত , আক জনের সাথে অন্য জনের হাত সংযুক্ত হয়ে সব শেষের মানুষ সংযোগ হয়েছে ।
+
+countries
+    id - integer
+    name - string
+users
+    id - integer
+    country_id - integer
+    name - string
+posts
+    id - integer
+    user_id - integer
+    title - string
+
+6. Polymorphic Relations
+--------------------------------
+Posts and Comments
+
+On Facebook, you can comment on different things like photos, videos, and status updates. In Laravel, "Polymorphic Relations" allow comments to belong to many different types of posts.
+
+// In Laravel
+class Comment extends Model {
+    public function commentable() {
+        return $this->morphTo();
+    }
+}
+
+class Photo extends Model {
+    public function comments() {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+}
+
+class Video extends Model {
+    public function comments() {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+}
+আপনি অনেক সাইটে দেখবেন পোস্ট এবং ভিডিও পোস্ট এর জন্য আলাদা আলাদা সিঙ্গেল পেজ ব্যবহার করা হয় । পোস্ট এবং ভিডিও পোস্ট দুই পেজে আপনি কমেন্ট করতে পারেন । আচ্ছা দুইটা আলাদা পেজের জন্য কি দুটা আলাদা কমেন্ট টেবিল বানাবেন ?? যেমন post_comments_table , video_post_comments_table
+
+পলিমোরফিক রিলেশন দিয়ে শুধুমাত্র একটা টেবিল দিয়ে দুই পেজেই কমেন্ট কন্ট্রোল করতে পারবেন । আচ্ছা দেখুন কিভাবে পলিমোরফিক রিলেশন সেট করবেন – posts videos comments আপনার তিনটা টেবিল । comments টেবিল পলিমোরফিক বা বহুরূপী হিসেবে সেট করবেন ।
+
+posts
+    id - integer
+    title - string
+    body - text
+
+videos
+    id - integer
+    title - string
+    url - string
+
+comments
+    id - integer
+    body - text
+    commentable_id - integer
+    commentable_type - string
+
+commentable_id এখানে সেভ হবে posts/videos id এবং commentable_type এ থাকবে টাইপ post অথবা video ।
+
+এখন Model কেমন হবে দেখুন
+
+<?php
+namespace App;
+use Illuminate\Database\Eloquent\Model;
+class Comment extends Model
+{
+    /**
+     * Get all of the owning commentable models.
+     */
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+}
+class Post extends Model
+{
+    /**
+     * Get all of the post's comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable');
+    }
+}
+class Video extends Model
+{
+    /**
+     * Get all of the video's comments.
+     */
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable');
+    }
+}
+
+
+
+
+3. Eloquent query method
+================================================================================
+Eloquent is an object-relational mapper (ORM)
+Eloquent models represent database tables.
+Models can be used to perform operations on data
+Eloquent also supports relationships between models
+It provides layer between application and databas
+
+Naming Convention
+----------------------------
+Table name: brands Model name: Brand
+Table name: product_details Model name: ProductDetails
+
+Skip,  take, orderby,  where jason contens
+
+**Skip and take method : skip method diye koita data skip korbo seta likte hobe r take method diye koita data nibo seta likte hobe .
+example: 
+
+student::skip(2)->take(4)->get();
+
+ ** orderby :
+-------------
+
+asc (Ascending):
+---------------------------
+Numerical Order: From the smallest number to the largest (e.g., 1, 2, 3, ..., 10).
+Alphabetical Order: From A to Z.
+Date Order: From the earliest date to the latest date.
+
+desc (Descending):
+-------------------------
+Numerical Order: From the largest number to the smallest (e.g., 10, 9, 8, ..., 1).
+Alphabetical Order: From Z to A.
+Date Order: From the latest date to the earliest date.
+
+$users = User::orderBy('name', 'asc')->get();
+	This query retrieves users ordered by their names in ascending alphabetical order (A to Z).
+
+$products = Product::orderBy('price', 'asc')->get();
+	This query retrieves products ordered by their price in ascending order (cheapest to most expensive).
+
+$users = User::orderBy('created_at', 'desc')->get();
+	This query retrieves users ordered by their creation date in descending order (newest to oldest).
+
+
+
+** where 
+-------------------
+$animalBooks = AnimalBook::where('pages', '>', 100)->get();
+
+$animalBooksByJohnDoe = AnimalBook::where('author', 'John Doe')
+                                   ->where('pages', '>', 100)
+                                   ->get();
+
+$userId = 1; // Assuming 1 is the ID of the specific user
+$userPosts = Post::where('user_id', $userId)->get();
+class PostController extends Controller
+{
+    public function index()
+    {
+        $userId = 1; // Assuming 1 is the ID of the specific user
+        $filteredPosts = Post::where('published_at', '>', '2023-01-01')
+                             ->where('user_id', $userId)
+                             ->whereHas('comments', function ($query) {
+                                 $query->havingRaw('COUNT(*) > 10');
+                             })
+                             ->get();
+        
+        return view('posts.index', ['posts' => $filteredPosts]);
+    }
+}
+
+**  jason contens
+-----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+6. function, Trait, abstract, interface, constant , , extends , implements
+==================================================================
+Function
+---------------
+
+What is a PHP Function?
+A function in PHP is a block of code that can be executed whenever it is called within a script. It can take input in the form of parameters and can return a value after performing its task.
+
+Parameters: Functions can accept parameters to work with dynamic data.
+Anonymous Functions: Functions without a name that can be assigned to variables.
+
+* Trait
+-------------
+multiple inheretence kora jai. php te multiple inheretence nai ........
+
+
+* abstract, 
+-------------------
+এবস্ট্রাক্ট মেথড এবং ক্লাস (Abstract Method and Class) :এবস্ট্রাক্ট ক্লাস instantiate করা যায়না তবে inherit করা যায়।এখানে থেকে বের হওয়া চাইল্ড ক্লাসের instantiate করা যায়।এবস্ট্রাক্ট ক্লাস বানানো হয়েছে এর চাইল্ড ক্লাসে কি কি থাকবে সেই নির্দেশনা যাতে প্রোগ্রামার প্যারেন্ট ক্লাসটি (এবস্ট্রাক্ট ক্লাস) দেখে বুঝতে পারে।যেমন:
+
+
+
+* interface
+-------------------
+ইন্টারফেস ক্লাস (Interface Class) : এর আগে এবস্ট্রাক্ট ক্লাস সম্পর্কে আলোচনা হয়েছে।এবস্ট্রাক্ট ক্লাস আর ইন্টারফেস ক্লাস হুবহু একই শুধু পার্থক্য হচ্ছে এবস্ট্রাক্ট ক্লাসে এবস্ট্রাক্ট মেথড ছাড়াও অন্য মেথড থাকতে পারে এবং এই মেথডের ভিতর কোড থাকতে পারে (সাধারনত এটাকে মেথড বডি বলে) আর ইন্টারফেস ক্লাসে কোন মেথডে বডি থাকতে পারবেনা।
+
+
+ * constant  ধ্রুবক মানে যা কোন পরিবর্তন নেই ।
+-------------------------------------------------------
+-Constants are deifend usin the define()
+- const keyword is use for class constants.
+
+define("age", 40);  // global constants
+
+echo age;
+
+
+class MyClass {
+	const  age= 40;
+static public $age = 700;
+}
+
+echo MyClass::age; // 40
+echo MyClass:$:age; // 4700
+
+
+* extends  is keyword 
+--------------------------
+In Laravel, the concept of "extends" refers to the use of inheritance in object-oriented programming (OOP). When you extend a class, you create a new class that inherits the properties and methods of another class. This allows you to reuse and extend functionality without duplicating code.
+
+class Vehicle {
+    public function startEngine() {
+        return "Engine started";
+    }
+}
+
+class Car extends Vehicle {
+    public function drive() {
+        return "Driving...";
+    }
+
+$car = new Car();
+echo $car->startEngine(); // Output: Engine started
+echo $car->drive();       // Output: Driving...
+
+
+* implements
+------------------------------------------
+
+
+
+
+
+
+
+* composer ki
+--------------------
+ Define Composer.
+Laravel is a popular web application framework that allows you to build dynamic websites and applications.
+
+A composer is a tool that includes all the dependencies and libraries. It helps the user to develop a project concerning the mentioned framework. Third-party libraries can be installed easily using composer.
+
+Composer is used to managing its dependencies, which are noted in the composer.json file and placed in the source folder.
+
+
+
+
+Instance ki ?
+---------------------
+
+Step 1: Define a Class
+
+class Car {
+    public $color;  // Property
+
+    // Method
+    public function setColor($color) {
+        $this->color = $color;
+    }
+
+    // Method
+    public function getColor() {
+        return $this->color;
+    }
+}
+
+
+Step 2: Create an Instance of the Class
+To create an instance of a class, use the new keyword:
+
+ $myCar = new Car();  // Creating an instance of the Car class
+
+
+Class: A template for creating objects, defining their properties and methods.
+Object: An instance of a class.
+Instance: A specific realization of a class, created using the new keyword.
+Properties and Methods: Attributes and behaviors defined within a class that can be used by its instances.
+
+
+7. Objects, class ki kamne kaj kore
+======================================================
+https://sattacademy.com/admission/chapter=13790/read#:~:text=PHP%3A%20Object%20%2D%20%E0%A6%85%E0%A6%AC%E0%A6%9C%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%9F%20%E0%A6%B9%E0%A6%B2%E0%A7%8B%20%E0%A6%95%E0%A7%8D%E0%A6%B2%E0%A6%BE%E0%A6%B8,%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE%20%E0%A6%8F%E0%A6%B0%20%E0%A6%B8%E0%A6%AE%E0%A6%A8%E0%A7%8D%E0%A6%AC%E0%A6%AF%E0%A6%BC%E0%A7%87%20%E0%A6%97%E0%A6%A0%E0%A6%BF%E0%A6%A4%20%E0%A6%B9%E0%A6%AF%E0%A6%BC%E0%A5%A4
+
+PHP: Class - প্রোপার্টি(মেম্বার ভ্যারিয়েবল) এবং মেম্বার ফাংশন(মেথড) এর সমন্বয়ে অবজেক্ট তৈরির জন্য ক্লাস হলো সম্প্রসারণযোগ্য প্রোগ্রামিং কোড এর একটি নীল নকশা(templete)।
+
+PHP: Object - অবজেক্ট হলো ক্লাস এর একটি বিশেষ নিদর্শন(instance) যা ভ্যারিয়েবল, ফাংশন এবং ডেটা স্ট্রাকচার এর সমন্বয়ে গঠিত হতে পারে।
+
+PHP: Method - ক্লাস এর মেম্বার ফাংশনসমূহকে OOP তে মেথড বলা হয়। মেথড হলো অবজেক্ট-ক্লাস এর সাথে সম্পর্কিত একটি প্রক্রিয়া। একটি অবজেক্ট তথ্য এবং তথ্য প্রক্রিয়া এর সমন্বয়ে গঠিত হয়। "তথ্যকে" অবজেক্ট এর বৈশিষ্ট্য(property) এবং "তথ্য প্রক্রিয়াকে" মেথড এর মাধ্যমে প্রকাশ করা হয়। মেথড বাইরের অবজেক্ট এর সাথেও সম্পর্ক তৈরি করতে পারে।
+
+PHP: Property - ক্লাস এর মেম্বার ভ্যারিয়েবল।
+
+* static 
+-------------
+যে class er object না বানিয়ে যদি class এর বাইরে ব্যবহার করতে চাই  তাহলে static বানাতে হবে ।  static er property baire thake call kora jai na but method ke call kora jai....
+
+static propery class ar baire  thake output dakha jai na.
+
+static class scop rejation operator diye acces korte hoi.
+In PHP, the double colon :: is called the scope resolution operator or Paamayim Nekudotayim. It is used to access static, constant, and overridden properties or methods of a class. It is also used to refer to parent classes.
+
+Here's a breakdown of different uses of the :: operator:
+
+1. Accessing Static Methods
+Static methods are methods that belong to the class itself rather than to any specific object instance. You can call a static method using the :: operator.
+
+class Dev {
+    public static function name() {
+        return "I am a static method";
+    }
+}
+
+// Call the static method using the class name
+echo Dev::name(); // Output: I am a static method
+
+// Class ar vitor and bahire same waye to call korte hoi
+class Dev {
+    public static $age = 50;
+    public static $name = "Obaydulla";
+
+    public static function name () {
+        return "My name is " . Dev::$name;
+       return "My name is " . self::$name;  // we can user self that means our in our wan calss
+    }
+
+}
+echo Dev::name();
+
+
+
+
+10.  Namespace 
+================================================================================
+Namespace  -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইলের লোকেশন ।
+আমাদের প্রজেক্টে একই নামের কয়েকটা ক্লাস থাকতে পারে, একটা ক্লাসের সাথে আরেকোটা ক্লাস ফ্লাস না হয়ে  যায় এই জন্য Namespace ব্যাবহার করতে হয় । 
+
+একাধিক function , class , interface , constant , trait , abstract  থাকতে পারে একটা  আরেকোটার সাথে ফ্লাস না হয় এই জন্য Namespace ব্যাবহার করতে হয় । 
+
+laravel এর একটি ফাইল একটা নেমস্পেস হবে । বাকি গুলা use ব্যবহার করে নেমস্পেশ দেখাতে হয়  ।
+
+আপানার লারাভেল প্যাকেজে বা অন্য যেকোনো পি এইচ পি ডেভেলপমেন্ট প্রোজেক্ট এ যদি একই নামে একাধিক function , class , interface , constant , trait , abstract থাকে তখন সমস্যা সৃষ্টি হবে । কোন টা ব্য্যবহার হচ্ছে সেটা ফিক্স করা সম্ভব না । এই সমস্যা সমাধানের জন্য নেমস্পেস ব্যবহার করা হয় ।
+
+নেমস্পেসের মাধ্যমে ইমপোর্ট করা হয় use operator দিয়ে ।
+
+একই নামের ২ টা ক্লাস থকলে Alias user করতে হবে  alias user kora hoi as diye।
+
+use App\Controller\Student;
+use AppSupport\Student\Student as MyStudent
+
+$stu = new MyStudent;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
