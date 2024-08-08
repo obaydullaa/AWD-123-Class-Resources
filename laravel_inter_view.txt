@@ -13,6 +13,28 @@
 
 11. What is Composer ?
 
+12. Method chaining
+
+13. Type hint  = func student(string $name) {}
+
+$student->setName('obaydulla') =>  The -> symbol itself is called the object operator in PHP.
+The :: symbol in PHP is called the scope resolution operator or sometimes the
+class MyClass {
+    const MY_CONSTANT = 'Hello';
+
+    public static function myStaticMethod() {
+        return 'This is a static method';
+    }
+}
+
+// Accessing a constant
+echo MyClass::MY_CONSTANT; // Outputs: Hello
+
+// Accessing a static method
+echo MyClass::myStaticMethod(); // Outputs: This is a static method
+
+In this example, :: is used to access the constant MY_CONSTANT and the static method myStaticMethod within MyClass.
+
 1. MVC
 =================================================================================
 
@@ -305,7 +327,36 @@ Anonymous Functions: Functions without a name that can be assigned to variables.
 
 * Trait
 -------------
-multiple inheretence kora jai. php te multiple inheretence nai ........
+multiple inheretence kora jai. php te multiple inheretence nai ........ ja class a dorkar sekhane  use keword diye extend korte hoi.
+
+Example:- 
+ Trait A {
+    public function dev() {
+        return "I am from Dev A";
+    }
+    public function play() {
+        return "I am love to Play A";
+    }
+    public function game() {
+        return "I am play game to A";
+    }
+ }
+
+ class B {
+    public function food() {
+        return "I am food from B";
+    }
+ }
+
+ class C extends B {
+    use A;
+ }
+
+ $c = new C;
+ echo $c->play();
+
+
+
 
 
 * abstract, 
@@ -317,6 +368,25 @@ multiple inheretence kora jai. php te multiple inheretence nai ........
 * interface
 -------------------
 ইন্টারফেস ক্লাস (Interface Class) : এর আগে এবস্ট্রাক্ট ক্লাস সম্পর্কে আলোচনা হয়েছে।এবস্ট্রাক্ট ক্লাস আর ইন্টারফেস ক্লাস হুবহু একই শুধু পার্থক্য হচ্ছে এবস্ট্রাক্ট ক্লাসে এবস্ট্রাক্ট মেথড ছাড়াও অন্য মেথড থাকতে পারে এবং এই মেথডের ভিতর কোড থাকতে পারে (সাধারনত এটাকে মেথড বডি বলে) আর ইন্টারফেস ক্লাসে কোন মেথডে বডি থাকতে পারবেনা।
+
+interface onno onno class ke baddo kore kaj korar jonno...... aikhane method mody thakbe na eta implements  korte hoi not extends
+
+example....
+interface Student {
+    public function dev($name, $age);
+}
+
+class Users implements Student {
+    function dev($name, $age) {
+        echo "I am " .$name . $age;
+    }
+}
+
+$dev = new Users;
+
+$dev->dev('interface', 20);
+
+
 
 
  * constant  ধ্রুবক মানে যা কোন পরিবর্তন নেই ।
@@ -481,6 +551,55 @@ use App\Controller\Student;
 use AppSupport\Student\Student as MyStudent
 
 $stu = new MyStudent;
+
+
+Method chaining
+-------------------------
+
+ class Student {
+
+    private $name = "Obaydulla";
+    private $age = 5;
+    private $dev = "Laravel Developer";
+
+
+    /**
+     * Set Student name
+     */
+     public function setName($name) {
+        $this-> name = $name;
+        return  $this;
+     }
+
+    /**
+     * Set Student age
+     */
+
+     public function setAge($age) {
+        $this-> age = $age;
+        return  $this;
+     }
+
+     
+    /**
+     * Set Student name
+     */
+    public function setDev($dev) {
+        $this-> dev = $dev;
+        return  $this;
+     }
+
+    /**
+     * info methods
+     */
+    public function info() {
+        return "My name is ". $this->name ." & I am ". $this->age ." years old and I am a " . $this->dev ;
+    }
+ }
+
+ $student = new Student;
+
+ echo $student -> setDev("Java Developer") -> setName("Refat")->setAge(150)->info();
 
 
 
