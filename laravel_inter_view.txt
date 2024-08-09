@@ -9,13 +9,15 @@
 8. Design
 9. Interview questions from google
  
-10.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইল নির্দেশক ।
+10.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইলের লোকেশন ।
 
 11. What is Composer ?
 
 12. Method chaining
 
 13. Type hint  = func student(string $name) {}
+
+14. Facade ki ?
 
 $student->setName('obaydulla') =>  The -> symbol itself is called the object operator in PHP.
 The :: symbol in PHP is called the scope resolution operator or sometimes the
