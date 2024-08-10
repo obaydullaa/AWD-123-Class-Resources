@@ -35,7 +35,6 @@
 //         echo $this->info();
 //     }
 
-
 // }
 
 
@@ -71,9 +70,12 @@
 
  /**
  * 06: Static Properties and mehtods 
+ * স্ট্যাটিক প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
+ * স্ট্যাটিক মেথডকে ক্লাসের বাইরে থেকে সরাসরি scope resolution অপারেটর (::) ব্যবহার করে কল করা যায়। স্ট্যাটিক মেথড ব্যবহারের জন্য ক্লাসের ইনস্ট্যান্স তৈরি করার প্রয়োজন হয় না।
+ * স্
  */
 
-// class Dev {
+//  class Dev {
 //     const AGE = 50;
 //     const NAME = "Obaydulla";
 //     public static $name = "Obaydulla";
@@ -83,7 +85,12 @@
 //     }
 
 // }
-// echo Dev::name();
+
+
+// $name = new Dev;
+
+// echo $name->name(); // Method access
+// echo Dev::$name;    // property access
 
 
 /**

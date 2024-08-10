@@ -4,13 +4,13 @@
  Skip,  take, orderby,  where,  jason contens
 4. Filtaring, searching, 
 5. Php oop concept
-6. function, Trait,  interface, constant ,  abstract , extends , implements, composer ki
+6. function, static Trait,  interface, constant ,  abstract , extends , implements, composer ki
 7. Objects, class ki kamne kaj kore
 8. Design
 9. Interview questions from google
  
 10.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইলের লোকেশন ।
-
+*
 11. What is Composer ?
 
 12. Method chaining
@@ -316,7 +316,7 @@ class PostController extends Controller
 
 
 
-6. function, Trait, abstract, interface, constant , , extends , implements
+6. function, static, Trait, abstract, interface, constant , , extends , implements
 ==================================================================
 Function
 ---------------
@@ -326,6 +326,30 @@ A function in PHP is a block of code that can be executed whenever it is called 
 
 Parameters: Functions can accept parameters to work with dynamic data.
 Anonymous Functions: Functions without a name that can be assigned to variables.
+
+
+static 
+--------------
+
+ * স্ট্যাটিক প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
+ * স্ট্যাটিক মেথডকে ক্লাসের বাইরে থেকে সরাসরি scope resolution অপারেটর (::) ব্যবহার করে কল করা যায়। স্ট্যাটিক মেথড ব্যবহারের জন্য ক্লাসের ইনস্ট্যান্স তৈরি করার প্রয়োজন হয় না।
+ 
+
+ class Dev {
+     const AGE = 50;
+    const NAME = "Obaydulla";
+    public static $name = "Obaydulla";
+
+     public static function name () {
+         return "My name is " . Dev::NAME;
+    }
+}
+
+$name = new Dev;
+ echo $name->name(); // Method access
+echo Dev::$name;    // property access
+
+
 
 * Trait
 -------------
