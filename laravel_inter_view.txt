@@ -29,10 +29,10 @@ class MyClass {
     public static function myStaticMethod() {
         return 'This is a static method';
     }
-}
+}      
 
-// Accessing a constant
-echo MyClass::MY_CONSTANT; // Outputs: Hello
+// Accessing a constant 
+echo MyClass::MY_CONSTANT;  // Outputs:  Hello
 
 // Accessing a static method
 echo MyClass::myStaticMethod(); // Outputs: This is a static method
