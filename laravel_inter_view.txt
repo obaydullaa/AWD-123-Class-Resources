@@ -11,9 +11,9 @@
  
 10.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইলের লোকেশন ।
 *
-11. What is Composer ?
+11. What is Composer ? Composer is a version controller.
 
-12. Method chaining
+12. Method chaining . 
 
 13. Type hint  = func student(string $name) {}
 
@@ -695,7 +695,7 @@ Anonymous Functions: Functions without a name that can be assigned to variables.
 static 
 --------------
 
- * স্ট্যাটিক প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
+ * স্ট্যাটিক(static ) প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
  * স্ট্যাটিক মেথডকে সরাসরি ক্লাসের নাম ব্যবহার করে এবং :: অপারেটর দিয়ে কল করা উচিত। 
  * স্ট্যাটিক মেথড ব্যবহারের জন্য ক্লাসের ইনস্ট্যান্স তৈরি করার প্রয়োজন হয় না।
  
