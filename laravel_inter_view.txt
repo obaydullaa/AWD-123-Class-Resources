@@ -4,7 +4,7 @@
  Skip,  take, orderby,  where,  jason contens
 4. Filtaring, searching, 
 5. Php oop concept
-6. function, static Trait,  interface, constant ,  abstract , extends , implements, composer ki
+6. function, static Trait, abstract,  interface, constant, * extends  , * implements 
 7. Objects, class ki kamne kaj kore
 8. Design
 9. Interview questions from google
@@ -695,7 +695,7 @@ Anonymous Functions: Functions without a name that can be assigned to variables.
 static 
 --------------
 
- * স্ট্যাটিক(static ) প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
+ * প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
  * স্ট্যাটিক মেথডকে সরাসরি ক্লাসের নাম ব্যবহার করে এবং :: অপারেটর দিয়ে কল করা উচিত। 
  * স্ট্যাটিক মেথড ব্যবহারের জন্য ক্লাসের ইনস্ট্যান্স তৈরি করার প্রয়োজন হয় না।
  
@@ -733,7 +733,7 @@ Dev::$name দিয়ে সরাসরি প্রোপার্টি অ
 * Trait
 -------------
 Trait-এর মূল বৈশিষ্ট্য:
-Trait হলো এমন একটি মেকানিজম যা PHP-তে মাল্টিপল ইনহেরিটেন্সের সুবিধা দেয়।
+Trait PHP-তে মাল্টিপল ইনহেরিটেন্সের সুবিধা দেয়।
 Trait ক্লাসের ভেতরে use কীওয়ার্ড ব্যবহার করে ইনক্লুড করা হয়।
 একটি ক্লাস একাধিক Trait ব্যবহার করতে পারে।
 
@@ -828,7 +828,7 @@ Dog এবং Cat: এরা Animal থেকে ইনহেরিট করা
 -------------------
 ইন্টারফেস ক্লাস (Interface Class) : এর আগে এবস্ট্রাক্ট ক্লাস সম্পর্কে আলোচনা হয়েছে।এবস্ট্রাক্ট ক্লাস আর ইন্টারফেস ক্লাস হুবহু একই শুধু পার্থক্য হচ্ছে এবস্ট্রাক্ট ক্লাসে এবস্ট্রাক্ট মেথড ছাড়াও অন্য মেথড থাকতে পারে এবং এই মেথডের ভিতর কোড থাকতে পারে (সাধারনত এটাকে মেথড বডি বলে) আর ইন্টারফেস ক্লাসে কোন মেথডে বডি থাকতে পারবেনা।
 
-interface onno onno class ke baddo kore kaj korar jonno...... aikhane method mody thakbe na eta implements  korte hoi not extends
+interface onno onno class ke baddo kore kaj korar jonno...... aikhane method body thakbe na eta implements  korte hoi not extends
 
 example....
 interface Student {
@@ -847,8 +847,8 @@ $dev->dev('interface', 20);
 
 Interface VS abstract 
 ** Interface and abstract class object create kora jai na.
-** Interface implements k korte hoi r abstract extend korte hoi
-** Interface ar maje method ar  body thakte pare na abstract class ar modde on abstract method thakte pare.
+** Interface implements  korte hoi r abstract extend korte hoi
+** Interface ar maje method ar  body thakte pare na abstract class ar modde non abstract method thakte pare.
 
 
 
