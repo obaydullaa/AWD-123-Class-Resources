@@ -1344,7 +1344,7 @@ protected function schedule(Schedule $schedule)
 <?php
  $array = [3, 1, 4, 1, 5, 9];
  sort($array);
- print_r($array); // Output: [1, 1, 3, 4, 5, 9]
+ p 
 ?>
 
 
@@ -1376,7 +1376,9 @@ print_r($array); // Output: ["apple" => 4, "banana" => 2, "cherry" => 8]
 
 21. Guard ki
 ===============================
+
 Guard হলো এমন একটি সিস্টেম যা বলে দেয় কিভাবে এবং কোন authentication পদ্ধতিতে ব্যবহারকারী অ্যাপ্লিকেশনে প্রবেশ করবে।
+  
 Laravel-এ ডিফল্টভাবে web এবং api গার্ড থাকে, তবে তুমি কাস্টম গার্ডও তৈরি করতে পারো।
 গার্ডের মাধ্যমে Laravel-এ নিরাপত্তা যাচাই-বাছাই খুবই সহজ এবং কার্যকরীভাবে করা যায়।
 এইভাবে, Laravel-এর গার্ড ব্যবহার করে বিভিন্ন ধরণের authentication এবং authorization সিস্টেম তৈরি করা যায়।
@@ -1460,7 +1462,7 @@ Auth::guard('api')->attempt($credentials);
 তুমি গার্ড ব্যবহার করে চেক করতে পারো, কোন গার্ড দিয়ে ব্যবহারকারী লগইন করেছে:
 
 if (Auth::guard('admin')->check()) {
-    echo "Admin is logged in";
+    echo "A 
 }
 
 
