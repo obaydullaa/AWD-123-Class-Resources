@@ -517,9 +517,9 @@ use App\Models\User;
 $users = User::where('age', 10)->get();
 
 // প্রতিটি ইউজারের নাম প্রিন্ট করা হচ্ছে
-foreach ($users as $user) {
+  foreach ($users as $user) {
     echo $user->name . "<br>";
-}
+  }
 ?>
 
  ১৫ বছরের বেশি বয়সের ব্যবহারকারীদের খোঁজ
