@@ -4,7 +4,7 @@
  Skip,  take, orderby,  where,  jason
 4. Filtaring , searching, 
 5. Php oop concept
-6. function, static Trait, abstract,  interface, constant, * extends  , * implements 
+6. function, * static , Trait, abstract,  interface, constant, * extends  , * implements 
  7. *  class, * Objects, ki kamne kaj kore
 8. Design
 9. Interview questions from google
@@ -26,6 +26,7 @@
 19. Laravel Sheduler
 20. array sorting
 21. Guard ki ?
+22. * Api pasic
 
 $student->setName('obaydulla') =>  The -> symbol itself is called the object operator in PHP.
 The :: symbol in PHP is called the scope resolution operator or sometimes the
@@ -653,7 +654,7 @@ Parameters: Functions can accept parameters to work with dynamic data.
 Anonymous Functions: Functions without a name that can be assigned to variables.
 
 
-static 
+* static 
 --------------
 
  * প্রোপার্টি এবং মেথডকে স্ট্যাটিক করতে হলে, তাদের নামের পূর্বে অবশ্যই static কীওয়ার্ডটি লিখতে হয়।
@@ -741,7 +742,6 @@ Trait থেকে মেথড কল করা:
 Greeter ক্লাসের একটি ইনস্ট্যান্স $greeter তৈরি করা হয়েছে।
 $greeter->sayHello(); কল করা হলে, এটি SayHello Trait থেকে sayHello() মেথডটি চালাবে এবং "Hello, World!" প্রিন্ট করবে।
 $greeter->sayGoodbye(); কল করা হলে, এটি SayGoodbye Trait থেকে sayGoodbye() মেথডটি চালাবে এবং "Goodbye, World!" প্রিন্ট করবে।
-
 
 
 
