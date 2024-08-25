@@ -298,6 +298,7 @@ commentable_id এখানে সেভ হবে posts/videos id এবং com
 |  1 | This is a comment.             | 1                            | App\Models\Post      |
 |  2 | Another comment here.    | 2                          | App\Models\Video     |
 +----+-------------------------+-----------------+---------------------+
+Posts->Videos->Comments
 
 এখন Model কেমন হবে দেখুন
 
@@ -420,6 +421,7 @@ class PostController extends Controller
 // 1. Retrieve All Records
 // Retrieves all records from the 'users' table.
 $users = User::all();
+
 
 // 2. Find a Record by Primary Key
 // Retrieves the record with id 1 from the 'users' table.
