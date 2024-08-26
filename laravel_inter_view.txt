@@ -1,32 +1,59 @@
-1. Mvc
-2. Relationship
-3. Eloquent query method
+*. Mvc
+. Relationship
+. Eloquent query method
  Skip,  take, orderby,  where,  jason
-4. Filtaring , searching, 
-5. Php oop concept
-6. function, * static , Trait, abstract,  interface, constant, * extends  , * implements 
- 7. *  class, * Objects, ki kamne kaj kore
-8. Design
-9. Interview questions from google
+. Filtaring , searching, 
+. Php oop concept
+-. function, * static , Trait, abstract,  interface, constant, * extends  , * implements 
+- . *  class, * Objects, ki kamne kaj kore
+-. Design
+-. Interview questions from google
  
-10.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইলের লোকেশন ।
-*
-11. What is Composer ? Composer is a version controller.
+-.  Namespace -> নেমস্পেস মুলত ডিরেক্টরি বা ফাইলের লোকেশন ।
 
-12. Method chaining . 
+- What is Composer ? Composer is a version controller.
 
-13. Type hint  = func student(string $name) {}
+- Method chaining . 
 
-14. *  Facade ki ?
+- Type hint  = func student(string $name) {}
 
-15. Public:  Private: Protected
-16. Service Provider,,  serivce container
-17. Laravel life cycle
-18. Corn job
-19. Laravel Sheduler
-20. array sorting
-21. Guard ki ?
-22. * Api basic
+- *  Facade ki ?
+
+-. Public:  Private: Protected
+-. Service Provider,,  serivce container
+-. Laravel life cycle
+-. Corn job
+-. Laravel Sheduler
+-. array sorting
+-. Guard ki ?
+-. * Api basic
+
+- *  Csrf Token dietail, why we use it? Is it possible to submit a from without csrf token? 
+- How can we get Ip address?
+-Can we use same route name?
+
+-Many to many relationship example
+-Plymorphic relation ship example
+-Middleware
+-Muliguard
+-MVC architecture
+-what is composer
+-Eloquent ORM
+-Latest version of laravel?
+-What is facade
+-Laravel Validation
+-Template Engine
+-Why we use seeders
+-what is model
+-why you use laravel framework?
+-PUSH, POP, Stack, Queue
+-API Common HTTP Status code
+-HTTP method(get, post, put, patch, del)
+-post vs PUT vs Patch
+-What is localization
+-accessors and mutators with syntex
+-Why we use namespace
+
 
 $student->setName('obaydulla') =>  The -> symbol itself is called the object operator in PHP.
 The :: symbol in PHP is called the scope resolution operator or sometimes the
@@ -1467,6 +1494,134 @@ Auth::guard('api')->attempt($credentials);
 if (Auth::guard('admin')->check()) {
     echo "A 
 }
+
+*  Csrf Token dietail, why we use it? Is it possible to submit a from without csrf token? 
+===================================================================
+
+ হ্যাঁ, ফর্মটি CSRF Token ছাড়া সাবমিট করা সম্ভব, কিন্তু এর জন্য Laravel-এ CSRF Middleware কে নিষ্ক্রিয় করতে হবে, যা মোটেও নিরাপদ নয়।
+
+use Illuminate\Http\Request;
+
+Route::post('/submit-form', function (Request $request) {
+    // CSRF Middleware-কে বাইপাস করতে হলে, এই Route-টি Middleware থেকে বাদ দিতে হবে।
+})->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+
+
+
+- How can we get Ip address?
+=========================================================
+
+IP ঠিকানা (IP Address) পেতে তুমি বিভিন্ন উপায় ব্যবহার করতে পারো। ওয়েব ডেভেলপমেন্টে সাধারণত সার্ভারের স্ক্রিপ্টগুলোর মাধ্যমে ইউজারের আইপি ঠিকানা পাওয়া হয়। নিচে PHP ব্যবহার করে কীভাবে IP ঠিকানা পাওয়া যায় তার উদাহরণ দেওয়া হলো:
+
+PHP-তে IP Address পাওয়া:
+
+<?php
+// ইউজারের IP Address পাওয়া
+$ipAddress = $_SERVER['REMOTE_ADDR'];
+
+// IP Address প্রদর্শন করা
+echo "Your IP address is: " . $ipAddress;
+?>
+$_SERVER['REMOTE_ADDR']: এটি ইউজারের IP ঠিকানা পেতে ব্যবহৃত হয়। যখন কেউ তোমার ওয়েবসাইট ভিজিট করে, তখন সার্ভার তাদের IP ঠিকানা সংগ্রহ করে এই ভ্যারিয়েবলে রাখে।
+
+
+IP ঠিকানা (IP Address) পেতে তুমি বিভিন্ন উপায় ব্যবহার করতে পারো। ওয়েব ডেভেলপমেন্টে সাধারণত সার্ভারের স্ক্রিপ্টগুলোর মাধ্যমে ইউজারের আইপি ঠিকানা পাওয়া হয়। নিচে PHP ব্যবহার করে কীভাবে IP ঠিকানা পাওয়া যায় তার উদাহরণ দেওয়া হলো:
+
+PHP-তে IP Address পাওয়া:
+php
+Copy code
+<?php
+// ইউজারের IP Address পাওয়া
+$ipAddress = $_SERVER['REMOTE_ADDR'];
+
+// IP Address প্রদর্শন করা
+echo "Your IP address is: " . $ipAddress;
+?>
+কোডের ব্যাখ্যা:
+$_SERVER['REMOTE_ADDR']: এটি ইউজারের IP ঠিকানা পেতে ব্যবহৃত হয়। যখন কেউ তোমার ওয়েবসাইট ভিজিট করে, তখন সার্ভার তাদের IP ঠিকানা সংগ্রহ করে এই ভ্যারিয়েবলে রাখে।
+বিভিন্ন ধরনের IP Address:
+IPv4: এটি সাধারণত 4 টি সংখ্যা দিয়ে গঠিত, যেমন 192.168.1.1।
+IPv6: এটি একটি নতুন প্রোটোকল যা অনেক দীর্ঘ এবং hexadecimal সংখ্যা ব্যবহার করে, যেমন 2001:0db8:85a3:0000:0000:8a2e:0370:7334।
+প্রক্সি বা লোড ব্যালেন্সার ব্যবহৃত হলে:
+কিছু সময় প্রক্সি বা লোড ব্যালেন্সারের পেছনে থেকে ইউজারের আসল IP Address পাওয়া কঠিন হতে পারে। এক্ষেত্রে, অন্য কিছু সার্ভার ভ্যারিয়েবল চেক করতে হবে:
+
+<?php
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    // প্রক্সি ব্যবহার করলে
+    $ipAddress = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    // লোড ব্যালেন্সার ব্যবহৃত হলে
+    $ipAddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    // ডিফল্ট IP Address
+    $ipAddress = $_SERVER['REMOTE_ADDR'];
+}
+
+echo "Your IP address is: " . $ipAddress;
+?>
+
+
+Can we use same route name?
+==========================================
+
+Route::get('/contact', 'SiteController@contact')->name('contact');
+Route::post('/contact', 'SiteController@contactSubmit');
+
+HTTP Method: GET
+Controller Method: contact
+URL: /contact
+
+HTTP Method: POST
+Controller Method: contactSubmit
+URL: /contact
+
+Laravel কীভাবে এটি আলাদা করে:
+Laravel রাউটিং মেকানিজম অনুযায়ী, প্রতিটি রাউটের URL এবং HTTP মেথড উভয়ই গুরুত্বপূর্ণ। একই URL এর জন্য ভিন্ন HTTP মেথড ব্যবহার করা হলেও, Laravel সহজেই বুঝতে পারে কোন মেথড এবং কোন রাউট এক্সিকিউট করতে হবে।
+
+GET /contact URL এ GET রিকোয়েস্ট আসলে contact মেথড কল হবে।
+POST /contact URL এ POST রিকোয়েস্ট আসলে contactSubmit মেথড কল হবে।
+এইভাবে Laravel একই URL এর জন্য GET এবং POST রিকোয়েস্টকে আলাদা করতে পারে এবং সেই অনুযায়ী কাজ করে।
+
+দুইটি রাউটের কাজ করার পদ্ধতি:
+
+
+GET রাউট:
+------------
+
+Route::get('/contact', 'SiteController@contact')->name('contact');
+
+HTTP Method: GET
+Controller Method: contact
+URL: /contact
+যখন একটি ইউজার ব্রাউজারে /contact URL এ ভিজিট করে, তখন ব্রাউজার একটি GET রিকোয়েস্ট পাঠায়। এই GET রিকোয়েস্টটি Laravel এর কাছে পৌঁছায়, এবং Laravel তখন Route::get() এর সাহায্যে ডিফাইন করা রাউট খুঁজে বের করে। এই রাউটে উল্লেখিত SiteController এর contact মেথডটি এক্সিকিউট হয়।
+
+যেমন:
+
+ইউজার ব্রাউজারে /contact টাইপ করে এন্টার চাপল।
+ব্রাউজার একটি GET রিকোয়েস্ট পাঠাবে।
+Laravel দেখবে যে /contact URL এর জন্য কোন GET রাউট ডিফাইন করা আছে কিনা।
+এরপর, Laravel SiteController এর contact মেথড কল করবে।
+contact মেথড ইউজারকে কন্টাক্ট ফর্ম দেখাবে।
+
+
+POST রাউট:
+-------------------------
+Route::post('/contact', 'SiteController@contactSubmit');
+
+HTTP Method: POST
+Controller Method: contactSubmit
+URL: /contact
+যখন ইউজার কন্টাক্ট ফর্ম পূরণ করে এবং সাবমিট করে, তখন ফর্মটি POST রিকোয়েস্ট হিসেবে সার্ভারে পাঠানো হয়। এই POST রিকোয়েস্টটি একই /contact URL এ পাঠানো হয়, তবে এবার HTTP মেথড POST। Laravel তখন POST মেথডের জন্য ডিফাইন করা রাউট খুঁজে বের করে এবং SiteController এর contactSubmit মেথডটি কল করে।
+
+যেমন:
+
+ইউজার কন্টাক্ট ফর্মটি পূরণ করে এবং সাবমিট করে।
+ব্রাউজার একটি POST রিকোয়েস্ট পাঠাবে /contact URL এ।
+Laravel /contact এর জন্য POST রাউট খুঁজে বের করবে।
+এরপর, Laravel SiteController এর contactSubmit মেথড কল করবে।
+contactSubmit মেথডে ফর্মের ডাটাগুলো প্রসেস করা হয় (যেমন, ডাটাবেজে সেভ করা, ইমেল পাঠানো ইত্যাদি)।
+
+
 
 
 
