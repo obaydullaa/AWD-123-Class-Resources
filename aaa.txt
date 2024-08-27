@@ -1,0 +1,14 @@
+    public function highestBalance(){
+        // Fetch the user with the second highest balance
+        echo '<h1> Fetch the user with the second highest balance </h1>';
+        $user = User::orderBy('balance', 'desc')->skip(1)->take(1)->first();
+
+        if($user) { 
+            echo '<p> Full Name: ' . $user->fullname . '</p>';
+            echo '<p> Balance: ' . $user->balance . '</p>';
+
+        }else {
+            echo '<h1>No users found.</h1>';
+        }
+
+    }
